@@ -11,6 +11,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        fpl: {
+          purple: "#28002B",
+          "purple-dark": "#2A002E",
+          "purple-light": "#37003C",
+          accent: "#FFE65B",
+        },
+      },
+      fontFamily: {
+        sans: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
       },
     },
   },
