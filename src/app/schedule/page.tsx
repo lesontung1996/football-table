@@ -27,8 +27,8 @@ export default function SchedulePage() {
   return (
     <div className="min-h-screen bg-fpl-purple-dark">
       <Navigation />
-      <main className="container mx-auto px-4 py-8 max-w-6xl">
-        <div className="bg-fpl-purple rounded-lg shadow-md p-6 mb-6">
+      <main className="container mx-auto px-4 py-8">
+        <div className="bg-fpl-purple rounded-lg p-6 mb-6">
           <h2 className="text-2xl font-bold mb-2 text-white">Match Schedule</h2>
           <p className="text-white/90 mb-4">
             {totalMatches > 0
@@ -38,7 +38,7 @@ export default function SchedulePage() {
         </div>
 
         {matches.length === 0 ? (
-          <div className="bg-fpl-purple rounded-lg shadow-md p-6 text-center">
+          <div className="bg-fpl-purple rounded-lg p-6 text-center">
             <p className="text-white/90 mb-4">
               No matches available. Please add teams and generate a schedule
               first.
@@ -47,10 +47,7 @@ export default function SchedulePage() {
         ) : (
           <div className="space-y-8">
             {gameWeeks.map((weekMatches, weekIndex) => (
-              <div
-                key={weekIndex}
-                className="bg-fpl-purple rounded-lg shadow-md p-6"
-              >
+              <div key={weekIndex} className="bg-fpl-purple rounded-lg p-6">
                 <div className="mb-4 pb-4 border-b border-white/20">
                   <h3 className="text-xl font-bold text-white">
                     Game Week {weekIndex + 1}

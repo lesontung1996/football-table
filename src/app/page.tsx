@@ -23,8 +23,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-fpl-purple-dark">
       <Navigation />
-      <main className="container mx-auto px-4 py-8 max-w-6xl">
-        <div className="bg-fpl-purple rounded-lg shadow-md p-6 mb-6">
+      <main className="container mx-auto px-4 py-8">
+        <div className="bg-fpl-purple rounded-lg p-6 mb-6">
           <h2 className="text-2xl font-bold mb-4 text-white">Add Teams</h2>
           <p className="text-white/90 mb-4">
             Add up to 20 teams to create your league. Once you have at least 2
@@ -33,12 +33,12 @@ export default function Home() {
           <TeamForm />
         </div>
 
-        <div className="bg-fpl-purple rounded-lg shadow-md p-6 mb-6">
+        <div className="bg-fpl-purple rounded-lg p-6 mb-6">
           <TeamList />
         </div>
 
         {teams.length >= 2 && (
-          <div className="bg-fpl-purple rounded-lg shadow-md p-6">
+          <div className="bg-fpl-purple rounded-lg p-6">
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-xl font-semibold mb-2 text-white">

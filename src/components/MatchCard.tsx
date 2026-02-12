@@ -57,9 +57,13 @@ export default function MatchCard({
       <div className="flex items-center justify-between mb-3">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-medium text-white">{homeTeamName}</span>
+            <span className="font-medium text-white">
+              {homeTeamName} vs {awayTeamName}
+            </span>
             <span className="text-white/70">vs</span>
-            <span className="font-medium text-white">{awayTeamName}</span>
+            <span className="font-medium text-white">
+              {awayTeamName} vs {homeTeamName}
+            </span>
           </div>
         </div>
       </div>
@@ -67,6 +71,7 @@ export default function MatchCard({
       <div className="flex items-center gap-3">
         <input
           type="number"
+          inputMode="numeric"
           value={homeScore}
           onChange={(e) => setHomeScore(e.target.value)}
           placeholder="0"
@@ -76,6 +81,7 @@ export default function MatchCard({
         <span className="text-white/70">-</span>
         <input
           type="number"
+          inputMode="numeric"
           value={awayScore}
           onChange={(e) => setAwayScore(e.target.value)}
           placeholder="0"

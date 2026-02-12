@@ -49,20 +49,24 @@ export default function LeagueTable() {
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
+      <table className="w-full border-collapse bg-white rounded-lg">
         <thead>
           <tr className="bg-fpl-purple text-white">
-            <th className="px-4 py-3 text-left font-semibold">Pos</th>
-            <th className="px-4 py-3 text-left font-semibold">Team</th>
-            <th className="px-4 py-3 text-center font-semibold">MP</th>
-            <th className="px-4 py-3 text-center font-semibold">W</th>
-            <th className="px-4 py-3 text-center font-semibold">D</th>
-            <th className="px-4 py-3 text-center font-semibold">L</th>
-            <th className="px-4 py-3 text-center font-semibold">GF</th>
-            <th className="px-4 py-3 text-center font-semibold">GA</th>
-            <th className="px-4 py-3 text-center font-semibold">GD</th>
-            <th className="px-4 py-3 text-center font-semibold">Pts</th>
-            <th className="px-4 py-3 text-center font-semibold">Last 5</th>
+            <th className="p-3 text-left font-semibold sticky left-0 bg-fpl-purple min-w-14">
+              Pos
+            </th>
+            <th className="p-3 text-left font-semibold sticky left-14 bg-fpl-purple">
+              Team
+            </th>
+            <th className="p-3 text-center font-semibold">MP</th>
+            <th className="p-3 text-center font-semibold">W</th>
+            <th className="p-3 text-center font-semibold">D</th>
+            <th className="p-3 text-center font-semibold">L</th>
+            <th className="p-3 text-center font-semibold">GF</th>
+            <th className="p-3 text-center font-semibold">GA</th>
+            <th className="p-3 text-center font-semibold">GD</th>
+            <th className="p-3 text-center font-semibold">Pts</th>
+            <th className="p-3 text-center font-semibold">Last 5</th>
           </tr>
         </thead>
         <tbody>
@@ -70,17 +74,21 @@ export default function LeagueTable() {
             const position = index + 1;
 
             return (
-              <tr key={team.teamId} className={`border-b bg-fpl-purple-light`}>
-                <td className="px-4 py-3 font-semibold">{position}</td>
-                <td className="px-4 py-3 font-medium">{team.teamName}</td>
-                <td className="px-4 py-3 text-center">{team.played}</td>
-                <td className="px-4 py-3 text-center">{team.wins}</td>
-                <td className="px-4 py-3 text-center">{team.draws}</td>
-                <td className="px-4 py-3 text-center">{team.losses}</td>
-                <td className="px-4 py-3 text-center">{team.goalsFor}</td>
-                <td className="px-4 py-3 text-center">{team.goalsAgainst}</td>
+              <tr key={team.teamId} className={`bg-fpl-purple`}>
+                <td className="p-3 font-semibold sticky left-0 bg-fpl-purple min-w-14">
+                  {position}
+                </td>
+                <td className="p-3 font-medium sticky left-14 bg-fpl-purple">
+                  {team.teamName}
+                </td>
+                <td className="p-3 text-center">{team.played}</td>
+                <td className="p-3 text-center">{team.wins}</td>
+                <td className="p-3 text-center">{team.draws}</td>
+                <td className="p-3 text-center">{team.losses}</td>
+                <td className="p-3 text-center">{team.goalsFor}</td>
+                <td className="p-3 text-center">{team.goalsAgainst}</td>
                 <td
-                  className={`px-4 py-3 text-center font-semibold ${
+                  className={`p-3 text-center font-semibold ${
                     team.goalDifference > 0
                       ? "text-green-600"
                       : team.goalDifference < 0
@@ -91,10 +99,8 @@ export default function LeagueTable() {
                   {team.goalDifference > 0 ? "+" : ""}
                   {team.goalDifference}
                 </td>
-                <td className="px-4 py-3 text-center font-bold">
-                  {team.points}
-                </td>
-                <td className="px-4 py-3">
+                <td className="p-3 text-center font-bold">{team.points}</td>
+                <td className="p-3">
                   <div className="flex gap-1 justify-center">
                     {team.recentResults.length > 0 ? (
                       team.recentResults.map((result, idx) => (

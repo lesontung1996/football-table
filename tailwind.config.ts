@@ -13,7 +13,7 @@ const config: Config = {
         foreground: "var(--foreground)",
         fpl: {
           purple: "#28002B",
-          "purple-dark": "#2A002E",
+          "purple-dark": "#1F0022",
           "purple-light": "#37003C",
           accent: "#FFE65B",
         },
