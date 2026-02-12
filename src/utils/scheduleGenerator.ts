@@ -1,4 +1,4 @@
-import { Team, Match } from '@/types';
+import { Team, Match } from "@/types";
 
 export const generateRoundRobinSchedule = (teams: Team[]): Match[] => {
   if (teams.length < 2) {
@@ -19,6 +19,8 @@ export const generateRoundRobinSchedule = (teams: Team[]): Match[] => {
           id: homeMatchId,
           homeTeamId: teams[i].id,
           awayTeamId: teams[j].id,
+          homeTeamName: teams[i].name,
+          awayTeamName: teams[j].name,
           homeScore: null,
           awayScore: null,
           date: new Date(baseDate + matches.length * 86400000).toISOString(), // Spread matches over days
