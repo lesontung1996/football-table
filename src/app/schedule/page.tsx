@@ -3,11 +3,16 @@
 import { useAppSelector } from "@/store/hooks";
 import MatchCard from "@/components/MatchCard";
 import Navigation from "@/components/Navigation";
-import { groupMatchesByGameWeek } from "@/utils/matchGrouper";
-import { useMemo } from "react";
+import {
+  groupedMatchesByGameWeek,
+  selectAllMatches,
+} from "@/store/slices/normalizeMatchSlice";
+import { selectAllTeams } from "@/store/slices/normalizeTeamSlice";
 
 export default function SchedulePage() {
-  const { teams, matches } = useAppSelector((state) => state.league);
+  const teams = useAppSelector(selectAllTeams);
+  const matches = useAppSelector(selectAllMatches);
+  const gameWeeks = useAppSelector(groupedMatchesByGameWeek);
 
   const getTeamName = (teamId: string) => {
     return teams.find((t) => t.id === teamId)?.name || "Unknown";
@@ -15,14 +20,6 @@ export default function SchedulePage() {
 
   const completedMatches = matches.filter((m) => m.completed).length;
   const totalMatches = matches.length;
-
-  // Group matches by game week
-  const gameWeeks = useMemo(() => {
-    if (matches.length === 0 || teams.length < 2) {
-      return [];
-    }
-    return groupMatchesByGameWeek(matches, teams.length);
-  }, [matches, teams.length]);
 
   return (
     <div className="min-h-screen bg-fpl-purple-dark">
@@ -53,12 +50,12 @@ export default function SchedulePage() {
                     Game Week {weekIndex + 1}
                   </h3>
                   <p className="text-white/70 text-sm mt-1">
-                    {weekMatches.length} match
-                    {weekMatches.length !== 1 ? "es" : ""}
+                    {weekMatches?.length} match
+                    {weekMatches?.length !== 1 ? "es" : ""}
                   </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {weekMatches.map((match) => (
+                  {weekMatches?.map((match) => (
                     <MatchCard
                       key={match.id}
                       match={match}

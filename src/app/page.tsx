@@ -1,21 +1,25 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { generateSchedule } from "@/store/slices/leagueSlice";
+import {
+  generateSchedule,
+  selectAllMatches,
+} from "@/store/slices/normalizeMatchSlice";
 import TeamForm from "@/components/TeamForm";
 import TeamList from "@/components/TeamList";
 import Navigation from "@/components/Navigation";
 import { useRouter } from "next/navigation";
+import { selectAllTeams } from "@/store/slices/normalizeTeamSlice";
 
 export default function Home() {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const teams = useAppSelector((state) => state.league.teams);
-  const matches = useAppSelector((state) => state.league.matches);
+  const teams = useAppSelector(selectAllTeams);
+  const matches = useAppSelector(selectAllMatches);
 
   const handleGenerateSchedule = () => {
     if (teams.length >= 2) {
-      dispatch(generateSchedule());
+      dispatch(generateSchedule(teams));
       router.push("/schedule");
     }
   };

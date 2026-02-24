@@ -13,6 +13,7 @@ export interface Match {
   awayScore: number | null;
   date: string;
   completed: boolean;
+  gameWeek: number;
 }
 
 export interface TeamStats {

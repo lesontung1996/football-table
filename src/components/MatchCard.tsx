@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useAppDispatch } from "@/store/hooks";
-import { updateMatchScore } from "@/store/slices/leagueSlice";
+import { updateMatch } from "@/store/slices/normalizeMatchSlice";
 import { Match } from "@/types";
 
 interface MatchCardProps {
@@ -36,10 +36,13 @@ export default function MatchCard({
     }
 
     dispatch(
-      updateMatchScore({
-        matchId: match.id,
-        homeScore: home,
-        awayScore: away,
+      updateMatch({
+        id: match.id,
+        changes: {
+          homeScore: home,
+          awayScore: away,
+          completed: home !== null && away !== null,
+        },
       }),
     );
   };

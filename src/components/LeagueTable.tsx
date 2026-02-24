@@ -7,9 +7,12 @@ import {
   sortTeamsByRanking,
 } from "@/utils/tableCalculator";
 import { TeamStats } from "@/types";
+import { selectAllMatches } from "@/store/slices/normalizeMatchSlice";
+import { selectAllTeams } from "@/store/slices/normalizeTeamSlice";
 
 export default function LeagueTable() {
-  const { teams, matches } = useAppSelector((state) => state.league);
+  const teams = useAppSelector(selectAllTeams);
+  const matches = useAppSelector(selectAllMatches);
 
   // Calculate stats for all teams
   const teamStats: TeamStats[] = teams.map((team) => {

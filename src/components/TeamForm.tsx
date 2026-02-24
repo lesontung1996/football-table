@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { addTeam } from "@/store/slices/leagueSlice";
+import { addTeam, selectAllTeams } from "@/store/slices/normalizeTeamSlice";
 import { Team } from "@/types";
 
 export default function TeamForm() {
   const [teamName, setTeamName] = useState("");
   const [error, setError] = useState("");
   const dispatch = useAppDispatch();
-  const teams = useAppSelector((state) => state.league.teams);
+  const teams = useAppSelector(selectAllTeams);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

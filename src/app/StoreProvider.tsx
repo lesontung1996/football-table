@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { useRef, useEffect } from 'react';
-import { Provider } from 'react-redux';
-import { makeStore, AppStore } from '@/store';
-import { loadLeagueState } from '@/utils/storage';
-import { loadFromStorage } from '@/store/slices/leagueSlice';
+import { useRef, useEffect } from "react";
+import { Provider } from "react-redux";
+import { makeStore, AppStore } from "@/store";
+import { loadLeagueState } from "@/utils/storage";
+import { setTeams } from "@/store/slices/normalizeTeamSlice";
+import { setMatches } from "@/store/slices/normalizeMatchSlice";
 
 export default function StoreProvider({
   children,
@@ -21,7 +22,8 @@ export default function StoreProvider({
     // Load state from localStorage after component mounts (client-side only)
     const savedState = loadLeagueState();
     if (savedState && storeRef.current) {
-      storeRef.current.dispatch(loadFromStorage(savedState));
+      storeRef.current.dispatch(setTeams(savedState.teams));
+      storeRef.current.dispatch(setMatches(savedState.matches));
     }
   }, []);
 

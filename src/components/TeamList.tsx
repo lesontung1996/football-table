@@ -1,11 +1,12 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { removeTeam } from "@/store/slices/leagueSlice";
+import { removeTeam } from "@/store/slices/normalizeTeamSlice";
+import { selectAllTeams } from "@/store/slices/normalizeTeamSlice";
 
 export default function TeamList() {
   const dispatch = useAppDispatch();
-  const teams = useAppSelector((state) => state.league.teams);
+  const teams = useAppSelector(selectAllTeams);
 
   if (teams.length === 0) {
     return (
@@ -28,7 +29,9 @@ export default function TeamList() {
           >
             <span className="font-medium text-white">{team.name}</span>
             <button
-              onClick={() => dispatch(removeTeam(team.id))}
+              onClick={() => {
+                dispatch(removeTeam(team.id));
+              }}
               className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
             >
               Remove

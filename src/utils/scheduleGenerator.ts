@@ -1,6 +1,6 @@
 import { Team, Match } from "@/types";
 
-export const generateRoundRobinSchedule = (teams: Team[]): Match[][] => {
+export const generateRoundRobinSchedule = (teams: Team[]): Match[] => {
   const numTeams = teams.length;
   const participants: (Team | null | undefined)[] = [...teams]; // Copy array to avoid mutation
   if (numTeams % 2 !== 0) {
@@ -8,7 +8,7 @@ export const generateRoundRobinSchedule = (teams: Team[]): Match[][] => {
   }
 
   const n = participants.length;
-  const rounds = {};
+  const rounds: Match[] = [];
   const totalRounds = n - 1;
 
   // Generate the single round robin schedule using the circle method
@@ -19,7 +19,7 @@ export const generateRoundRobinSchedule = (teams: Team[]): Match[][] => {
       if (home !== null && away !== null) {
         const matchId = `match-${home!.id}-${away!.id}`;
         const baseDate = Date.now();
-        rounds[matchId] = {
+        rounds.push({
           id: matchId,
           homeTeamId: home!.id,
           awayTeamId: away!.id,
@@ -30,20 +30,25 @@ export const generateRoundRobinSchedule = (teams: Team[]): Match[][] => {
           date: new Date(baseDate + n * 86400000).toISOString(), // Spread matches over days
           completed: false,
           gameWeek: i + 1,
-        };
+        });
       }
     }
     // Rotate teams (except the first one, which is fixed)
     participants.splice(1, 0, participants.pop());
   }
 
-  // const secondHalf = rounds.map((round) => {
-  //   return round.map((match) => ({
-  //     ...match,
-  //     homeTeamId: match.awayTeamId,
-  //     awayTeamId: match.homeTeamId,
-  //   }));
-  // });
+  const secondHalf = rounds.map((match) => {
+    const matchId = `match-${match.awayTeamId}-${match.homeTeamId}`;
+    return {
+      ...match,
+      gameWeek: match.gameWeek + totalRounds,
+      id: matchId,
+      homeTeamId: match.awayTeamId,
+      awayTeamId: match.homeTeamId,
+    };
+  });
+
+  rounds.push(...secondHalf);
 
   return rounds;
 };
