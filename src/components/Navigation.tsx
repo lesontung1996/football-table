@@ -26,7 +26,7 @@ export default function Navigation() {
                 href={item.href}
                 className={`px-4 py-2 rounded-md transition-colors ${
                   pathname === item.href
-                    ? "bg-fpl-purple-dark font-semibold"
+                    ? "bg-fpl-purple-light font-semibold"
                     : "hover:bg-fpl-purple-light"
                 }`}
               >

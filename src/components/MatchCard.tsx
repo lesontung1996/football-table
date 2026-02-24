@@ -63,37 +63,33 @@ export default function MatchCard({
           : "bg-fpl-purple border-white/20"
       }`}
     >
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-white">
-              <span className="font-bold">{homeTeamName}</span> vs{" "}
-              <span className="font-bold">{awayTeamName}</span>
-            </span>
-          </div>
-        </div>
-      </div>
+      <div className="flex items-center justify-center font-bold">
+        <label htmlFor={`homeScore-${match.id}`}>{homeTeamName}</label>
 
-      <div className="flex items-center gap-3">
-        <input
-          type="number"
-          inputMode="numeric"
-          value={homeScore}
-          onChange={(e) => setHomeScore(e.target.value)}
-          placeholder="0"
-          min="0"
-          className="w-20 px-3 py-2 border border-white/30 bg-white/10 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-white/50"
-        />
-        <span className="text-white/70">-</span>
-        <input
-          type="number"
-          inputMode="numeric"
-          value={awayScore}
-          onChange={(e) => setAwayScore(e.target.value)}
-          placeholder="0"
-          min="0"
-          className="w-20 px-3 py-2 border border-white/30 bg-white/10 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-white/50"
-        />
+        <div className="flex items-center mx-3 gap-3 bg-fpl-purple-dark rounded-lg">
+          <input
+            id={`homeScore-${match.id}`}
+            type="text"
+            inputMode="numeric"
+            value={homeScore}
+            onChange={(e) => setHomeScore(e.target.value)}
+            placeholder="0"
+            min="0"
+            className="w-12 px-3 py-2 border-none bg-transparent text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-white/50"
+          />
+          <span className="text-white/70 font-bold">-</span>
+          <input
+            id={`awayScore-${match.id}`}
+            type="text"
+            inputMode="numeric"
+            value={awayScore}
+            onChange={(e) => setAwayScore(e.target.value)}
+            placeholder="0"
+            min="0"
+            className="w-12 px-3 py-2 border-none bg-transparent text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-white/50"
+          />
+        </div>
+        <label htmlFor={`awayScore-${match.id}`}>{awayTeamName}</label>
       </div>
     </div>
   );

@@ -135,9 +135,7 @@ export default function LeagueTable() {
                           <span
                             key={`empty-${idx}`}
                             className="w-6 h-6 rounded-full bg-gray-200 text-gray-400 text-xs flex items-center justify-center"
-                          >
-                            -
-                          </span>
+                          ></span>
                         ),
                       )}
                   </div>
