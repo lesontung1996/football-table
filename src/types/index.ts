@@ -1,6 +1,7 @@
 export interface Team {
   id: string;
   name: string;
+  matchIds: string[];
 }
 
 export interface Match {

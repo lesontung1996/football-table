@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAppDispatch } from "@/store/hooks";
 import { updateMatch } from "@/store/slices/normalizeMatchSlice";
 import { Match } from "@/types";
+import useUpdateEffect from "@/hooks/useUpdateEffect";
 
 interface MatchCardProps {
   match: Match;
@@ -23,6 +24,11 @@ export default function MatchCard({
   const [awayScore, setAwayScore] = useState<string>(
     match.awayScore?.toString() || "0",
   );
+
+  useUpdateEffect(() => {
+    console.log("MatchCard useUpdateEffect", homeScore, awayScore);
+    handleSave();
+  }, [homeScore, awayScore]);
 
   const handleSave = () => {
     const home = homeScore === "" ? null : parseInt(homeScore, 10);
@@ -60,12 +66,9 @@ export default function MatchCard({
       <div className="flex items-center justify-between mb-3">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-medium text-white">
-              {homeTeamName} vs {awayTeamName}
-            </span>
-            <span className="text-white/70">vs</span>
-            <span className="font-medium text-white">
-              {awayTeamName} vs {homeTeamName}
+            <span className="text-white">
+              <span className="font-bold">{homeTeamName}</span> vs{" "}
+              <span className="font-bold">{awayTeamName}</span>
             </span>
           </div>
         </div>
@@ -91,12 +94,6 @@ export default function MatchCard({
           min="0"
           className="w-20 px-3 py-2 border border-white/30 bg-white/10 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-white/50"
         />
-        <button
-          onClick={handleSave}
-          className="ml-auto px-4 py-2 bg-white text-fpl-purple rounded-lg hover:bg-gray-200 active:bg-gray-400 transition-colors font-medium"
-        >
-          {isCompleted ? "Update" : "Save"}
-        </button>
       </div>
     </div>
   );

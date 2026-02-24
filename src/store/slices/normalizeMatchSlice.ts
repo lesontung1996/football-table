@@ -23,15 +23,23 @@ const matchesSlice = createSlice({
     updateMatch: matchesAdapter.updateOne,
     updateMatches: matchesAdapter.updateMany,
     clearMatches: matchesAdapter.removeAll,
-    generateSchedule: (state, action: PayloadAction<Team[]>) => {
-      const matches = generateRoundRobinSchedule(action.payload);
-      matchesAdapter.setAll(state, matches);
+    generateSchedule: {
+      prepare: (teams: Team[]) => {
+        const matches = generateRoundRobinSchedule(teams);
+        return { payload: matches };
+      },
+      reducer: (state, action: PayloadAction<Match[]>) => {
+        matchesAdapter.setAll(state, action.payload);
+      },
     },
   },
 });
 
-export const { selectAll: selectAllMatches, selectById: selectMatchById } =
-  matchesAdapter.getSelectors((state: RootState) => state.matches);
+export const {
+  selectAll: selectAllMatches,
+  selectById: selectMatchById,
+  selectEntities: selectMatchesEntities,
+} = matchesAdapter.getSelectors((state: RootState) => state.matches);
 
 const groupedMatchesByGameWeek = createSelector(
   [selectAllMatches],

@@ -6,18 +6,21 @@ import {
   getRecentResults,
   sortTeamsByRanking,
 } from "@/utils/tableCalculator";
-import { TeamStats } from "@/types";
-import { selectAllMatches } from "@/store/slices/normalizeMatchSlice";
+import { Match, TeamStats } from "@/types";
+import { selectMatchesEntities } from "@/store/slices/normalizeMatchSlice";
 import { selectAllTeams } from "@/store/slices/normalizeTeamSlice";
 
 export default function LeagueTable() {
   const teams = useAppSelector(selectAllTeams);
-  const matches = useAppSelector(selectAllMatches);
+  const matchesEntities = useAppSelector(selectMatchesEntities);
 
   // Calculate stats for all teams
   const teamStats: TeamStats[] = teams.map((team) => {
-    const stats = calculateTeamStats(matches, team.id, teams);
-    const recentResults = getRecentResults(matches, team.id, 5);
+    const currentTeamMatches: Match[] = team.matchIds.map(
+      (matchId) => matchesEntities[matchId],
+    );
+    const stats = calculateTeamStats(currentTeamMatches, team);
+    const recentResults = getRecentResults(currentTeamMatches, team.id, 5);
     return {
       ...stats,
       recentResults,

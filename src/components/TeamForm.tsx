@@ -39,6 +39,7 @@ export default function TeamForm() {
     const newTeam: Team = {
       id: `team-${Date.now()}-${Math.random()}`,
       name: trimmedName,
+      matchIds: [],
     };
 
     dispatch(addTeam(newTeam));

@@ -1,12 +1,11 @@
-import { Match, TeamStats, Team } from '@/types';
+import { Match, TeamStats, Team } from "@/types";
 
 export const calculateTeamStats = (
-  matches: Match[],
-  teamId: string,
-  teams: Team[]
+  teamMatches: Match[],
+  team: Team,
 ): TeamStats => {
-  const team = teams.find((t) => t.id === teamId);
-  const teamName = team?.name || 'Unknown';
+  const teamName = team.name;
+  const teamId = team.id;
 
   let played = 0;
   let wins = 0;
@@ -15,16 +14,14 @@ export const calculateTeamStats = (
   let goalsFor = 0;
   let goalsAgainst = 0;
 
-  // Filter matches where this team participated
-  const teamMatches = matches.filter(
-    (match) =>
-      match.homeTeamId === teamId || match.awayTeamId === teamId
-  );
-
   teamMatches.forEach((match) => {
-    if (match.completed && match.homeScore !== null && match.awayScore !== null) {
+    if (
+      match.completed &&
+      match.homeScore !== null &&
+      match.awayScore !== null
+    ) {
       played++;
-      
+
       const isHome = match.homeTeamId === teamId;
       const teamScore = isHome ? match.homeScore : match.awayScore;
       const opponentScore = isHome ? match.awayScore : match.homeScore;
@@ -63,15 +60,12 @@ export const calculateTeamStats = (
 export const getRecentResults = (
   matches: Match[],
   teamId: string,
-  limit: number = 5
+  limit: number = 5,
 ): string[] => {
   const teamMatches = matches
     .filter(
       (match) =>
-        (match.homeTeamId === teamId || match.awayTeamId === teamId) &&
-        match.completed &&
-        match.homeScore !== null &&
-        match.awayScore !== null
+        match.completed && match.homeScore !== null && match.awayScore !== null,
     )
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, limit);
@@ -81,9 +75,9 @@ export const getRecentResults = (
     const teamScore = isHome ? match.homeScore! : match.awayScore!;
     const opponentScore = isHome ? match.awayScore! : match.homeScore!;
 
-    if (teamScore > opponentScore) return 'W';
-    if (teamScore === opponentScore) return 'D';
-    return 'L';
+    if (teamScore > opponentScore) return "W";
+    if (teamScore === opponentScore) return "D";
+    return "L";
   });
 };
 
