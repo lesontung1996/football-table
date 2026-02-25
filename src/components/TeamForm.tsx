@@ -63,7 +63,7 @@ export default function TeamForm() {
         <button
           type="submit"
           disabled={teams.length >= 20}
-          className="px-6 py-2 bg-fpl-purple text-white rounded-lg hover:bg-fpl-purple-dark disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
+          className="px-6 py-2 bg-fpl-900 text-white rounded-lg hover:bg-fpl-1200 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
         >
           Add Team
         </button>

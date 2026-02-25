@@ -8,6 +8,7 @@ import {
   selectAllMatches,
 } from "@/store/slices/normalizeMatchSlice";
 import { selectAllTeams } from "@/store/slices/normalizeTeamSlice";
+import { useEffect } from "react";
 
 export default function SchedulePage() {
   const teams = useAppSelector(selectAllTeams);
@@ -20,6 +21,24 @@ export default function SchedulePage() {
 
   const completedMatches = matches.filter((m) => m.completed).length;
   const totalMatches = matches.length;
+
+  const lastCompletedMatch = matches.findLast((m) => m.completed);
+
+  const scrollToGameWeek = (gameWeek: number) => {
+    const gameWeekElement = document.getElementById(`game-week-${gameWeek}`);
+    if (gameWeekElement) {
+      gameWeekElement.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (lastCompletedMatch) {
+      scrollToGameWeek(lastCompletedMatch.gameWeek);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-fpl-purple-dark">
@@ -49,16 +68,12 @@ export default function SchedulePage() {
                 id={`game-week-${weekIndex + 1}`}
                 className="bg-fpl-purple rounded-lg p-6"
               >
-                <div className="mb-4 pb-4 border-b border-white/20">
+                <div className="mb-4">
                   <h3 className="text-xl font-bold text-white">
                     <a href={`#game-week-${weekIndex + 1}`}>
                       Game Week {weekIndex + 1}
                     </a>
                   </h3>
-                  <p className="text-white/70 text-sm mt-1">
-                    {weekMatches?.length} match
-                    {weekMatches?.length !== 1 ? "es" : ""}
-                  </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {weekMatches?.map((match) => (

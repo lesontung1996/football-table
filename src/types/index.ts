@@ -28,7 +28,7 @@ export interface TeamStats {
   goalsAgainst: number;
   goalDifference: number;
   points: number;
-  recentResults: string[]; // Array of 'W', 'D', 'L'
+  recentResults: (string | null)[]; // Array of 'W', 'D', 'L', or null for empty slots
 }
 
 export interface LeagueState {

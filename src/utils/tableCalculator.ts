@@ -61,16 +61,18 @@ export const getRecentResults = (
   matches: Match[],
   teamId: string,
   limit: number = 5,
-): string[] => {
+): (string | null)[] => {
   const teamMatches = matches
     .filter(
       (match) =>
         match.completed && match.homeScore !== null && match.awayScore !== null,
     )
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort((a, b) => b.gameWeek - a.gameWeek)
     .slice(0, limit);
 
-  return teamMatches.map((match) => {
+  return Array.from({ length: limit }).map((_, index) => {
+    const match = teamMatches[teamMatches.length - 1 - index];
+    if (!match) return null;
     const isHome = match.homeTeamId === teamId;
     const teamScore = isHome ? match.homeScore! : match.awayScore!;
     const opponentScore = isHome ? match.awayScore! : match.homeScore!;

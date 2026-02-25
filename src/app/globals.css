@@ -18,10 +18,15 @@
   }
 }
 
+html {
+  font-size: 106.25%;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-premier-league), Helvetica, Arial, sans-serif;
+  font-family: var(--font-quicksand), Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

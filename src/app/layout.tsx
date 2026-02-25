@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
 
-const premierLeague = localFont({
-  src: [
-    {
-      path: "./fonts/PremierLeagueW01-Regular.woff2",
-      weight: "400",
-    },
-    {
-      path: "./fonts/PremierLeagueW01-Bold.woff2",
-      weight: "700",
-    },
-  ],
-  variable: "--font-premier-league",
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-quicksand",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${premierLeague.variable} antialiased`}>
+      <body className={`${quicksand.variable} antialiased`}>
         <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
