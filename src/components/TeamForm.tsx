@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { addTeam, selectAllTeams } from "@/store/slices/normalizeTeamSlice";
 import { Team } from "@/types";
 
 export default function TeamForm() {
+  const teamNameInputRef = useRef<HTMLInputElement>(null);
   const [teamName, setTeamName] = useState("");
   const [error, setError] = useState("");
   const dispatch = useAppDispatch();
@@ -44,12 +45,14 @@ export default function TeamForm() {
 
     dispatch(addTeam(newTeam));
     setTeamName("");
+    teamNameInputRef.current?.focus();
   };
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-2">
       <div className="flex gap-2">
         <input
+          ref={teamNameInputRef}
           type="text"
           value={teamName}
           onChange={(e) => {

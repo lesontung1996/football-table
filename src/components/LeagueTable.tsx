@@ -75,10 +75,10 @@ export default function LeagueTable() {
       <table className="w-full border-collapse bg-white rounded-lg">
         <thead>
           <tr className="bg-fpl-purple text-white/50">
-            <th className="px-3 py-4 text-left font-normal sticky left-0 bg-fpl-purple min-w-14">
+            <th className="px-3 py-4 w-16 text-left font-normal sticky left-0 bg-fpl-purple min-w-14">
               Pos
             </th>
-            <th className="px-3 py-4 min-w-40 text-left font-normal sticky left-14 bg-fpl-purple">
+            <th className="px-3 py-4 text-left font-normal sticky left-14 bg-fpl-purple">
               Team
             </th>
             <th className="px-3 py-4 w-16 text-center font-normal">Pl</th>
