@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppSelector } from "@/store/hooks";
+import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import MatchCard from "@/components/MatchCard";
 import Navigation from "@/components/Navigation";
 import {
@@ -9,15 +9,37 @@ import {
 } from "@/store/slices/normalizeMatchSlice";
 import { selectAllTeams } from "@/store/slices/normalizeTeamSlice";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { selectCurrentGame } from "@/store/slices/gamesSlice";
+import { generateSchedule } from "@/store/slices/normalizeMatchSlice";
+import { saveLeagueStateForKey } from "@/utils/storage";
 
 export default function SchedulePage() {
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const currentGame = useAppSelector(selectCurrentGame);
   const teams = useAppSelector(selectAllTeams);
   const matches = useAppSelector(selectAllMatches);
   const gameWeeks = useAppSelector(groupedMatchesByGameWeek);
 
-  const getTeamName = (teamId: string) => {
-    return teams.find((t) => t.id === teamId)?.name || "Unknown";
-  };
+  useEffect(() => {
+    if (!currentGame?.id) {
+      router.replace("/");
+    }
+  }, [currentGame?.id, router]);
+
+  useEffect(() => {
+    if (lastCompletedMatch) {
+      scrollToGameWeek(lastCompletedMatch.gameWeek);
+    }
+
+    return () => {
+      saveLeagueStateForKey(currentGame?.storageKey ?? "", {
+        teams,
+        matches,
+      });
+    };
+  }, []);
 
   const completedMatches = matches.filter((m) => m.completed).length;
   const totalMatches = matches.length;
@@ -34,11 +56,9 @@ export default function SchedulePage() {
     }
   };
 
-  useEffect(() => {
-    if (lastCompletedMatch) {
-      scrollToGameWeek(lastCompletedMatch.gameWeek);
-    }
-  }, []);
+  const handleGenerateSchedule = () => {
+    dispatch(generateSchedule(teams));
+  };
 
   return (
     <div className="min-h-screen bg-fpl-purple-dark">
@@ -46,11 +66,21 @@ export default function SchedulePage() {
       <main className="container mx-auto px-4 py-8">
         <div className="bg-fpl-purple rounded-lg p-6 mb-6">
           <h2 className="text-2xl font-bold mb-2 text-white">Match Schedule</h2>
-          <p className="text-white/90 mb-4">
-            {totalMatches > 0
-              ? `${completedMatches} of ${totalMatches} matches completed`
-              : "No matches scheduled. Go to Teams page to add teams and generate schedule."}
-          </p>
+          {totalMatches > 0 ? (
+            <p className="text-white/90 mb-4">
+              {completedMatches} of {totalMatches} matches completed
+            </p>
+          ) : (
+            <p className="text-white/90 mb-4">
+              No matches scheduled yet for this game. Generate a schedule.
+            </p>
+          )}
+          <button
+            onClick={handleGenerateSchedule}
+            className="px-6 py-3 bg-white text-fpl-purple rounded-lg hover:bg-gray-200 active:bg-gray-400 transition-colors font-semibold"
+          >
+            {matches.length > 0 ? "Regenerate Schedule" : "Generate Schedule"}
+          </button>
         </div>
 
         {matches.length === 0 ? (
@@ -80,8 +110,8 @@ export default function SchedulePage() {
                     <MatchCard
                       key={match.id}
                       match={match}
-                      homeTeamName={getTeamName(match.homeTeamId)}
-                      awayTeamName={getTeamName(match.awayTeamId)}
+                      homeTeamName={match.homeTeamName}
+                      awayTeamName={match.awayTeamName}
                     />
                   ))}
                 </div>

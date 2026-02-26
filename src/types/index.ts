@@ -35,3 +35,10 @@ export interface LeagueState {
   teams: Team[];
   matches: Match[];
 }
+
+export interface GameMeta {
+  id: string;
+  createdAt: string;
+  storageKey: string;
+  playerNamesSnapshot: string[];
+}

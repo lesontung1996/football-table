@@ -2,8 +2,21 @@
 
 import LeagueTable from "@/components/LeagueTable";
 import Navigation from "@/components/Navigation";
+import { useAppSelector } from "@/store/hooks";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { selectCurrentGameId } from "@/store/slices/gamesSlice";
 
 export default function TablePage() {
+  const router = useRouter();
+  const currentGameId = useAppSelector(selectCurrentGameId);
+
+  useEffect(() => {
+    if (!currentGameId) {
+      router.replace("/");
+    }
+  }, [currentGameId, router]);
+
   return (
     <div className="min-h-screen bg-fpl-purple-dark">
       <Navigation />

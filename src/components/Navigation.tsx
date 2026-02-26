@@ -1,39 +1,59 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useAppSelector } from "@/store/hooks";
+import { selectCurrentGameId } from "@/store/slices/gamesSlice";
 
 export default function Navigation() {
   const pathname = usePathname();
+  const router = useRouter();
+  const currentGameId = useAppSelector(selectCurrentGameId);
 
-  const navItems = [
-    { href: "/", label: "Teams" },
-    { href: "/schedule", label: "Schedule" },
-    { href: "/table", label: "Table" },
-  ];
+  const isGameListPage = pathname === "/";
 
   return (
     <nav className="sticky top-0 z-50 bg-fpl-purple-dark text-white">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <h1 className="text-xl font-bold tracking-tight">
-            Premier League Table
-          </h1>
-          <div className="flex gap-2">
-            {navItems.map((item) => (
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex items-center gap-3">
+            {!isGameListPage && (
+              <button
+                type="button"
+                onClick={() => router.push("/")}
+                className="rounded-md bg-fpl-purple-light px-3 py-1 text-sm font-medium hover:bg-fpl-1200"
+              >
+                Back
+              </button>
+            )}
+            <h1 className="text-xl font-bold tracking-tight">
+              Premier League Table
+            </h1>
+          </div>
+          {!isGameListPage && currentGameId && (
+            <div className="flex gap-2">
               <Link
-                key={item.href}
-                href={item.href}
+                href="/schedule"
                 className={`px-4 py-2 rounded-md transition-colors ${
-                  pathname === item.href
+                  pathname === "/schedule"
                     ? "bg-fpl-purple-light font-semibold"
                     : "hover:bg-fpl-purple-light"
                 }`}
               >
-                {item.label}
+                Schedule
               </Link>
-            ))}
-          </div>
+              <Link
+                href="/table"
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  pathname === "/table"
+                    ? "bg-fpl-purple-light font-semibold"
+                    : "hover:bg-fpl-purple-light"
+                }`}
+              >
+                Table
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>
