@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, use } from "react";
 import { useAppDispatch } from "@/store/hooks";
 import { useRouter } from "next/navigation";
 import { clearTeams, setTeams } from "@/store/slices/normalizeTeamSlice";
@@ -22,6 +22,12 @@ export default function CreateGameModal({
   const [playerNames, setPlayerNames] = useState<string[]>([]);
   const [error, setError] = useState<string>("");
   const playerNameInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      playerNameInputRef.current?.focus();
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -110,13 +116,15 @@ export default function CreateGameModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-      <div className="w-full max-w-lg rounded-lg bg-fpl-purple p-6">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-lg rounded-lg bg-fpl-1100 p-6"
+        onClick={(e) => e.stopPropagation()}
+      >
         <h2 className="mb-4 text-2xl font-bold text-white">Create New Game</h2>
-        <p className="mb-4 text-sm text-white/90">
-          Add team names for this game. You can also copy players from the most
-          recent game.
-        </p>
         <div className="space-y-4">
           <div className="flex items-center justify-between gap-2">
             <h3 className="font-semibold text-white">Teams </h3>
@@ -141,7 +149,7 @@ export default function CreateGameModal({
               <button
                 type="submit"
                 disabled={playerNames.length >= 20}
-                className="px-6 py-2 bg-fpl-900 text-white rounded-lg hover:bg-fpl-1200 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
+                className="px-6 py-2 bg-fpl-1000 text-white rounded-lg hover:bg-fpl-900 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
               >
                 Add Player
               </button>
@@ -153,7 +161,7 @@ export default function CreateGameModal({
               ? playerNames.map((name, index) => (
                   <div
                     key={index}
-                    className="flex items-center py-2 px-3 rounded-lg gap-2 bg-fpl-900"
+                    className="flex items-center py-2 px-3 rounded-lg gap-2 bg-fpl-1200"
                   >
                     <span className="text-sm text-white/90">
                       {index + 1}. {name}
@@ -171,7 +179,7 @@ export default function CreateGameModal({
                   <button
                     type="button"
                     onClick={handleUseLatestPlayers}
-                    className="text-sm font-medium text-white underline-offset-2 hover:underline"
+                    className="my-4 col-span-2 text-sm font-medium text-white underline-offset-2 underline hover:text-white/80"
                   >
                     Use players from previous game
                   </button>
@@ -182,7 +190,7 @@ export default function CreateGameModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-md bg-gray-600 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700"
+                className="rounded-md bg-transparent border border-white px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
               >
                 Cancel
               </button>

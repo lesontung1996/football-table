@@ -13,18 +13,17 @@ export default function Navigation() {
   const isGameListPage = pathname === "/";
 
   return (
-    <nav className="sticky top-0 z-50 bg-fpl-purple-dark text-white">
+    <nav className="sticky top-0 z-50 bg-fpl-1200 text-white border-b border-fpl-800">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">
             {!isGameListPage && (
-              <button
-                type="button"
-                onClick={() => router.push("/")}
-                className="rounded-md bg-fpl-purple-light px-3 py-1 text-sm font-medium hover:bg-fpl-1200"
+              <Link
+                href="/"
+                className="rounded-md bg-transparent border border-white px-3 py-1 text-sm font-medium hover:bg-white/10"
               >
                 Back
-              </button>
+              </Link>
             )}
             <h1 className="text-xl font-bold tracking-tight">
               Premier League Table

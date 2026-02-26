@@ -61,7 +61,7 @@ export default function SchedulePage() {
   };
 
   return (
-    <div className="min-h-screen bg-fpl-purple-dark">
+    <div className="min-h-screen bg-fpl-1200">
       <Navigation />
       <main className="container mx-auto px-4 py-8">
         <div className="bg-fpl-purple rounded-lg p-6 mb-6">

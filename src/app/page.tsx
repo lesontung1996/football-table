@@ -39,7 +39,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-fpl-purple-dark">
+    <div className="min-h-screen bg-fpl-1200">
       <Navigation />
       <main className="container mx-auto px-4 py-8">
         <div className="mb-6 flex items-center justify-between">
