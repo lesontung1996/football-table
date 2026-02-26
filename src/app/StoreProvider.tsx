@@ -3,17 +3,10 @@
 import { useRef, useEffect } from "react";
 import { Provider } from "react-redux";
 import { makeStore, AppStore } from "@/store";
-import {
-  getGameStorageKey,
-  loadGamesIndex,
-  loadLegacyLeagueState,
-  loadLeagueStateForKey,
-  saveGamesIndex,
-} from "@/utils/storage";
+import { loadGamesIndex, loadLeagueStateForKey } from "@/utils/storage";
 import { setTeams } from "@/store/slices/normalizeTeamSlice";
 import { setMatches } from "@/store/slices/normalizeMatchSlice";
 import { hydrateGames, setCurrentGame } from "@/store/slices/gamesSlice";
-import { GameMeta } from "@/types";
 
 export default function StoreProvider({
   children,
@@ -35,29 +28,7 @@ export default function StoreProvider({
     const gamesIndex = loadGamesIndex();
 
     // 2. If no games yet, try migrating from legacy single-league storage
-    if (gamesIndex.length === 0) {
-      const legacyState = loadLegacyLeagueState();
-      if (legacyState) {
-        const id = `game-${Date.now()}`;
-        const storageKey = getGameStorageKey(id);
-        const meta: GameMeta = {
-          id,
-          createdAt: new Date().toISOString(),
-          storageKey,
-          playerNamesSnapshot: legacyState.teams.map((t) => t.name),
-        };
-
-        // Persist migrated game index and league state
-        saveGamesIndex([meta]);
-
-        // Hydrate store with migrated data
-        store.dispatch(hydrateGames([meta]));
-        store.dispatch(setCurrentGame(id));
-        store.dispatch(setTeams(legacyState.teams));
-        store.dispatch(setMatches(legacyState.matches));
-        return;
-      }
-    } else {
+    if (gamesIndex.length !== 0) {
       // Hydrate games slice
       store.dispatch(hydrateGames(gamesIndex));
 

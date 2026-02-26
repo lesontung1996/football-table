@@ -1,6 +1,5 @@
 import { GameMeta, LeagueState } from "@/types";
 
-const LEGACY_STORAGE_KEY = "football-league-state";
 const GAMES_INDEX_KEY = "football-league-games";
 const GAME_STORAGE_PREFIX = "football-league-state:";
 
@@ -61,22 +60,4 @@ export const loadGamesIndex = (): GameMeta[] => {
     }
   }
   return [];
-};
-
-// Legacy helpers kept for one-time migration from single-league storage
-export const loadLegacyLeagueState = (): LeagueState | null => {
-  if (typeof window !== "undefined") {
-    try {
-      const stored = localStorage.getItem(LEGACY_STORAGE_KEY);
-      if (stored) {
-        return JSON.parse(stored) as LeagueState;
-      }
-    } catch (error) {
-      console.error(
-        "Failed to load legacy league state from localStorage:",
-        error,
-      );
-    }
-  }
-  return null;
 };

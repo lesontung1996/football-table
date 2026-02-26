@@ -1,25 +1,27 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, Middleware, PayloadAction } from "@reduxjs/toolkit";
 import teamsReducer from "./slices/normalizeTeamSlice";
 import matchesReducer from "./slices/normalizeMatchSlice";
 import gamesReducer from "./slices/gamesSlice";
+import { GameMeta } from "@/types";
+import { saveGamesIndex } from "@/utils/storage";
 
-// const persistenceMiddleware: Middleware = (store) => (next) => (action) => {
-//   const result = next(action);
-//   // Save to localStorage after state update
-//   const state = store.getState() as {
-//     games: ReturnType<typeof gamesReducer>;
-//     teams: ReturnType<typeof teamsReducer>;
-//     matches: ReturnType<typeof matchesReducer>;
-//   };
+const persistenceMiddleware: Middleware = (store) => (next) => (action) => {
+  const result = next(action);
+  // Save to localStorage after state update
+  const state = store.getState() as {
+    games: ReturnType<typeof gamesReducer>;
+    teams: ReturnType<typeof teamsReducer>;
+    matches: ReturnType<typeof matchesReducer>;
+  };
 
-//   console.log("state.games.entities", state.games.entities);
+  const gamesArray: GameMeta[] = Object.values(state.games.entities);
 
-//   const gamesArray: GameMeta[] = Object.values(state.games.entities);
+  if ((action as PayloadAction).type === "games/addGame") {
+    saveGamesIndex(gamesArray);
+  }
 
-//   saveGamesIndex(gamesArray);
-
-//   return result;
-// };
+  return result;
+};
 
 export const makeStore = () => {
   return configureStore({
@@ -28,7 +30,8 @@ export const makeStore = () => {
       teams: teamsReducer,
       matches: matchesReducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(persistenceMiddleware),
   });
 };
 
