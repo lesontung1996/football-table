@@ -29,17 +29,20 @@ export default function SchedulePage() {
   }, [currentGame?.id, router]);
 
   useEffect(() => {
+    if (teams.length > 0 && matches.length === 0) {
+      dispatch(generateSchedule(teams));
+    }
     if (lastCompletedMatch) {
       scrollToGameWeek(lastCompletedMatch.gameWeek);
     }
-
-    return () => {
-      saveLeagueStateForKey(currentGame?.storageKey ?? "", {
-        teams,
-        matches,
-      });
-    };
   }, []);
+
+  useEffect(() => {
+    saveLeagueStateForKey(currentGame?.storageKey ?? "", {
+      teams,
+      matches,
+    });
+  }, [matches]);
 
   const completedMatches = matches.filter((m) => m.completed).length;
   const totalMatches = matches.length;
@@ -54,10 +57,6 @@ export default function SchedulePage() {
         block: "center",
       });
     }
-  };
-
-  const handleGenerateSchedule = () => {
-    dispatch(generateSchedule(teams));
   };
 
   return (
@@ -75,12 +74,6 @@ export default function SchedulePage() {
               No matches scheduled yet for this game. Generate a schedule.
             </p>
           )}
-          <button
-            onClick={handleGenerateSchedule}
-            className="px-6 py-3 bg-white text-fpl-purple rounded-lg hover:bg-gray-200 active:bg-gray-400 transition-colors font-semibold"
-          >
-            {matches.length > 0 ? "Regenerate Schedule" : "Generate Schedule"}
-          </button>
         </div>
 
         {matches.length === 0 ? (

@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/store/hooks";
 import { selectCurrentGameId } from "@/store/slices/gamesSlice";
 
 export default function Navigation() {
   const pathname = usePathname();
-  const router = useRouter();
   const currentGameId = useAppSelector(selectCurrentGameId);
 
   const isGameListPage = pathname === "/";

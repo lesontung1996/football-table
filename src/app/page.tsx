@@ -7,20 +7,14 @@ import CreateGameModal from "@/components/CreateGameModal";
 import { useRouter } from "next/navigation";
 import { clearTeams, setTeams } from "@/store/slices/normalizeTeamSlice";
 import { clearMatches, setMatches } from "@/store/slices/normalizeMatchSlice";
-import {
-  addGame,
-  gamesSelectors,
-  selectCurrentGameId,
-  setCurrentGame,
-} from "@/store/slices/gamesSlice";
-import { GameMeta, Team } from "@/types";
+import { gamesSelectors, setCurrentGame } from "@/store/slices/gamesSlice";
+import { GameMeta } from "@/types";
 import { loadLeagueStateForKey } from "@/utils/storage";
 
 export default function Home() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const games = useAppSelector(gamesSelectors.selectAll);
-  const currentGameId = useAppSelector(selectCurrentGameId);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenGame = (game: GameMeta) => {
@@ -65,28 +59,30 @@ export default function Home() {
             </p>
           ) : (
             <div className="space-y-3">
-              {games.map((game) => (
+              {games.map((game, index) => (
                 <button
                   key={game.id}
                   id={`${game.id}`}
                   type="button"
                   onClick={() => handleOpenGame(game)}
-                  className="flex w-full flex-col rounded-lg bg-fpl-purple-light px-4 py-3 text-left hover:bg-fpl-1200"
+                  className="flex w-full flex-col rounded-lg bg-fpl-purple-light p-2 text-left hover:bg-fpl-1200"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-white/70">
-                      {new Date(game.createdAt).toLocaleString()}
-                    </span>
-                    {currentGameId === game.id && (
-                      <span className="rounded-full bg-green-500 px-2 py-0.5 text-xs font-semibold text-white">
-                        Active
+                  <div className="inline-flex items-center">
+                    <div className="h-5 inline-flex items-center bg-fpl-400 rounded">
+                      <span className="inline-flex items-center justify-center w-5 h-5 text-center rounded font-semibold bg-gray-50 text-fpl-1200 mr-2">
+                        {index + 1}
                       </span>
-                    )}
+                      <span className="text-sm font-semibold text-fpl-1200 mr-2">
+                        {new Date(game.createdAt).toLocaleString()}
+                      </span>
+                    </div>
                   </div>
                   {game.playerNamesSnapshot.length > 0 && (
-                    <p className="mt-1 text-sm font-medium text-white">
-                      {game.playerNamesSnapshot.join(", ")}
-                    </p>
+                    <ul className="grid grid-cols-2 gap-2 md:grid-cols-4 mt-4 mb-2 mx-4 font-medium text-white list-disc list-inside">
+                      {game.playerNamesSnapshot.map((name, index) => (
+                        <li key={index}>{name}</li>
+                      ))}
+                    </ul>
                   )}
                 </button>
               ))}

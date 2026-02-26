@@ -72,7 +72,7 @@ export default function LeagueTable() {
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full border-collapse bg-white rounded-lg">
+      <table className="w-full border-collapse border-none bg-white rounded-lg">
         <thead>
           <tr className="bg-fpl-purple text-white/50">
             <th className="px-3 py-4 w-16 text-left font-normal sticky left-0 bg-fpl-purple min-w-14">
@@ -92,7 +92,7 @@ export default function LeagueTable() {
             <th className="px-3 py-4 w-16 text-center font-normal">Form</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="divide-none">
           {sortedStats.map((team, index) => {
             const position = index + 1;
 
