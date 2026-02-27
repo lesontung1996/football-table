@@ -51,44 +51,44 @@ export default function Home() {
             Create Game
           </button>
         </div>
-        <div className="rounded-lg bg-fpl-purple p-6">
-          {games.length === 0 ? (
+        {games.length === 0 ? (
+          <div className="rounded-lg bg-fpl-purple p-6">
             <p className="py-8 text-center text-white/90">
               No games yet. Click{" "}
               <span className="font-semibold">Create Game</span> to start.
             </p>
-          ) : (
-            <div className="space-y-3">
-              {games.map((game, index) => (
-                <button
-                  key={game.id}
-                  id={`${game.id}`}
-                  type="button"
-                  onClick={() => handleOpenGame(game)}
-                  className="flex w-full flex-col rounded-lg bg-fpl-purple-light p-2 text-left hover:bg-fpl-1200"
-                >
-                  <div className="inline-flex items-center">
-                    <div className="h-5 inline-flex items-center bg-fpl-400 rounded">
-                      <span className="inline-flex items-center justify-center w-5 h-5 text-center rounded font-semibold bg-gray-50 text-fpl-1200 mr-2">
-                        {index + 1}
-                      </span>
-                      <span className="text-sm font-semibold text-fpl-1200 mr-2">
-                        {new Date(game.createdAt).toLocaleString()}
-                      </span>
-                    </div>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {games.map((game, index) => (
+              <button
+                key={game.id}
+                id={`${game.id}`}
+                type="button"
+                onClick={() => handleOpenGame(game)}
+                className="flex w-full flex-col rounded-lg bg-fpl-1000 p-2 text-left hover:bg-fpl-900"
+              >
+                <div className="inline-flex items-center">
+                  <div className="h-5 inline-flex items-center bg-fpl-400 rounded">
+                    <span className="inline-flex items-center justify-center w-5 h-5 text-center rounded font-semibold bg-gray-50 text-fpl-1200 mr-2">
+                      {index + 1}
+                    </span>
+                    <span className="text-sm font-semibold text-fpl-1200 mr-2">
+                      {new Date(game.createdAt).toLocaleString()}
+                    </span>
                   </div>
-                  {game.playerNamesSnapshot.length > 0 && (
-                    <ul className="grid grid-cols-2 gap-2 md:grid-cols-4 mt-4 mb-2 mx-4 font-medium text-white list-disc list-inside">
-                      {game.playerNamesSnapshot.map((name, index) => (
-                        <li key={index}>{name}</li>
-                      ))}
-                    </ul>
-                  )}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+                </div>
+                {game.playerNamesSnapshot.length > 0 && (
+                  <ul className="grid grid-cols-2 gap-2 md:grid-cols-4 mt-4 mb-2 mx-4 font-medium text-white list-disc list-inside">
+                    {game.playerNamesSnapshot.map((name, index) => (
+                      <li key={index}>{name}</li>
+                    ))}
+                  </ul>
+                )}
+              </button>
+            ))}
+          </div>
+        )}
       </main>
       <CreateGameModal
         isOpen={isModalOpen}

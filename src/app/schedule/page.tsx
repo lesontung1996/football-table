@@ -35,6 +35,7 @@ export default function SchedulePage() {
     if (lastCompletedMatch) {
       scrollToGameWeek(lastCompletedMatch.gameWeek);
     }
+    focusOnNextMatch();
   }, []);
 
   useEffect(() => {
@@ -47,7 +48,9 @@ export default function SchedulePage() {
   const completedMatches = matches.filter((m) => m.completed).length;
   const totalMatches = matches.length;
 
-  const lastCompletedMatch = matches.findLast((m) => m.completed);
+  const lastCompletedMatchIndex = matches.findLastIndex((m) => m.completed);
+  const lastCompletedMatch = matches[lastCompletedMatchIndex];
+  const nextMatch = matches[lastCompletedMatchIndex + 1];
 
   const scrollToGameWeek = (gameWeek: number) => {
     const gameWeekElement = document.getElementById(`game-week-${gameWeek}`);
@@ -56,6 +59,16 @@ export default function SchedulePage() {
         behavior: "smooth",
         block: "center",
       });
+    }
+  };
+
+  const focusOnNextMatch = () => {
+    if (!nextMatch) return;
+    const matchInputElement = document.getElementById(
+      `homeScore-${nextMatch.id}`,
+    );
+    if (matchInputElement) {
+      matchInputElement.focus();
     }
   };
 

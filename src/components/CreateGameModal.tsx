@@ -27,6 +27,12 @@ export default function CreateGameModal({
     if (isOpen) {
       playerNameInputRef.current?.focus();
     }
+
+    return () => {
+      setError("");
+      setNewPlayerName("");
+      setPlayerNames([]);
+    };
   }, [isOpen]);
 
   if (!isOpen) return null;
