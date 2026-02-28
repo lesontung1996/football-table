@@ -157,11 +157,9 @@ export default function Home() {
                 key={game.id}
                 id={`${game.id}`}
                 type="button"
-                onClick={() => {
-                  isSelecting
-                    ? toggleSelectGame(game.id)
-                    : handleOpenGame(game);
-                }}
+                onClick={() =>
+                  isSelecting ? toggleSelectGame(game.id) : handleOpenGame(game)
+                }
                 className="flex w-full flex-col rounded-lg bg-fpl-1000 p-2 text-left hover:bg-fpl-900 disabled:cursor-not-allowed"
               >
                 <div className="flex items-center gap-3">
