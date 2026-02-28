@@ -13,10 +13,9 @@ const persistenceMiddleware: Middleware = (store) => (next) => (action) => {
     teams: ReturnType<typeof teamsReducer>;
     matches: ReturnType<typeof matchesReducer>;
   };
-
   const gamesArray: GameMeta[] = Object.values(state.games.entities);
 
-  if ((action as PayloadAction).type === "games/addGame") {
+  if ((action as PayloadAction).type.startsWith("games/")) {
     saveGamesIndex(gamesArray);
   }
 

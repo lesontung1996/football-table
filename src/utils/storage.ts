@@ -35,6 +35,16 @@ export const loadLeagueStateForKey = (
   return null;
 };
 
+export const deleteLeagueStateForKey = (storageKey: string): void => {
+  if (typeof window !== "undefined") {
+    try {
+      localStorage.removeItem(storageKey);
+    } catch (error) {
+      console.error("Failed to delete league state from localStorage:", error);
+    }
+  }
+};
+
 export const saveGamesIndex = (games: GameMeta[]): void => {
   if (typeof window !== "undefined") {
     try {
