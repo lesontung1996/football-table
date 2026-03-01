@@ -18,6 +18,7 @@ import {
   deleteLeagueStateForKey,
   loadLeagueStateForKey,
 } from "@/utils/storage";
+import { Check, Logs, Plus, Trash } from "lucide-react";
 
 export default function Home() {
   const router = useRouter();
@@ -119,17 +120,23 @@ export default function Home() {
                       type="button"
                       onClick={handleDeleteSelectedClick}
                       disabled={!hasSelection}
-                      className="h-10 rounded-lg bg-red-500 px-4 py-2 text-xs font-semibold text-white hover:bg-red-600 disabled:bg-red-500/40 disabled:text-white/60 disabled:cursor-not-allowed"
+                      className="flex items-center gap-2 h-10 rounded-lg bg-red-500 px-4 py-2 text-xs font-semibold text-white hover:bg-red-600 disabled:bg-red-500/40 disabled:text-white/60 disabled:cursor-not-allowed"
                     >
-                      Delete selected
+                      <Trash size={16} />
+                      Delete
+                      {selectedGameIds.length > 0
+                        ? ` ${selectedGameIds.length} games 
+                      selected`
+                        : ""}
                     </button>
                   </div>
                 )}
                 <button
                   type="button"
                   onClick={toggleSelecting}
-                  className="h-10 rounded-lg border border-white/60 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
+                  className="flex items-center gap-2 h-10 rounded-lg border border-white/60 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
                 >
+                  {isSelecting ? <Check size={16} /> : <Logs size={16} />}
                   {isSelecting ? "Done" : "Select"}
                 </button>
               </>
@@ -137,8 +144,9 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setIsModalOpen(true)}
-              className="h-10 rounded-lg bg-white ml-auto px-5 py-2 text-sm font-semibold text-fpl-purple hover:bg-gray-200"
+              className="flex items-center gap-2 h-10 rounded-lg bg-white ml-auto px-5 py-2 text-sm font-semibold text-fpl-purple hover:bg-gray-200"
             >
+              <Plus size={16} />
               Create Game
             </button>
           </div>

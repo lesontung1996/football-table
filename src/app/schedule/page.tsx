@@ -13,6 +13,8 @@ import { useRouter } from "next/navigation";
 import { selectCurrentGame } from "@/store/slices/gamesSlice";
 import { generateSchedule } from "@/store/slices/normalizeMatchSlice";
 import { saveLeagueStateForKey } from "@/utils/storage";
+import { CircleCheck } from "lucide-react";
+import { Match } from "@/types";
 
 export default function SchedulePage() {
   const router = useRouter();
@@ -72,9 +74,44 @@ export default function SchedulePage() {
     }
   };
 
+  const isWeekCompleted = (weekMatches: Match[] | undefined) => {
+    if (!weekMatches) return false;
+    return weekMatches?.every((match) => match.completed);
+  };
+
+  const percentageCompleted = (matches: Match[] | undefined) => {
+    if (!matches) return 0;
+    return (
+      (matches.filter((match) => match.completed).length / matches.length) * 100
+    );
+  };
+
   return (
     <div className="min-h-screen bg-fpl-1200">
       <Navigation />
+      {gameWeeks.length > 0 && (
+        <div className="sticky flex items-center top-16 z-10 px-4 py-3 bg-fpl-1200 overflow-x-scroll border-b border-fpl-800">
+          <div className="flex flex-nowrap justify-center gap-4 mx-auto">
+            {gameWeeks.map((weekMatches, weekIndex) => (
+              <a
+                href={`#game-week-${weekIndex + 1}`}
+                key={weekIndex}
+                className={`relative flex items-center gap-2 px-4 py-1 rounded-md border text-nowrap font-semibold overflow-hidden ${isWeekCompleted(weekMatches) ? "bg-white text-fpl-900" : "bg-fpl-900"}`}
+              >
+                {isWeekCompleted(weekMatches) ? (
+                  <CircleCheck size={16} strokeWidth={2.5} />
+                ) : (
+                  <span
+                    className={`absolute bottom-0 left-0 h-1 bg-green-500 transition-all`}
+                    style={{ width: `${percentageCompleted(weekMatches)}%` }}
+                  ></span>
+                )}
+                GW {weekIndex + 1}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
       <main className="container mx-auto px-4 py-8">
         <div className="bg-fpl-purple rounded-lg p-6 mb-6">
           <h2 className="text-2xl font-bold mb-2 text-white">Match Schedule</h2>

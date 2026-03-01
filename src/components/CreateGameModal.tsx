@@ -6,6 +6,7 @@ import { clearMatches, setMatches } from "@/store/slices/normalizeMatchSlice";
 import { addGame, setCurrentGame } from "@/store/slices/gamesSlice";
 import { GameMeta, Team } from "@/types";
 import { getGameStorageKey, loadLeagueStateForKey } from "@/utils/storage";
+import { ClipboardPaste, Minus, Plus, UserPlus } from "lucide-react";
 
 export default function CreateGameModal({
   isOpen,
@@ -155,8 +156,9 @@ export default function CreateGameModal({
               <button
                 type="submit"
                 disabled={playerNames.length >= 20}
-                className="px-6 py-2 bg-fpl-1000 text-white rounded-lg hover:bg-fpl-900 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
+                className="flex items-center gap-2 px-6 py-2 bg-fpl-1000 text-white rounded-lg hover:bg-fpl-900 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
               >
+                <UserPlus size={16} />
                 Add Player
               </button>
             </div>
@@ -175,9 +177,10 @@ export default function CreateGameModal({
                     <button
                       type="button"
                       onClick={() => handleRemovePlayerField(index)}
-                      className="rounded-md bg-red-500 ml-auto px-2 py-1 text-sm text-white hover:bg-red-600"
+                      className="flex items-center gap-2 rounded-full bg-red-500 ml-auto p-1 text-sm text-white hover:bg-red-600"
                     >
-                      Remove
+                      <Minus size={16} />
+                      <span className="sr-only">Remove player</span>
                     </button>
                   </div>
                 ))
@@ -185,8 +188,9 @@ export default function CreateGameModal({
                   <button
                     type="button"
                     onClick={handleUseLatestPlayers}
-                    className="my-4 col-span-2 text-sm font-medium text-white underline-offset-2 underline hover:text-white/80"
+                    className="flex items-center justify-center gap-2 my-4 col-span-2 text-sm font-medium text-white underline-offset-2 underline hover:text-white/80"
                   >
+                    <ClipboardPaste size={16} />
                     Use players from previous game
                   </button>
                 )}
@@ -203,8 +207,9 @@ export default function CreateGameModal({
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-fpl-purple hover:bg-gray-200"
+                className="flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-fpl-purple hover:bg-gray-200"
               >
+                <Plus size={16} />
                 Create Game
               </button>
             </div>

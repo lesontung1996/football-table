@@ -20,6 +20,7 @@
 
 html {
   font-size: 106.25%;
+  scroll-margin-top: 100px;
 }
 
 body {
@@ -31,8 +32,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+[id^="game-week-"] {
+  scroll-margin-top: 150px;
 }
