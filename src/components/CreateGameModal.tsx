@@ -156,7 +156,7 @@ export default function CreateGameModal({
               <button
                 type="submit"
                 disabled={playerNames.length >= 20}
-                className="flex items-center gap-2 px-6 py-2 bg-fpl-1000 text-white rounded-lg hover:bg-fpl-900 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
+                className="flex items-center gap-2 px-4 py-2 bg-fpl-900 text-white rounded-lg hover:bg-fpl-800 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
               >
                 <UserPlus size={16} />
                 Add Player

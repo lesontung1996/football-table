@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
+import Navigation from "@/components/Navigation";
+import LoadingWrapper from "@/components/LoadingWrapper";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -22,7 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${quicksand.variable} antialiased`}>
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider>
+          <div className="flex flex-col min-h-screen bg-fpl-1200">
+            <Navigation />
+            <LoadingWrapper>{children}</LoadingWrapper>
+          </div>
+        </StoreProvider>
       </body>
     </html>
   );

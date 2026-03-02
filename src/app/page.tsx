@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import Navigation from "@/components/Navigation";
 import CreateGameModal from "@/components/CreateGameModal";
 import DeleteGamesModal from "@/components/DeleteGamesModal";
 import { useRouter } from "next/navigation";
@@ -92,8 +91,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-fpl-1200">
-      <Navigation />
+    <>
       <main className="container mx-auto px-4 py-8">
         <div className="mb-6 space-y-4">
           <div>
@@ -120,7 +118,7 @@ export default function Home() {
                       type="button"
                       onClick={handleDeleteSelectedClick}
                       disabled={!hasSelection}
-                      className="flex items-center gap-2 h-10 rounded-lg bg-red-500 px-4 py-2 text-xs font-semibold text-white hover:bg-red-600 disabled:bg-red-500/40 disabled:text-white/60 disabled:cursor-not-allowed"
+                      className="flex items-center gap-2 h-9 rounded-lg bg-red-500 px-4 py-2 text-xs font-semibold text-white hover:bg-red-600 disabled:bg-red-500/40 disabled:text-white/60 disabled:cursor-not-allowed"
                     >
                       <Trash size={16} />
                       Delete
@@ -134,7 +132,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={toggleSelecting}
-                  className="flex items-center gap-2 h-10 rounded-lg border border-white/60 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
+                  className="flex items-center gap-2 h-9 rounded-lg border border-white/60 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
                 >
                   {isSelecting ? <Check size={16} /> : <Logs size={16} />}
                   {isSelecting ? "Done" : "Select"}
@@ -144,7 +142,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2 h-10 rounded-lg bg-white ml-auto px-5 py-2 text-sm font-semibold text-fpl-purple hover:bg-gray-200"
+              className="flex items-center gap-2 h-9 rounded-lg bg-white ml-auto px-5 py-2 text-sm font-semibold text-fpl-purple hover:bg-gray-200"
             >
               <Plus size={16} />
               Create Game
@@ -212,6 +210,6 @@ export default function Home() {
         onConfirm={handleConfirmDeleteSelected}
         onCancel={() => setIsDeleteModalOpen(false)}
       />
-    </div>
+    </>
   );
 }

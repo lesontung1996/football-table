@@ -74,11 +74,11 @@ export default function LeagueTable() {
     <div className="overflow-x-auto">
       <table className="w-full border-collapse border-none bg-white rounded-lg">
         <thead>
-          <tr className="bg-fpl-purple text-white/50">
-            <th className="px-3 py-4 w-16 text-left font-normal sticky left-0 bg-fpl-purple min-w-14">
+          <tr className="bg-fpl-1000 text-white/50">
+            <th className="px-3 py-4 w-16 text-left font-normal sticky left-0 bg-fpl-1000 min-w-14">
               Pos
             </th>
-            <th className="px-3 py-4 text-left font-normal sticky left-14 bg-fpl-purple">
+            <th className="px-3 py-4 text-left font-normal sticky left-14 bg-fpl-1000">
               Team
             </th>
             <th className="px-3 py-4 w-16 text-center font-normal">Pl</th>
@@ -97,11 +97,11 @@ export default function LeagueTable() {
             const position = index + 1;
 
             return (
-              <tr key={team.teamId} className={`bg-fpl-purple`}>
-                <td className="px-3 py-4 font-semibold sticky left-0 bg-fpl-purple min-w-14">
+              <tr key={team.teamId} className={`bg-fpl-1000`}>
+                <td className="px-3 py-4 font-semibold sticky left-0 bg-fpl-1000 min-w-14">
                   {position}
                 </td>
-                <td className="px-3 py-4 font-semibold sticky left-14 bg-fpl-purple">
+                <td className="px-3 py-4 font-semibold sticky left-14 bg-fpl-1000">
                   {team.teamName}
                 </td>
                 <td className="px-3 py-4 text-sm text-center">{team.played}</td>

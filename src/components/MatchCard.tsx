@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/store/hooks";
 import { updateMatch } from "@/store/slices/normalizeMatchSlice";
 import { Match } from "@/types";
+import { CircleCheck } from "lucide-react";
 
 interface MatchCardProps {
   match: Match;
@@ -55,12 +56,13 @@ export default function MatchCard({
 
   return (
     <div
-      className={`p-4 border rounded-lg ${
-        isCompleted
-          ? "bg-fpl-purple-light border-green-300"
-          : "bg-fpl-purple border-white/20"
+      className={`relative p-4 border rounded-lg ${
+        isCompleted ? "bg-fpl-800 border-white" : "border-white/20"
       }`}
     >
+      {isCompleted && (
+        <CircleCheck size={20} className="absolute top-2 left-2" />
+      )}
       <div className="flex items-center justify-center font-semibold">
         <label
           htmlFor={`homeScore-${match.id}`}
@@ -72,8 +74,9 @@ export default function MatchCard({
         <div className="flex items-center mx-3 gap-3 bg-fpl-1200 rounded-lg">
           <input
             id={`homeScore-${match.id}`}
-            type="text"
+            type="number"
             inputMode="numeric"
+            pattern="[0-9]+"
             value={homeScore}
             onChange={(e) => setHomeScore(e.target.value)}
             placeholder="0"
@@ -83,8 +86,9 @@ export default function MatchCard({
           <span className="text-white/70 font-bold">-</span>
           <input
             id={`awayScore-${match.id}`}
-            type="text"
+            type="number"
             inputMode="numeric"
+            pattern="[0-9]+"
             value={awayScore}
             onChange={(e) => setAwayScore(e.target.value)}
             placeholder="0"

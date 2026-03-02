@@ -2,7 +2,6 @@
 
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import MatchCard from "@/components/MatchCard";
-import Navigation from "@/components/Navigation";
 import {
   groupedMatchesByGameWeek,
   selectAllMatches,
@@ -10,7 +9,11 @@ import {
 import { selectAllTeams } from "@/store/slices/normalizeTeamSlice";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { selectCurrentGame } from "@/store/slices/gamesSlice";
+import {
+  selectCurrentGame,
+  selectCurrentGameId,
+  selectIsLoading,
+} from "@/store/slices/gamesSlice";
 import { generateSchedule } from "@/store/slices/normalizeMatchSlice";
 import { saveLeagueStateForKey } from "@/utils/storage";
 import { CircleCheck } from "lucide-react";
@@ -20,22 +23,25 @@ export default function SchedulePage() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const currentGame = useAppSelector(selectCurrentGame);
+  const currentGameId = useAppSelector(selectCurrentGameId);
+  const isLoading = useAppSelector(selectIsLoading);
   const teams = useAppSelector(selectAllTeams);
   const matches = useAppSelector(selectAllMatches);
   const gameWeeks = useAppSelector(groupedMatchesByGameWeek);
 
   useEffect(() => {
-    if (!currentGame?.id) {
+    if (!isLoading && !currentGameId) {
       router.replace("/");
+      return;
     }
-  }, [currentGame?.id, router]);
+  }, [isLoading]);
 
   useEffect(() => {
     if (teams.length > 0 && matches.length === 0) {
       dispatch(generateSchedule(teams));
     }
-    if (lastCompletedMatch) {
-      scrollToGameWeek(lastCompletedMatch.gameWeek);
+    if (nextMatch) {
+      scrollToGameWeek(nextMatch.gameWeek);
     }
     focusOnNextMatch();
   }, []);
@@ -51,7 +57,6 @@ export default function SchedulePage() {
   const totalMatches = matches.length;
 
   const lastCompletedMatchIndex = matches.findLastIndex((m) => m.completed);
-  const lastCompletedMatch = matches[lastCompletedMatchIndex];
   const nextMatch = matches[lastCompletedMatchIndex + 1];
 
   const scrollToGameWeek = (gameWeek: number) => {
@@ -87,8 +92,7 @@ export default function SchedulePage() {
   };
 
   return (
-    <div className="min-h-screen bg-fpl-1200">
-      <Navigation />
+    <>
       {gameWeeks.length > 0 && (
         <div className="sticky flex items-center top-16 z-10 px-4 py-3 bg-fpl-1200 overflow-x-scroll border-b border-fpl-800">
           <div className="flex flex-nowrap justify-center gap-4 mx-auto">
@@ -113,21 +117,18 @@ export default function SchedulePage() {
         </div>
       )}
       <main className="container mx-auto px-4 py-8">
-        <div className="bg-fpl-purple rounded-lg p-6 mb-6">
+        <div className="bg-fpl-1000 rounded-lg p-6 mb-6">
           <h2 className="text-2xl font-bold mb-2 text-white">Match Schedule</h2>
-          {totalMatches > 0 ? (
-            <p className="text-white/90 mb-4">
-              {completedMatches} of {totalMatches} matches completed
-            </p>
-          ) : (
-            <p className="text-white/90 mb-4">
-              No matches scheduled yet for this game. Generate a schedule.
-            </p>
-          )}
+          <p className="text-white/90 mb-4">
+            {totalMatches > 0
+              ? `
+              ${completedMatches} of ${totalMatches} matches completed`
+              : `No matches scheduled yet for this game. Generate a schedule.`}
+          </p>
         </div>
 
         {matches.length === 0 ? (
-          <div className="bg-fpl-purple rounded-lg p-6 text-center">
+          <div className="bg-fpl-1000 rounded-lg p-6 text-center">
             <p className="text-white/90 mb-4">
               No matches available. Please add teams and generate a schedule
               first.
@@ -139,7 +140,7 @@ export default function SchedulePage() {
               <div
                 key={weekIndex}
                 id={`game-week-${weekIndex + 1}`}
-                className="bg-fpl-purple rounded-lg p-6"
+                className="bg-fpl-1000 rounded-lg p-6"
               >
                 <div className="mb-4">
                   <h3 className="text-xl font-bold text-white">
@@ -163,6 +164,6 @@ export default function SchedulePage() {
           </div>
         )}
       </main>
-    </div>
+    </>
   );
 }

@@ -13,11 +13,13 @@ const gamesAdapter = createEntityAdapter({
 
 type GamesState = ReturnType<typeof gamesAdapter.getInitialState> & {
   currentGameId: string | null;
+  isLoading: boolean;
 };
 
 const initialState: GamesState = {
   ...gamesAdapter.getInitialState(),
   currentGameId: null,
+  isLoading: true,
 };
 
 const gamesSlice = createSlice({
@@ -29,6 +31,7 @@ const gamesSlice = createSlice({
       if (!state.currentGameId && action.payload.length > 0) {
         state.currentGameId = action.payload[0].id;
       }
+      state.isLoading = false;
     },
     addGame(state, action: PayloadAction<GameMeta>) {
       gamesAdapter.addOne(state, action.payload);
@@ -47,11 +50,20 @@ const gamesSlice = createSlice({
     setCurrentGame(state, action: PayloadAction<string | null>) {
       state.currentGameId = action.payload;
     },
+    setIsLoading(state, action: PayloadAction<boolean>) {
+      state.isLoading = action.payload;
+    },
   },
 });
 
-export const { hydrateGames, addGame, updateGame, deleteGame, setCurrentGame } =
-  gamesSlice.actions;
+export const {
+  hydrateGames,
+  addGame,
+  updateGame,
+  deleteGame,
+  setCurrentGame,
+  setIsLoading,
+} = gamesSlice.actions;
 
 export const gamesSelectors = gamesAdapter.getSelectors(
   (state: RootState) => state.games,
@@ -65,5 +77,8 @@ export const selectCurrentGame = (state: RootState) => {
   if (!id) return null;
   return gamesSelectors.selectById(state, id) ?? null;
 };
+
+export const selectIsLoading = (state: RootState) =>
+  (state.games as GamesState).isLoading;
 
 export default gamesSlice.reducer;

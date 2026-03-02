@@ -4,12 +4,24 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/store/hooks";
 import { selectCurrentGameId } from "@/store/slices/gamesSlice";
+import { ArrowLeft } from "lucide-react";
 
 export default function Navigation() {
   const pathname = usePathname();
   const currentGameId = useAppSelector(selectCurrentGameId);
 
   const isGameListPage = pathname === "/";
+
+  const inGameRoutes = [
+    {
+      path: "/schedule",
+      label: "Schedule",
+    },
+    {
+      path: "/table",
+      label: "Table",
+    },
+  ];
 
   return (
     <nav className="sticky top-0 h-16 z-50 bg-fpl-1200 text-white border-b border-fpl-800">
@@ -19,8 +31,9 @@ export default function Navigation() {
             {!isGameListPage && (
               <Link
                 href="/"
-                className="rounded-md bg-transparent border border-white px-3 py-1 text-sm font-medium hover:bg-white/10"
+                className="flex items-center gap-2 rounded-md bg-transparent border border-white px-3 py-1 text-sm font-medium hover:bg-white/10"
               >
+                <ArrowLeft size={16} />
                 Back
               </Link>
             )}
@@ -30,26 +43,19 @@ export default function Navigation() {
           </div>
           {!isGameListPage && currentGameId && (
             <div className="flex gap-2">
-              <Link
-                href="/schedule"
-                className={`px-4 py-2 rounded-md transition-colors ${
-                  pathname === "/schedule"
-                    ? "bg-fpl-purple-light font-semibold"
-                    : "hover:bg-fpl-purple-light"
-                }`}
-              >
-                Schedule
-              </Link>
-              <Link
-                href="/table"
-                className={`px-4 py-2 rounded-md transition-colors ${
-                  pathname === "/table"
-                    ? "bg-fpl-purple-light font-semibold"
-                    : "hover:bg-fpl-purple-light"
-                }`}
-              >
-                Table
-              </Link>
+              {inGameRoutes.map((route) => (
+                <Link
+                  key={route.path}
+                  href={route.path}
+                  className={`px-4 py-2 rounded-md transition-colors ${
+                    pathname === route.path
+                      ? "bg-fpl-purple-light font-semibold"
+                      : "hover:bg-fpl-purple-light"
+                  }`}
+                >
+                  {route.label}
+                </Link>
+              ))}
             </div>
           )}
         </div>
