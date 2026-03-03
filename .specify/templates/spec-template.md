@@ -113,3 +113,16 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+### Constitution Alignment Outcomes
+
+- **CA-001**: [UX simplicity] Primary league/table flow (as defined in this spec) can be
+  completed in a small number of obvious steps on mobile and desktop.
+- **CA-002**: [Responsiveness] All new or modified screens remain fully usable on a
+  320px-wide viewport using Tailwind responsive utilities.
+- **CA-003**: [Clean code] Implementation plan and tasks keep logic typed and focused,
+  using Redux Toolkit and TypeScript without unnecessary abstractions.
+- **CA-004**: [Minimal dependencies] Any new dependency referenced in this spec has an
+  explicit justification and at least one simpler alternative considered.
+- **CA-005**: [Local-first storage] League-related data changes introduced by this
+  feature clearly describe how they are persisted in browser storage and migrated.

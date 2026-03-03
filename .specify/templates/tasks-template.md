@@ -20,10 +20,12 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
+- **Single project (this app)**: `app/` and `src/` for UI and domain logic, `tests/`
+  (or equivalent) for automated tests
+- **Web app with separate services**: `backend/src/`, `frontend/src/`
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- Paths shown below assume a Next.js app structure - adjust based on the concrete
+  layout documented in plan.md
 
 <!-- 
   ============================================================================
@@ -48,9 +50,12 @@ description: "Task list template for feature implementation"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T001 Create or update project structure per implementation plan (folders under
+      `app/`, `src/`, and tests)
+- [ ] T002 Ensure Next.js 14.2.35, React ^18, Redux Toolkit ^2.11.2, react-redux ^9.2.0,
+      tailwindcss ^3.4.1, and TypeScript ^5 are installed and configured
+- [ ] T003 [P] Configure ESLint (Next.js config), TypeScript, and formatting tools; fix
+      any baseline violations
 
 ---
 
@@ -62,12 +67,16 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T004 Define TypeScript models for leagues, teams, and matches in `src/` (or
+      equivalent)
+- [ ] T005 [P] Set up Redux Toolkit store and core slices/selectors for league state
+- [ ] T006 [P] Implement a small persistence service module to read/write league data
+      from browser storage (e.g., localStorage or IndexedDB)
+- [ ] T007 Wire Redux store into the Next.js app layout and key pages/routes
+- [ ] T008 Configure basic error handling and user-friendly messages for persistence
+      failures or corrupt data
+- [ ] T009 Configure environment variables and runtime configuration only if required
+      (avoid unnecessary complexity)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -88,12 +97,17 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T012 [P] [US1] Create or extend TypeScript models for leagues/teams/matches used
+      in this story
+- [ ] T013 [P] [US1] Implement or update Redux Toolkit slice(s) and selectors under
+      `src/` for this story
+- [ ] T014 [US1] Implement or extend the persistence service to support this story’s
+      data needs while preserving existing local data
+- [ ] T015 [US1] Implement or update Next.js UI components/pages under `app/` or `src/`
+      for this story using Tailwind responsive utilities
+- [ ] T016 [US1] Add validation and user-friendly error handling for this story’s forms
+      and interactions
+- [ ] T017 [US1] Ensure the full flow is simple on mobile and desktop (manual UX pass)
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -112,10 +126,12 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T021 [US2] Implement [Service] in src/services/[service].py
-- [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T023 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T020 [P] [US2] Create or extend TypeScript models needed for this story
+- [ ] T021 [US2] Implement or update Redux Toolkit slice(s)/selectors for this story
+- [ ] T022 [US2] Implement or update UI components/pages with Tailwind, ensuring mobile
+      responsiveness
+- [ ] T023 [US2] Integrate with User Story 1 components where needed without breaking
+      existing flows
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -134,9 +150,10 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Create [Entity] model in src/models/[entity].py
-- [ ] T027 [US3] Implement [Service] in src/services/[service].py
-- [ ] T028 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T026 [P] [US3] Create or extend TypeScript models needed for this story
+- [ ] T027 [US3] Implement or update Redux Toolkit slice(s)/selectors for this story
+- [ ] T028 [US3] Implement or update UI components/pages with Tailwind, ensuring mobile
+      responsiveness
 
 **Checkpoint**: All user stories should now be independently functional
 
