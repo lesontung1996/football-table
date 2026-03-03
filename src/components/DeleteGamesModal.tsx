@@ -1,18 +1,14 @@
 interface DeleteGamesModalProps {
-  isOpen: boolean;
   count: number;
   onConfirm: () => void;
   onCancel: () => void;
 }
 
 export default function DeleteGamesModal({
-  isOpen,
   count,
   onConfirm,
   onCancel,
 }: DeleteGamesModalProps) {
-  if (!isOpen) return null;
-
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
@@ -51,4 +47,3 @@ export default function DeleteGamesModal({
     </div>
   );
 }
-

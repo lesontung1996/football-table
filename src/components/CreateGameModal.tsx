@@ -5,15 +5,13 @@ import { clearTeams, setTeams } from "@/store/slices/normalizeTeamSlice";
 import { clearMatches, setMatches } from "@/store/slices/normalizeMatchSlice";
 import { addGame, setCurrentGame } from "@/store/slices/gamesSlice";
 import { GameMeta, Team } from "@/types";
-import { getGameStorageKey, loadLeagueStateForKey } from "@/utils/storage";
+import { getGameStorageKey } from "@/utils/storage";
 import { ClipboardPaste, Minus, Plus, UserPlus } from "lucide-react";
 
 export default function CreateGameModal({
-  isOpen,
   onClose,
   games,
 }: {
-  isOpen: boolean;
   onClose: () => void;
   games: GameMeta[];
 }) {
@@ -25,18 +23,14 @@ export default function CreateGameModal({
   const playerNameInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      playerNameInputRef.current?.focus();
-    }
+    playerNameInputRef.current?.focus();
 
     return () => {
       setError("");
       setNewPlayerName("");
       setPlayerNames([]);
     };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
+  }, []);
 
   const handleRemovePlayerField = (index: number) => {
     setPlayerNames((prev) => prev.filter((_, i) => i !== index));
@@ -45,10 +39,7 @@ export default function CreateGameModal({
   const handleUseLatestPlayers = () => {
     if (games.length === 0) return;
     const latest = games[0];
-    const state = loadLeagueStateForKey(latest.storageKey);
-    if (state) {
-      setPlayerNames(state.teams.map((t) => t.name));
-    } else if (latest.playerNamesSnapshot.length > 0) {
+    if (latest.playerNamesSnapshot.length > 0) {
       setPlayerNames(latest.playerNamesSnapshot);
     }
   };

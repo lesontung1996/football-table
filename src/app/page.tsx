@@ -73,6 +73,7 @@ export default function Home() {
 
     setSelectedGameIds([]);
     setIsDeleteModalOpen(false);
+    setIsSelecting(false);
   };
 
   const handleOpenGame = (game: GameMeta) => {
@@ -173,6 +174,7 @@ export default function Home() {
                     <input
                       type="checkbox"
                       checked={selectedGameIds.includes(game.id)}
+                      readOnly
                       className="h-4 w-4 rounded border-white/40 bg-transparent text-fpl-purple focus:ring-fpl-purple"
                     />
                   )}
@@ -199,17 +201,16 @@ export default function Home() {
           </div>
         )}
       </main>
-      <CreateGameModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        games={games}
-      />
-      <DeleteGamesModal
-        isOpen={isDeleteModalOpen}
-        count={selectedGameIds.length}
-        onConfirm={handleConfirmDeleteSelected}
-        onCancel={() => setIsDeleteModalOpen(false)}
-      />
+      {isModalOpen && (
+        <CreateGameModal onClose={() => setIsModalOpen(false)} games={games} />
+      )}
+      {isDeleteModalOpen && (
+        <DeleteGamesModal
+          count={selectedGameIds.length}
+          onConfirm={handleConfirmDeleteSelected}
+          onCancel={() => setIsDeleteModalOpen(false)}
+        />
+      )}
     </>
   );
 }
