@@ -91,6 +91,10 @@ result without touching any configuration screens.
   `src/data/teams.json`) defined in code.
 - **FR-017**: After a spin completes, the system MUST display a modal announcing the
   selected team(s); in the two-wheel case, the modal MUST clearly show both results.
+- **FR-018**: Each team slice MUST display its logo using the Next.js `Image` component,
+  loading image assets from the `public/images` directory.
+- **FR-019**: All team logos rendered in the wheel and in any related grids MUST use a
+  consistent width and height so that the logo grid appears visually uniform.
 
 ### Key Entities *(include if feature involves data)*
 
