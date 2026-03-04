@@ -151,7 +151,7 @@ export default function Home() {
           </div>
         </div>
         {games.length === 0 ? (
-          <div className="rounded-lg bg-fpl-purple p-6">
+          <div className="rounded-lg bg-fpl-1100 p-6">
             <p className="py-8 text-center text-white/90">
               No games yet. Click{" "}
               <span className="font-semibold">Create Game</span> to start.

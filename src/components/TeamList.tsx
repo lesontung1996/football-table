@@ -25,7 +25,7 @@ export default function TeamList() {
         {teams.map((team) => (
           <div
             key={team.id}
-            className="flex items-center justify-between p-3 bg-fpl-purple-light rounded-lg"
+            className="flex items-center justify-between p-3 bg-fpl-1000 rounded-lg"
           >
             <span className="font-medium text-white">{team.name}</span>
             <button

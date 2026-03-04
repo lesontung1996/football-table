@@ -49,8 +49,8 @@ export default function Navigation() {
                   href={route.path}
                   className={`px-4 py-2 rounded-md transition-colors ${
                     pathname === route.path
-                      ? "bg-fpl-purple-light font-semibold"
-                      : "hover:bg-fpl-purple-light"
+                      ? "bg-fpl-1000 font-semibold"
+                      : "hover:bg-fpl-1000"
                   }`}
                 >
                   {route.label}

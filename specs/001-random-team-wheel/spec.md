@@ -43,6 +43,8 @@ result without touching any configuration screens.
 - What happens if the user attempts to spin the wheel again while an animation is still
   running?
 - How does the UI behave on very small screens when two wheels are shown side by side?
+- What happens when the route URL contains invalid or unknown configuration query
+  parameters (e.g., unknown team IDs or categories)?
 
 ## Requirements *(mandatory)*
 
@@ -50,14 +52,15 @@ result without touching any configuration screens.
 
 - **FR-001**: System MUST provide a dedicated "Random Team Wheel" experience that users
   can reach from the main app.
-- **FR-002**: System MUST, by default, present a single wheel using a curated list of
-  popular teams across major leagues and national teams.
+- **FR-002**: System MUST, by default, present a single wheel using a curated default
+  configuration of teams defined in code, sourced from `src/data/teams.json`.
 - **FR-003**: System MUST allow users to optionally enable a mode where two wheels can
   be spun together, each selecting a random team independently.
 - **FR-004**: System MUST randomly select a team for each wheel spin from the current
   pool of included teams and clearly display the selected team(s) as the outcome.
-- **FR-005**: System MUST provide a way for users to include or exclude teams by league
-  or nation category and by individual team.
+- **FR-005**: System MUST provide a two-level configuration model where:
+  - Users can toggle all or none of the teams in a league/nation category at once.
+  - Users can also toggle individual teams within each category.
 - **FR-006**: System MUST remember each user's inclusion/exclusion preferences on the
   same device so that later visits use the same configuration by default.
 - **FR-007**: System MUST start with a default list of popular teams, grouped by
@@ -72,6 +75,22 @@ result without touching any configuration screens.
   show a clear message explaining that the user needs to include at least one team.
 - **FR-011**: System MUST represent each team with a star rating between 0 and 5,
   inclusive, in 0.5 increments, to reflect its relative strength or popularity.
+- **FR-012**: System MUST randomize the placement/order of teams on the wheel so that
+  teams from the same league or nation are not consistently clustered together.
+- **FR-013**: System MUST load all team data for the wheel from `src/data/teams.json`
+  when the `/random-wheel` route is opened.
+- **FR-014**: System MUST structure in-memory team data using a `Map` or equivalent
+  keyed by a stable identifier (e.g., `tla`) to allow fast lookups when resolving
+  configuration and results.
+- **FR-015**: System MUST keep wheel configuration (number of wheels and included
+  teams) in sync with the route URL using query parameters of the form
+  `?wheel=<1|2>&teams=<tla1>,<tla2>,...`, so that copying the URL recreates the same
+  configuration on another device.
+- **FR-016**: When no relevant query parameters are present, the default configuration
+  MUST be one wheel (`wheel=1`) and a predefined array of team TLAs (from
+  `src/data/teams.json`) defined in code.
+- **FR-017**: After a spin completes, the system MUST display a modal announcing the
+  selected team(s); in the two-wheel case, the modal MUST clearly show both results.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -81,7 +100,9 @@ result without touching any configuration screens.
     default-included flag, metadata to support grouping by competition.
 - **Wheel Configuration**: Represents how the wheel behaves for a particular user.
   - Attributes: number of wheels (one or two), included leagues/nations, included and
-    excluded teams, last-used configuration, time of last update.
+    excluded teams, last-used configuration, time of last update; configuration can be
+    both persisted in browser storage and encoded/decoded from route URL query
+    parameters.
 - **Team Category**: Represents a grouping dimension for teams.
   - Attributes: identifier, label (e.g., league name or country), type (league or
     nation), ordering for display in configuration.

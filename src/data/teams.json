@@ -1,0 +1,596 @@
+[
+    {
+        "id": 1,
+        "name": "1. FC Köln",
+        "tla": "KOE",
+        "logoRef": "https://crests.football-data.org/1.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 2,
+        "name": "TSG 1899 Hoffenheim",
+        "tla": "TSG",
+        "logoRef": "https://crests.football-data.org/2.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 3,
+        "name": "Bayer 04 Leverkusen",
+        "tla": "B04",
+        "logoRef": "https://crests.football-data.org/3.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 4,
+        "name": "Borussia Dortmund",
+        "tla": "BVB",
+        "logoRef": "https://crests.football-data.org/4.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 5,
+        "name": "FC Bayern München",
+        "tla": "FCB",
+        "logoRef": "https://crests.football-data.org/5.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 6,
+        "name": "FC Schalke 04",
+        "tla": "S04",
+        "logoRef": "https://crests.football-data.org/6.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 7,
+        "name": "Hamburger SV",
+        "tla": "HSV",
+        "logoRef": "https://crests.football-data.org/7.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 8,
+        "name": "Hannover 96",
+        "tla": "H96",
+        "logoRef": "https://crests.football-data.org/8.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 9,
+        "name": "Hertha BSC",
+        "tla": "BSC",
+        "logoRef": "https://crests.football-data.org/9.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 10,
+        "name": "VfB Stuttgart",
+        "tla": "VFB",
+        "logoRef": "https://crests.football-data.org/10.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 11,
+        "name": "VfL Wolfsburg",
+        "tla": "WOB",
+        "logoRef": "https://crests.football-data.org/11.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 12,
+        "name": "SV Werder Bremen",
+        "tla": "SVW",
+        "logoRef": "https://crests.football-data.org/12.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 13,
+        "name": "1. FC Kaiserslautern",
+        "tla": "FCK",
+        "logoRef": "https://crests.football-data.org/13.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 14,
+        "name": "1. FC Nürnberg",
+        "tla": "FCN",
+        "logoRef": "https://crests.football-data.org/14.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 15,
+        "name": "1. FSV Mainz 05",
+        "tla": "M05",
+        "logoRef": "https://crests.football-data.org/15.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 16,
+        "name": "FC Augsburg",
+        "tla": "FCA",
+        "logoRef": "https://crests.football-data.org/16.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 17,
+        "name": "SC Freiburg",
+        "tla": "SCF",
+        "logoRef": "https://crests.football-data.org/17.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 18,
+        "name": "Borussia Mönchengladbach",
+        "tla": "BMG",
+        "logoRef": "https://crests.football-data.org/18.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 19,
+        "name": "Eintracht Frankfurt",
+        "tla": "SGE",
+        "logoRef": "https://crests.football-data.org/19.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 30,
+        "name": "FSV Frankfurt",
+        "tla": "FSV",
+        "logoRef": "https://crests.football-data.org/30.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 57,
+        "name": "Arsenal FC",
+        "tla": "ARS",
+        "logoRef": "https://crests.football-data.org/57.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 58,
+        "name": "Aston Villa FC",
+        "tla": "AVL",
+        "logoRef": "https://crests.football-data.org/58.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 61,
+        "name": "Chelsea FC",
+        "tla": "CHE",
+        "logoRef": "https://crests.football-data.org/61.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 62,
+        "name": "Everton FC",
+        "tla": "EVE",
+        "logoRef": "https://crests.football-data.org/62.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 63,
+        "name": "Fulham FC",
+        "tla": "FUL",
+        "logoRef": "https://crests.football-data.org/63.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 64,
+        "name": "Liverpool FC",
+        "tla": "LIV",
+        "logoRef": "https://crests.football-data.org/64.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 65,
+        "name": "Manchester City FC",
+        "tla": "MCI",
+        "logoRef": "https://crests.football-data.org/65.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 66,
+        "name": "Manchester United FC",
+        "tla": "MUN",
+        "logoRef": "https://crests.football-data.org/66.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 67,
+        "name": "Newcastle United FC",
+        "tla": "NEW",
+        "logoRef": "https://crests.football-data.org/67.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 71,
+        "name": "Sunderland AFC",
+        "tla": "SUN",
+        "logoRef": "https://crests.football-data.org/71.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 72,
+        "name": "Swansea City AFC",
+        "tla": "SWA",
+        "logoRef": "https://crests.football-data.org/72.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 73,
+        "name": "Tottenham Hotspur FC",
+        "tla": "TOT",
+        "logoRef": "https://crests.football-data.org/73.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 76,
+        "name": "Wolverhampton Wanderers FC",
+        "tla": "WOL",
+        "logoRef": "https://crests.football-data.org/76.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 77,
+        "name": "Athletic Club",
+        "tla": "ATH",
+        "logoRef": "https://crests.football-data.org/77.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 78,
+        "name": "Club Atlético de Madrid",
+        "tla": "ATL",
+        "logoRef": "https://crests.football-data.org/78.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 79,
+        "name": "CA Osasuna",
+        "tla": "OSA",
+        "logoRef": "https://crests.football-data.org/79.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 80,
+        "name": "RCD Espanyol de Barcelona",
+        "tla": "ESP",
+        "logoRef": "https://crests.football-data.org/80.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 81,
+        "name": "FC Barcelona",
+        "tla": "FCB",
+        "logoRef": "https://crests.football-data.org/81.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 82,
+        "name": "Getafe CF",
+        "tla": "GET",
+        "logoRef": "https://crests.football-data.org/82.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 83,
+        "name": "Granada CF",
+        "tla": "GRA",
+        "logoRef": "https://crests.football-data.org/83.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 84,
+        "name": "Málaga CF",
+        "tla": "MAL",
+        "logoRef": "https://crests.football-data.org/84.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 86,
+        "name": "Real Madrid CF",
+        "tla": "RMA",
+        "logoRef": "https://crests.football-data.org/86.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 87,
+        "name": "Rayo Vallecano de Madrid",
+        "tla": "RAY",
+        "logoRef": "https://crests.football-data.org/87.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 88,
+        "name": "Levante UD",
+        "tla": "LEV",
+        "logoRef": "https://crests.football-data.org/88.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 89,
+        "name": "RCD Mallorca",
+        "tla": "MAL",
+        "logoRef": "https://crests.football-data.org/89.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 90,
+        "name": "Real Betis Balompié",
+        "tla": "BET",
+        "logoRef": "https://crests.football-data.org/90.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 91,
+        "name": "Real Zaragoza",
+        "tla": "ZAR",
+        "logoRef": "https://crests.football-data.org/91.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 92,
+        "name": "Real Sociedad de Fútbol",
+        "tla": "RSO",
+        "logoRef": "https://crests.football-data.org/92.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 94,
+        "name": "Villarreal CF",
+        "tla": "VIL",
+        "logoRef": "https://crests.football-data.org/94.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 95,
+        "name": "Valencia CF",
+        "tla": "VAL",
+        "logoRef": "https://crests.football-data.org/95.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 96,
+        "name": "Real Sporting de Gijón",
+        "tla": "SPO",
+        "logoRef": "https://crests.football-data.org/96.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 98,
+        "name": "AC Milan",
+        "tla": "MIL",
+        "logoRef": "https://crests.football-data.org/98.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 99,
+        "name": "ACF Fiorentina",
+        "tla": "FIO",
+        "logoRef": "https://crests.football-data.org/99.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 100,
+        "name": "AS Roma",
+        "tla": "ROM",
+        "logoRef": "https://crests.football-data.org/100.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 102,
+        "name": "Atalanta BC",
+        "tla": "ATA",
+        "logoRef": "https://crests.football-data.org/102.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 103,
+        "name": "Bologna FC 1909",
+        "tla": "BOL",
+        "logoRef": "https://crests.football-data.org/103.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 108,
+        "name": "FC Internazionale Milano",
+        "tla": "INT",
+        "logoRef": "https://crests.football-data.org/108.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 109,
+        "name": "Juventus FC",
+        "tla": "JUV",
+        "logoRef": "https://crests.football-data.org/109.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 110,
+        "name": "SS Lazio",
+        "tla": "LAZ",
+        "logoRef": "https://crests.football-data.org/110.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 113,
+        "name": "SSC Napoli",
+        "tla": "NAP",
+        "logoRef": "https://crests.football-data.org/113.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 328,
+        "name": "Burnley FC",
+        "tla": "BUR",
+        "logoRef": "https://crests.football-data.org/328.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 341,
+        "name": "Leeds United FC",
+        "tla": "LEE",
+        "logoRef": "https://crests.football-data.org/341.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 351,
+        "name": "Nottingham Forest FC",
+        "tla": "NOT",
+        "logoRef": "https://crests.football-data.org/351.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 354,
+        "name": "Crystal Palace FC",
+        "tla": "CRY",
+        "logoRef": "https://crests.football-data.org/354.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 397,
+        "name": "Brighton & Hove Albion FC",
+        "tla": "BHA",
+        "logoRef": "https://crests.football-data.org/397.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    },
+    {
+        "id": 402,
+        "name": "Brentford FC",
+        "tla": "BRE",
+        "logoRef": "https://crests.football-data.org/402.png",
+        "starRating": 0,
+        "defaultIncluded": false,
+        "leagueOrNation": null
+    }
+]
