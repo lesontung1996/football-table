@@ -95,6 +95,12 @@ result without touching any configuration screens.
   loading image assets from the `public/images` directory.
 - **FR-019**: All team logos rendered in the wheel and in any related grids MUST use a
   consistent width and height so that the logo grid appears visually uniform.
+- **FR-020**: Wheel configuration and UI state for this feature MUST be managed within
+  self-contained React components and/or hooks rather than relying on global Redux
+  state, since other pages do not need this state.
+- **FR-021**: The core `RandomTeamWheel` component MUST be designed to be reusable so it
+  can be embedded in other contexts (e.g., a future `MatchCard` component) without
+  depending on page-level or global state.
 
 ### Key Entities *(include if feature involves data)*
 
