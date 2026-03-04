@@ -19,12 +19,12 @@ testing of each story.
 
 **Purpose**: Confirm baseline project setup and structure for the Random Team Wheel feature.
 
-- [ ] T001 Ensure project dependencies (Next 14.2.35, React ^18, Redux Toolkit ^2.11.2,
+- [x] T001 Ensure project dependencies (Next 14.2.35, React ^18, Redux Toolkit ^2.11.2,
       react-redux ^9.2.0, tailwindcss ^3.4.1, TypeScript ^5) are installed and lockfile is up
       to date
-- [ ] T002 [P] Verify Tailwind FPL color theme configuration in `tailwind.config.ts` matches
+- [x] T002 [P] Verify Tailwind FPL color theme configuration in `tailwind.config.ts` matches
       desired palette for the wheel UI
-- [ ] T003 Create route folder and placeholder page component for Random Team Wheel at
+- [x] T003 Create route folder and placeholder page component for Random Team Wheel at
       `src/app/random-wheel/page.tsx`
 
 ---
@@ -36,23 +36,20 @@ is implemented.
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T004 Define or confirm TypeScript `Team` type and related helpers based on
+- [x] T004 Define or confirm TypeScript `Team` type and related helpers based on
       `src/data/teams.json` in `src/lib/random-wheel/defaultTeams.ts`
-- [ ] T005 [P] Implement a teams loader in `src/lib/random-wheel/defaultTeams.ts` that reads
+- [x] T005 [P] Implement a teams loader in `src/lib/random-wheel/defaultTeams.ts` that reads
       from `src/data/teams.json` and builds a `Map<string, Team>` keyed by TLA
-- [ ] T006 [P] Implement `randomSelection` and shuffle utilities in
+- [x] T006 [P] Implement `randomSelection` and shuffle utilities in
       `src/lib/random-wheel/randomSelection.ts` using uniform randomness and per‑spin
       shuffle
-- [ ] T007 Implement a small persistence service in `src/lib/random-wheel/persistence.ts`
+- [x] T007 Implement a small persistence service in `src/lib/random-wheel/persistence.ts`
       to read/write wheel configuration from browser storage under a namespaced key
-- [ ] T008 Implement URL sync helpers in `src/lib/random-wheel/urlSync.ts` to:
+- [x] T008 Implement URL sync helpers in `src/lib/random-wheel/urlSync.ts` to:
       parse `wheel` and `teams` query params into configuration and serialize configuration
       back into a query string
-- [ ] T009 Implement a reusable configuration hook `useRandomTeamWheelConfig` in
-      `src/lib/random-wheel/useRandomTeamWheelConfig.ts` that:
-      - Initializes state from URL + persistence
-      - Exposes configuration state and setters
-      - Keeps URL and local storage in sync on changes
+- [x] T009 Implement a reusable configuration hook `useRandomTeamWheelConfig` in
+      `src/lib/random-wheel/useRandomTeamWheelConfig.ts` that: - Initializes state from URL + persistence - Exposes configuration state and setters - Keeps URL and local storage in sync on changes
 
 **Checkpoint**: Foundation ready – user story implementation can now begin.
 
@@ -70,50 +67,38 @@ modal, on both mobile and desktop, without touching other app pages.
 
 ### Implementation for User Story 1
 
-- [ ] T011 [P] [US1] Implement initial data loading in `src/app/random-wheel/page.tsx` to
-      load teams from `src/data/teams.json` and build a `Map<string, Team>` via the
-      helpers in `src/lib/random-wheel/defaultTeams.ts`
-- [ ] T012 [P] [US1] Implement configuration initialization in
-      `src/app/random-wheel/page.tsx` to:
-      - Read `wheel` and `teams` query params via App Router search params
-      - Fallback to default `wheel=1` and default team TLAs if params are missing
-- [ ] T013 [US1] Wire configuration initialization into the `useRandomTeamWheelConfig`
+- [x] T011 [P] [US1] Implement initial data loading in `src/app/random-wheel/page.tsx` to
+      load teams via helpers in `src/lib/random-wheel/defaultTeams.ts`
+- [x] T012 [P] [US1] Implement configuration initialization in
+      `src/app/random-wheel/page.tsx` so the `useRandomTeamWheelConfig` hook reads `wheel`
+      and `teams` query params via App Router search params and falls back to sensible
+      defaults when missing
+- [x] T013 [US1] Wire configuration initialization into the `useRandomTeamWheelConfig`
       hook so it becomes the single source of truth for wheel configuration state in
       this feature
-- [ ] T014 [P] [US1] Ensure `useRandomTeamWheelConfig` integrates with
+- [x] T014 [P] [US1] Ensure `useRandomTeamWheelConfig` integrates with
       `src/lib/random-wheel/persistence.ts` so configuration changes are saved to
       browser storage
-- [ ] T015 [P] [US1] Implement `RandomTeamWheel.tsx` in
+- [x] T015 [P] [US1] Implement `RandomTeamWheel.tsx` in
       `src/components/random-wheel/RandomTeamWheel.tsx` to render one or two wheels, using
       randomized slice ordering from `randomSelection.ts`
-- [ ] T016 [P] [US1] Implement `WheelConfigPanel.tsx` in
-      `src/components/random-wheel/WheelConfigPanel.tsx` with:
-      - League/nation category toggles (all/none)
-      - Individual team toggles within each category
-- [ ] T017 [US1] Connect `WheelConfigPanel` to `useRandomTeamWheelConfig` so category and
+- [x] T016 [P] [US1] Implement `WheelConfigPanel.tsx` in
+      `src/components/random-wheel/WheelConfigPanel.tsx` with: - League/nation category toggles (all/none) - Individual team toggles within each category
+- [x] T017 [US1] Connect `WheelConfigPanel` to `useRandomTeamWheelConfig` so category and
       team toggles update configuration state and trigger URL + persistence updates
-- [ ] T018 [P] [US1] Ensure `useRandomTeamWheelConfig` (and/or a small helper in
+- [x] T018 [P] [US1] Ensure `useRandomTeamWheelConfig` (and/or a small helper in
       `src/app/random-wheel/page.tsx`) uses `urlSync` helpers and shallow navigation so
       configuration changes are reflected in the URL
-- [ ] T019 [P] [US1] Implement team logo display and grid styles in
+- [x] T019 [P] [US1] Implement team logo display and grid styles in
       `src/components/random-wheel/RandomTeamWheel.tsx` (and related components) using
       Next.js `Image` with assets in `public/images/` and consistent width/height
-- [ ] T020 [US1] Implement spin interaction in `RandomTeamWheel`:
-      - Trigger per‑spin shuffle and random selection via `randomSelection.ts`
-      - Disable controls while animation is in progress
-- [ ] T021 [US1] Implement a result modal component in
-      `src/components/random-wheel/ResultModal.tsx` that:
-      - Announces the selected team for one wheel
-      - Announces both teams for two wheels in a clear layout
-- [ ] T022 [US1] Wire result modal visibility and content to the spin completion event in
+- [x] T020 [US1] Implement spin interaction in `RandomTeamWheel`: - Trigger per‑spin shuffle and random selection via `randomSelection.ts` - Disable controls while animation is in progress
+- [x] T021 [US1] Implement a result modal component in
+      `src/components/random-wheel/ResultModal.tsx` that: - Announces the selected team for one wheel - Announces both teams for two wheels in a clear layout
+- [x] T022 [US1] Wire result modal visibility and content to the spin completion event in
       `RandomTeamWheel` using local or slice state
-- [ ] T023 [US1] Add validation and user‑friendly error handling for:
-      - No eligible teams (prevent spin, show message)
-      - Invalid TLAs in the `teams` query param (ignore and fall back to defaults)
-- [ ] T024 [US1] Perform a manual UX pass on `/random-wheel` to ensure:
-      - Flow is simple and obvious
-      - Layout works on narrow mobile viewports and desktop
-      - FPL theme and visuals are consistent with the rest of the app
+- [x] T023 [US1] Add validation and user‑friendly error handling for: - No eligible teams (prevent spin, show message) - Invalid TLAs in the `teams` query param (ignore and fall back to defaults)
+- [x] T024 [US1] Perform a manual UX pass on `/random-wheel` to ensure: - Flow is simple and obvious - Layout works on narrow mobile viewports and desktop - FPL theme and visuals are consistent with the rest of the app
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable
 independently via manual testing.
@@ -181,4 +166,3 @@ independently via manual testing.
    - League/nation and team‑level toggles
    - URL + local storage configuration persistence
 3. Polish visuals, animations, and responsive layout.
-
