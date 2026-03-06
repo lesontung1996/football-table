@@ -34,14 +34,13 @@ export function RandomTeamWheel({
 
     setIsSpinning(true);
 
-    const first = randomTeamSelection(teams);
-    const second =
+    const firstRandomTeam = randomTeamSelection(teams);
+    const secondRandomTeam =
       config.numberOfWheels === 2 ? randomTeamSelection(teams) : null;
 
-    const resultTeams: Team[] = [
-      first.selectedItem,
-      second?.selectedItem,
-    ].filter((t): t is Team => Boolean(t));
+    const resultTeams: Team[] = [firstRandomTeam, secondRandomTeam].filter(
+      (t): t is Team => Boolean(t),
+    );
 
     setTimeout(() => {
       setIsSpinning(false);

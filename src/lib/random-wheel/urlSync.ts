@@ -5,7 +5,9 @@ export interface UrlConfig {
   teamTlas: string[];
 }
 
-const parseNumberOfWheels = (value: string | null | undefined): NumberOfWheels => {
+const parseNumberOfWheels = (
+  value: string | null | undefined,
+): NumberOfWheels => {
   if (value === "2") return 2;
   return 1;
 };
@@ -26,7 +28,8 @@ export const parseUrlConfig = (
   const wheelParam = searchParams.get("wheel");
   const teamsParam = searchParams.get("teams");
 
-  const numberOfWheels = parseNumberOfWheels(wheelParam) || defaults.numberOfWheels;
+  const numberOfWheels =
+    parseNumberOfWheels(wheelParam) || defaults.numberOfWheels;
   const fromParams = parseTeamTlas(teamsParam);
 
   return {

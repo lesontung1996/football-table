@@ -21,7 +21,10 @@ export function WheelConfigPanel({
     new Set(allTeams.map((t) => t.leagueOrNation)),
   ).sort();
 
-  const toggleLeagueOrNation = (leagueOrNation: string, includeAll: boolean) => {
+  const toggleLeagueOrNation = (
+    leagueOrNation: string,
+    includeAll: boolean,
+  ) => {
     const leagueTeams = allTeams.filter(
       (team) => team.leagueOrNation === leagueOrNation,
     );
@@ -147,4 +150,3 @@ export function WheelConfigPanel({
     </section>
   );
 }
-
