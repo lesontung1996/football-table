@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { Team, WheelConfiguration } from "./types";
-import { DEFAULT_TEAM_TLAS, allTeams, teamsByTla } from "./defaultTeams";
+import { DEFAULT_TEAM_TLAS, teamsByTla } from "./defaultTeams";
 import { loadWheelConfiguration, saveWheelConfiguration } from "./persistence";
 import { parseUrlConfig, serializeUrlConfig } from "./urlSync";
 
@@ -9,8 +9,8 @@ export interface RandomTeamWheelConfigState {
   config: WheelConfiguration | null;
   includedTeams: Team[];
   setNumberOfWheels: (count: WheelConfiguration["numberOfWheels"]) => void;
-  setIncludedTeamIds: (ids: number[]) => void;
-  toggleTeam: (teamId: number) => void;
+  setTeamTlas: (tlas: string[]) => void;
+  toggleTeam: (teamTla: string) => void;
 }
 
 const buildInitialConfig = (
@@ -18,51 +18,12 @@ const buildInitialConfig = (
 ): WheelConfiguration => {
   const persisted = loadWheelConfiguration();
 
-  if (searchParams) {
-    const urlConfig = parseUrlConfig(searchParams, {
-      numberOfWheels: persisted?.numberOfWheels ?? 1,
-      teamTlas:
-        persisted?.includedTeamIds
-          ?.map((id) =>
-            allTeams.find((team) => team.id === id)?.tla ?? null,
-          )
-          .filter((tla): tla is string => Boolean(tla)) ?? DEFAULT_TEAM_TLAS,
-    });
-
-    const includedTeamIds = urlConfig.teamTlas
-      .map((tla) => teamsByTla.get(tla)?.id ?? null)
-      .filter((id): id is number => id !== null);
-
-    if (includedTeamIds.length > 0) {
-      return {
-        id: persisted?.id ?? "default",
-        numberOfWheels: urlConfig.numberOfWheels,
-        includedLeagueOrNationIds: persisted?.includedLeagueOrNationIds ?? [],
-        excludedTeamIds: [],
-        includedTeamIds,
-        lastUpdatedAt: persisted?.lastUpdatedAt ?? new Date().toISOString(),
-        version: persisted?.version ?? "1",
-        queryParamsSnapshot: serializeUrlConfig(urlConfig),
-      };
-    }
-  }
-
-  if (persisted) {
-    return persisted;
-  }
-
-  const defaultIncludedTeamIds = DEFAULT_TEAM_TLAS.map(
-    (tla) => teamsByTla.get(tla)?.id ?? null,
-  ).filter((id): id is number => id !== null);
+  const { numberOfWheels: numberOfWheelsFromUrl, teamTlas: teamTlasFromUrl } =
+    parseUrlConfig(searchParams);
 
   return {
-    id: "default",
-    numberOfWheels: 1,
-    includedLeagueOrNationIds: [],
-    excludedTeamIds: [],
-    includedTeamIds: defaultIncludedTeamIds,
-    lastUpdatedAt: new Date().toISOString(),
-    version: "1",
+    numberOfWheels: numberOfWheelsFromUrl ?? persisted?.numberOfWheels ?? 1,
+    teamTlas: teamTlasFromUrl ?? persisted?.teamTlas ?? DEFAULT_TEAM_TLAS,
   };
 };
 
@@ -77,46 +38,30 @@ export const useRandomTeamWheelConfig = (): RandomTeamWheelConfigState => {
     if (config === null) {
       setConfig(buildInitialConfig(searchParams));
     }
-    // We intentionally only want this to run once on mount while config is null.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [config, searchParams]);
+  }, []);
 
   const includedTeams = useMemo<Team[]>(() => {
     if (!config) return [];
-    const excludedSet = new Set(config.excludedTeamIds);
-    const explicitIncludedSet =
-      config.includedTeamIds.length > 0
-        ? new Set(config.includedTeamIds)
-        : null;
-
-    return allTeams.filter((team) => {
-      if (excludedSet.has(team.id)) return false;
-      if (explicitIncludedSet && !explicitIncludedSet.has(team.id)) {
-        return false;
-      }
-      return true;
-    });
-  }, [config]);
+    return config.teamTlas
+      .map((tla) => teamsByTla.get(tla))
+      .filter((team): team is Team => Boolean(team));
+  }, [config?.teamTlas]);
 
   useEffect(() => {
     if (!config) return;
 
     saveWheelConfiguration(config);
 
-    const teamTlas = config.includedTeamIds
-      .map((id) => allTeams.find((team) => team.id === id)?.tla ?? null)
-      .filter((tla): tla is string => Boolean(tla));
-
     const urlConfig = {
       numberOfWheels: config.numberOfWheels,
-      teamTlas,
+      teamTlas: config.teamTlas,
     };
 
     const query = serializeUrlConfig(urlConfig);
     const url = query ? `${pathname}?${query}` : pathname;
 
     router.replace(url, { scroll: false });
-  }, [config, pathname, router]);
+  }, [config, pathname]);
 
   const setNumberOfWheels: RandomTeamWheelConfigState["setNumberOfWheels"] = (
     count,
@@ -131,27 +76,25 @@ export const useRandomTeamWheelConfig = (): RandomTeamWheelConfigState => {
     );
   };
 
-  const setIncludedTeamIds: RandomTeamWheelConfigState["setIncludedTeamIds"] = (
-    ids,
-  ) => {
+  const setTeamTlas: RandomTeamWheelConfigState["setTeamTlas"] = (tlas) => {
     setConfig((prev) =>
       prev
         ? {
             ...prev,
-            includedTeamIds: ids,
+            teamTlas: tlas,
           }
         : prev,
     );
   };
 
-  const toggleTeam: RandomTeamWheelConfigState["toggleTeam"] = (teamId) => {
+  const toggleTeam: RandomTeamWheelConfigState["toggleTeam"] = (teamTla) => {
     setConfig((prev) => {
       if (!prev) return prev;
-      const includedSet = new Set(prev.includedTeamIds);
-      if (includedSet.has(teamId)) {
-        includedSet.delete(teamId);
+      const includedSet = new Set(prev.teamTlas);
+      if (includedSet.has(teamTla)) {
+        includedSet.delete(teamTla);
       } else {
-        includedSet.add(teamId);
+        includedSet.add(teamTla);
       }
       return {
         ...prev,
@@ -164,8 +107,7 @@ export const useRandomTeamWheelConfig = (): RandomTeamWheelConfigState => {
     config,
     includedTeams,
     setNumberOfWheels,
-    setIncludedTeamIds,
+    setTeamTlas,
     toggleTeam,
   };
 };
-

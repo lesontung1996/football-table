@@ -7,13 +7,14 @@ export interface UrlConfig {
 
 const parseNumberOfWheels = (
   value: string | null | undefined,
-): NumberOfWheels => {
+): NumberOfWheels | null => {
+  if (!value) return null;
   if (value === "2") return 2;
   return 1;
 };
 
-const parseTeamTlas = (value: string | null | undefined): string[] => {
-  if (!value) return [];
+const parseTeamTlas = (value: string | null | undefined): string[] | null => {
+  if (!value) return null;
   return value
     .split(",")
     .map((part) => part.trim())
@@ -22,19 +23,17 @@ const parseTeamTlas = (value: string | null | undefined): string[] => {
 };
 
 export const parseUrlConfig = (
-  searchParams: URLSearchParams,
-  defaults: { numberOfWheels: NumberOfWheels; teamTlas: string[] },
-): UrlConfig => {
-  const wheelParam = searchParams.get("wheel");
-  const teamsParam = searchParams.get("teams");
-
-  const numberOfWheels =
-    parseNumberOfWheels(wheelParam) || defaults.numberOfWheels;
-  const fromParams = parseTeamTlas(teamsParam);
+  searchParams: URLSearchParams | null,
+): {
+  numberOfWheels: NumberOfWheels | null;
+  teamTlas: string[] | null;
+} => {
+  const wheelParam = searchParams?.get("wheel");
+  const teamsParam = searchParams?.get("teams");
 
   return {
-    numberOfWheels,
-    teamTlas: fromParams.length > 0 ? fromParams : defaults.teamTlas,
+    numberOfWheels: parseNumberOfWheels(wheelParam),
+    teamTlas: parseTeamTlas(teamsParam),
   };
 };
 

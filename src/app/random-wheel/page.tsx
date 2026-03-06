@@ -10,7 +10,8 @@ import type { Team } from "@/lib/random-wheel/types";
 import { useRandomTeamWheelConfig } from "@/lib/random-wheel/useRandomTeamWheelConfig";
 
 export default function RandomWheelPage() {
-  const { config, includedTeams } = useRandomTeamWheelConfig();
+  const { config, includedTeams, setTeamTlas, setNumberOfWheels } =
+    useRandomTeamWheelConfig();
   const [open, setOpen] = useState(false);
   const [resultTeams, setResultTeams] = useState<Team[]>([]);
 
@@ -24,13 +25,8 @@ export default function RandomWheelPage() {
 
   const handleConfigChange = (nextConfig: typeof config) => {
     console.log("handleConfigChange", nextConfig);
-    // The hook owns persistence and URL sync; we only update its config
-    // via its exposed setters, so this helper is a no-op placeholder for now.
-    // It exists to align with the component contract for RandomTeamWheel
-    // and WheelConfigPanel, which both expect a full config object.
-    // In the current implementation, we mutate configuration through
-    // the hook’s dedicated methods instead.
-    return nextConfig;
+    setTeamTlas(nextConfig.teamTlas);
+    setNumberOfWheels(nextConfig.numberOfWheels);
   };
 
   const handleResult = (payload: { wheelCount: 1 | 2; teams: Team[] }) => {

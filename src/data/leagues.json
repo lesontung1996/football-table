@@ -1,14 +1,14 @@
 [
   {
-    "id": 2013,
-    "code": "BSA",
-    "name": "Campeonato Brasileiro Série A",
-    "logoRef": "/images/leagues/bsa.png",
+    "id": 2021,
+    "code": "PL",
+    "name": "Premier League",
+    "logoRef": "/images/leagues/PL.png",
     "area": {
-      "id": 2032,
-      "name": "Brazil",
-      "code": "BRA",
-      "flag": "/images/flags/764.svg"
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "/images/flags/770.svg"
     }
   },
   {
@@ -24,15 +24,15 @@
     }
   },
   {
-    "id": 2021,
-    "code": "PL",
-    "name": "Premier League",
-    "logoRef": "/images/leagues/PL.png",
+    "id": 2014,
+    "code": "PD",
+    "name": "LaLiga",
+    "logoRef": "/images/leagues/laliga.png",
     "area": {
-      "id": 2072,
-      "name": "England",
-      "code": "ENG",
-      "flag": "/images/flags/770.svg"
+      "id": 2224,
+      "name": "Spain",
+      "code": "ESP",
+      "flag": "/images/flags/760.svg"
     }
   },
   {
@@ -72,6 +72,18 @@
     }
   },
   {
+    "id": 2013,
+    "code": "BSA",
+    "name": "Campeonato Brasileiro Série A",
+    "logoRef": "/images/leagues/bsa.png",
+    "area": {
+      "id": 2032,
+      "name": "Brazil",
+      "code": "BRA",
+      "flag": "/images/flags/764.svg"
+    }
+  },
+  {
     "id": 2003,
     "code": "DED",
     "name": "Eredivisie",
@@ -96,15 +108,7 @@
     }
   },
   {
-    "id": 2014,
-    "code": "PD",
-    "name": "LaLiga",
-    "logoRef": "/images/leagues/laliga.png",
-    "area": {
-      "id": 2224,
-      "name": "Spain",
-      "code": "ESP",
-      "flag": "/images/flags/760.svg"
-    }
+    "code": "Nation",
+    "name": "National teams"
   }
 ]

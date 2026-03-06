@@ -33,28 +33,11 @@ export const DEFAULT_TEAM_TLAS: string[] = [
   "ESP",
 ];
 
-const normalizeTeam = (raw: any): Team => ({
-  id: Number(raw.id),
-  name: String(raw.name),
-  tla: String(raw.tla).toUpperCase(),
-  logoRef: String(raw.logoRef),
-  starRating: typeof raw.starRating === "number" ? raw.starRating : 0,
-  defaultIncluded: Boolean(raw.defaultIncluded),
-  leagueOrNation: String(raw.leagueOrNation),
-});
+export const allTeams: Team[] = teamsData;
 
-export const allTeams: Team[] = (teamsData as any[]).map(normalizeTeam);
-
-const teamsByTlaInternal: Map<string, Team> = new Map(
+export const teamsByTla: Map<string, Team> = new Map(
   allTeams.map((team) => [team.tla, team]),
 );
 
-export const teamsByTla = teamsByTlaInternal;
-
 export const getTeamByTla = (tla: string): Team | undefined =>
-  teamsByTlaInternal.get(tla.toUpperCase());
-
-export const buildTeamsMap = (teams: Team[] = allTeams): Map<string, Team> =>
-  new Map(teams.map((team) => [team.tla, team]));
-
-export type { Team } from "./types";
+  teamsByTla.get(tla.toUpperCase());

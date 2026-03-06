@@ -20,15 +20,12 @@ export const loadWheelConfiguration = (): WheelConfiguration | null => {
   }
 };
 
-export const saveWheelConfiguration = (
-  config: WheelConfiguration,
-): void => {
+export const saveWheelConfiguration = (config: WheelConfiguration): void => {
   if (!isBrowser()) return;
 
   try {
     const next: WheelConfiguration = {
       ...config,
-      lastUpdatedAt: new Date().toISOString(),
     };
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
   } catch (error) {

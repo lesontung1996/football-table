@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import type { Team, WheelConfiguration } from "@/lib/random-wheel/types";
+import leagues from "@/data/leagues.json";
 
 interface WheelConfigPanelProps {
   allTeams: Team[];
@@ -15,7 +17,7 @@ export function WheelConfigPanel({
   includedTeams,
   onConfigChange,
 }: WheelConfigPanelProps) {
-  const includedIdSet = new Set(includedTeams.map((t) => t.id));
+  const includedTlaSet = new Set(includedTeams.map((t) => t.tla));
 
   const leaguesOrNations = Array.from(
     new Set(allTeams.map((t) => t.leagueOrNation)),
@@ -25,35 +27,31 @@ export function WheelConfigPanel({
     leagueOrNation: string,
     includeAll: boolean,
   ) => {
-    const leagueTeams = allTeams.filter(
-      (team) => team.leagueOrNation === leagueOrNation,
-    );
-    const currentIncluded = new Set(config.includedTeamIds);
-
-    leagueTeams.forEach((team) => {
-      if (includeAll) {
-        currentIncluded.add(team.id);
-      } else {
-        currentIncluded.delete(team.id);
-      }
-    });
-
-    onConfigChange({
-      ...config,
-      includedTeamIds: Array.from(currentIncluded),
-    });
-  };
-
-  const toggleTeam = (teamId: number) => {
-    const currentIncluded = new Set(config.includedTeamIds);
-    if (currentIncluded.has(teamId)) {
-      currentIncluded.delete(teamId);
+    let result: string[] = [];
+    const leagueTeamTlas = allTeams
+      .filter((team) => team.leagueOrNation === leagueOrNation)
+      .map((team) => team.tla);
+    if (includeAll) {
+      result = Array.from(new Set([...config.teamTlas, ...leagueTeamTlas]));
     } else {
-      currentIncluded.add(teamId);
+      result = config.teamTlas.filter((tla) => !leagueTeamTlas.includes(tla));
     }
     onConfigChange({
       ...config,
-      includedTeamIds: Array.from(currentIncluded),
+      teamTlas: result,
+    });
+  };
+
+  const toggleTeam = (teamTla: string) => {
+    const currentIncluded = new Set(config.teamTlas);
+    if (currentIncluded.has(teamTla)) {
+      currentIncluded.delete(teamTla);
+    } else {
+      currentIncluded.add(teamTla);
+    }
+    onConfigChange({
+      ...config,
+      teamTlas: Array.from(currentIncluded),
     });
   };
 
@@ -71,26 +69,35 @@ export function WheelConfigPanel({
       </header>
 
       <div className="max-h-80 space-y-3 overflow-y-auto pr-1 text-xs">
-        {leaguesOrNations.map((group) => {
+        {leagues.map((league) => {
           const groupTeams = allTeams.filter(
-            (team) => team.leagueOrNation === group,
+            (team) => team.leagueOrNation === league.code,
           );
           const total = groupTeams.length;
           const includedCount = groupTeams.filter((team) =>
-            includedIdSet.has(team.id),
+            includedTlaSet.has(team.tla),
           ).length;
           const allIncluded = includedCount === total && total > 0;
           const noneIncluded = includedCount === 0;
 
           return (
             <div
-              key={group}
+              key={league.code}
               className="rounded-lg bg-fpl-1000/80 p-3 ring-1 ring-white/5"
             >
               <div className="mb-2 flex items-center justify-between gap-2">
                 <div>
+                  {league.logoRef && (
+                    <Image
+                      src={league.logoRef}
+                      alt={league.name}
+                      width={20}
+                      height={20}
+                      className="h-4 w-4"
+                    />
+                  )}
                   <p className="text-xs font-semibold text-white">
-                    {group === "Nation" ? "National teams" : group}
+                    {league.name}
                   </p>
                   <p className="text-[11px] text-white/60">
                     {includedCount}/{total} teams included
@@ -99,7 +106,7 @@ export function WheelConfigPanel({
                 <div className="inline-flex gap-1">
                   <button
                     type="button"
-                    onClick={() => toggleLeagueOrNation(group, true)}
+                    onClick={() => toggleLeagueOrNation(league.code, true)}
                     className={`rounded-md px-2 py-1 text-[11px] font-semibold transition ${
                       allIncluded
                         ? "bg-white text-fpl-1100"
@@ -110,7 +117,7 @@ export function WheelConfigPanel({
                   </button>
                   <button
                     type="button"
-                    onClick={() => toggleLeagueOrNation(group, false)}
+                    onClick={() => toggleLeagueOrNation(league.code, false)}
                     className={`rounded-md px-2 py-1 text-[11px] font-semibold transition ${
                       noneIncluded
                         ? "bg-fpl-900 text-white"
@@ -123,12 +130,12 @@ export function WheelConfigPanel({
               </div>
               <div className="grid grid-cols-2 gap-1 md:grid-cols-3">
                 {groupTeams.map((team) => {
-                  const isIncluded = includedIdSet.has(team.id);
+                  const isIncluded = includedTlaSet.has(team.tla);
                   return (
                     <button
                       key={team.id}
                       type="button"
-                      onClick={() => toggleTeam(team.id)}
+                      onClick={() => toggleTeam(team.tla)}
                       className={`flex items-center justify-between rounded-md px-2 py-1 text-[11px] transition ${
                         isIncluded
                           ? "bg-fpl-900 text-white"
@@ -136,9 +143,13 @@ export function WheelConfigPanel({
                       }`}
                     >
                       <span className="truncate">{team.name}</span>
-                      <span className="ml-1 text-[10px] uppercase opacity-80">
-                        {team.tla}
-                      </span>
+                      <Image
+                        src={team.logoRef}
+                        alt={team.name}
+                        width={20}
+                        height={20}
+                        className={`h-4 w-4`}
+                      />
                     </button>
                   );
                 })}

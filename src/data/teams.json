@@ -299,7 +299,7 @@
   {
     "id": 345,
     "name": "Sheffield Wednesday FC",
-    "tla": "SHE",
+    "tla": "SWF",
     "logoRef": "/images/teams/345.png",
     "starRating": 0,
     "defaultIncluded": false,
@@ -407,7 +407,7 @@
   {
     "id": 512,
     "name": "Stade Brestois 29",
-    "tla": "BRE",
+    "tla": "S29",
     "logoRef": "/images/teams/512.png",
     "starRating": 0,
     "defaultIncluded": false,
@@ -1497,7 +1497,7 @@
   {
     "id": 1779,
     "name": "SC Corinthians Paulista",
-    "tla": "COR",
+    "tla": "SCP",
     "logoRef": "/images/teams/1779.png",
     "starRating": 0,
     "defaultIncluded": false,
