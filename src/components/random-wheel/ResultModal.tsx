@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { Team } from "@/lib/random-wheel/types";
+import { X } from "lucide-react";
 
 interface ResultModalProps {
   open: boolean;
@@ -9,15 +10,24 @@ interface ResultModalProps {
   onClose: () => void;
 }
 
-export function ResultModal({ open, teams, onClose }: ResultModalProps) {
+export default function ResultModal({
+  open,
+  teams,
+  onClose,
+}: ResultModalProps) {
   if (!open) return null;
 
-  const title =
-    teams.length === 1 ? "Selected team" : "Selected teams";
+  const title = teams.length === 1 ? "Selected team" : "Selected teams";
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/70 px-4">
-      <div className="w-full max-w-md rounded-2xl bg-fpl-1100 p-5 shadow-2xl">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-md rounded-2xl bg-fpl-1100 p-5 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
         <header className="mb-3 flex items-center justify-between">
           <div>
             <h2 className="text-lg font-semibold text-white">{title}</h2>
@@ -28,9 +38,10 @@ export function ResultModal({ open, teams, onClose }: ResultModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="h-8 rounded-full px-3 text-xs font-semibold text-white/80 ring-1 ring-white/40 hover:bg-white/10"
+            className="flex items-center gap-2 h-8 rounded-lg px-3 text-xs font-semibold text-white/80 ring-1 ring-white/40 hover:bg-white/10"
           >
-            Close
+            <X size={16} />
+            <span className="sr-only">Close</span>
           </button>
         </header>
 
@@ -53,8 +64,8 @@ export function ResultModal({ open, teams, onClose }: ResultModalProps) {
                     <Image
                       src={team.logoRef}
                       alt={team.name}
-                      width={48}
-                      height={48}
+                      width={100}
+                      height={100}
                       className="h-12 w-12 rounded-full object-contain"
                     />
                     <span className="absolute -top-1 -left-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-fpl-accent text-[11px] font-bold text-fpl-1100">
@@ -79,4 +90,3 @@ export function ResultModal({ open, teams, onClose }: ResultModalProps) {
     </div>
   );
 }
-

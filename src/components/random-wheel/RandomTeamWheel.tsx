@@ -1,9 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { Team, WheelConfiguration } from "@/lib/random-wheel/types";
 import { randomTeamSelection } from "@/lib/random-wheel/randomSelection";
+import SpinningWheel from "./SpinningWheel";
+
+const MIN_FULL_SPINS = 4;
+const MAX_FULL_SPINS = 7;
 
 interface RandomTeamWheelProps {
   teams: Team[];
@@ -12,13 +15,41 @@ interface RandomTeamWheelProps {
   onResult: (result: { wheelCount: 1 | 2; teams: Team[] }) => void;
 }
 
-export function RandomTeamWheel({
+function computeTargetRotation(
+  currentRotation: number,
+  winnerIndex: number,
+  sliceAngle: number,
+): number {
+  const currentMod = ((currentRotation % 360) + 360) % 360;
+  const fullSpins =
+    MIN_FULL_SPINS +
+    Math.floor(Math.random() * (MAX_FULL_SPINS - MIN_FULL_SPINS + 1));
+  const winnerCenterAngle = (winnerIndex + 0.5) * sliceAngle;
+  const pointerAngle = 0;
+  const finalRestAngle = (pointerAngle - winnerCenterAngle + 90 + 360) % 360;
+  let delta = (finalRestAngle - currentMod + 360) % 360;
+  if (delta < 180) delta += 360;
+  return (
+    currentRotation +
+    fullSpins * 360 +
+    delta +
+    (Math.random() * (sliceAngle - sliceAngle * -1) + sliceAngle * -1) / 2 // random offset to avoid perfect alignment
+  );
+}
+
+export default function RandomTeamWheel({
   teams,
   config,
   onConfigChange,
   onResult,
 }: RandomTeamWheelProps) {
   const [isSpinning, setIsSpinning] = useState(false);
+  const [wheelRotations, setWheelRotations] = useState({ first: 0, second: 0 });
+  const [pendingWinners, setPendingWinners] = useState<{
+    wheelCount: 1 | 2;
+    teams: Team[];
+  } | null>(null);
+  const completedCountRef = useRef(0);
 
   const canSpin = teams.length > 0 && !isSpinning;
 
@@ -29,10 +60,31 @@ export function RandomTeamWheel({
     });
   };
 
-  const handleSpin = () => {
-    if (!canSpin) return;
+  const finalizeSpin = useCallback(async () => {
+    if (!pendingWinners) return;
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    setIsSpinning(false);
+    onResult(pendingWinners);
+    setPendingWinners(null);
+    completedCountRef.current = 0;
+  }, [pendingWinners, onResult]);
 
-    setIsSpinning(true);
+  const handleWheel1SpinEnd = useCallback(() => {
+    completedCountRef.current += 1;
+    if (completedCountRef.current >= (config.numberOfWheels === 2 ? 2 : 1)) {
+      finalizeSpin();
+    }
+  }, [config.numberOfWheels, finalizeSpin]);
+
+  const handleWheel2SpinEnd = useCallback(() => {
+    completedCountRef.current += 1;
+    if (completedCountRef.current >= 2) {
+      finalizeSpin();
+    }
+  }, [finalizeSpin]);
+
+  const handleSpin = useCallback(() => {
+    if (!canSpin) return;
 
     const firstRandomTeam = randomTeamSelection(teams);
     const secondRandomTeam =
@@ -42,49 +94,67 @@ export function RandomTeamWheel({
       (t): t is Team => Boolean(t),
     );
 
-    setTimeout(() => {
-      setIsSpinning(false);
-      onResult({
-        wheelCount: config.numberOfWheels,
-        teams: resultTeams,
-      });
-    }, 700);
-  };
+    const sliceAngle = 360 / teams.length;
+    const firstIndex = teams.findIndex((t) => t.id === firstRandomTeam.id);
+    const secondIndex =
+      secondRandomTeam != null
+        ? teams.findIndex((t) => t.id === secondRandomTeam.id)
+        : -1;
 
-  const renderWheel = (key: string) => (
-    <div
-      key={key}
-      className="relative flex h-64 w-64 items-center justify-center rounded-full bg-gradient-to-br from-fpl-800 to-fpl-1000 shadow-lg"
-    >
-      <div className="grid h-56 w-56 grid-cols-3 gap-2 rounded-full bg-fpl-1100 p-3">
-        {teams.map((team) => (
-          <div
-            key={team.id}
-            className="w-14 h-14 flex items-center justify-center rounded-full bg-fpl-900/70 p-1"
-          >
-            <Image
-              src={team.logoRef}
-              alt={team.name}
-              width={100}
-              height={100}
-              className={`h-10 w-10 ${team.leagueOrNation === "Nation" ? "rounded-full object-cover" : ""}`}
-            />
-          </div>
-        ))}
-      </div>
-      <div className="absolute h-6 w-6 rounded-full bg-fpl-accent shadow-md" />
-    </div>
-  );
+    setWheelRotations((prev) => {
+      const firstTarget =
+        firstIndex >= 0
+          ? computeTargetRotation(prev.first, firstIndex, sliceAngle)
+          : prev.first;
+      const secondTarget =
+        secondIndex >= 0
+          ? computeTargetRotation(prev.second, secondIndex, sliceAngle)
+          : prev.second;
+
+      return {
+        first: firstTarget,
+        second: secondTarget,
+      };
+    });
+
+    setPendingWinners({
+      wheelCount: config.numberOfWheels,
+      teams: resultTeams,
+    });
+    setIsSpinning(true);
+    completedCountRef.current = 0;
+  }, [canSpin, teams, config.numberOfWheels]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (
+        (e.ctrlKey || e.metaKey) &&
+        e.key === "Enter" &&
+        canSpin &&
+        !["INPUT", "TEXTAREA"].includes(
+          (e.target as HTMLElement)?.tagName ?? "",
+        )
+      ) {
+        e.preventDefault();
+        handleSpin();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [canSpin]);
 
   return (
-    <section className="space-y-6 rounded-xl bg-fpl-1100/80 p-4 shadow-xl">
+    <section
+      className="space-y-6 rounded-xl bg-fpl-1100/80 p-4 shadow-xl"
+      aria-label="Random Team Wheel"
+    >
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="text-lg font-semibold text-white">
             Random Team Wheel
           </h2>
           <p className="text-xs text-white/70">
-            Spin one or two wheels to pick random teams.
+            Click the wheel to spin and pick a random team.
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -100,6 +170,7 @@ export function RandomTeamWheel({
                   ? "bg-white text-fpl-1100"
                   : "bg-transparent hover:bg-white/10"
               }`}
+              aria-pressed={config.numberOfWheels === 1}
             >
               1
             </button>
@@ -111,6 +182,7 @@ export function RandomTeamWheel({
                   ? "bg-white text-fpl-1100"
                   : "bg-transparent hover:bg-white/10"
               }`}
+              aria-pressed={config.numberOfWheels === 2}
             >
               2
             </button>
@@ -119,8 +191,26 @@ export function RandomTeamWheel({
       </div>
 
       <div className="flex flex-col items-center gap-6 md:flex-row md:justify-center">
-        {renderWheel("wheel-1")}
-        {config.numberOfWheels === 2 && renderWheel("wheel-2")}
+        <SpinningWheel
+          teams={teams}
+          rotation={wheelRotations.first}
+          isSpinning={isSpinning}
+          wheelId="wheel-1"
+          onSpinEnd={handleWheel1SpinEnd}
+          onClick={handleSpin}
+          aria-label="Wheel 1"
+        />
+        {config.numberOfWheels === 2 && (
+          <SpinningWheel
+            teams={teams}
+            rotation={wheelRotations.second}
+            isSpinning={isSpinning}
+            wheelId="wheel-2"
+            onSpinEnd={handleWheel2SpinEnd}
+            onClick={handleSpin}
+            aria-label="Wheel 2"
+          />
+        )}
       </div>
 
       <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
@@ -133,13 +223,14 @@ export function RandomTeamWheel({
           onClick={handleSpin}
           disabled={!canSpin}
           className="inline-flex h-10 items-center justify-center rounded-lg bg-fpl-accent px-6 text-sm font-semibold text-fpl-1100 transition hover:bg-yellow-300 disabled:cursor-not-allowed disabled:bg-fpl-500 disabled:text-fpl-200"
+          aria-label={isSpinning ? "Spinning" : "Spin the wheel"}
         >
           {isSpinning ? "Spinning..." : "Spin the wheel"}
         </button>
       </div>
 
       {!teams.length && (
-        <p className="text-xs font-medium text-red-300">
+        <p className="text-xs font-medium text-red-300" role="alert">
           No eligible teams selected. Adjust your filters to include at least
           one team.
         </p>

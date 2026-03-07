@@ -11,7 +11,7 @@ interface WheelConfigPanelProps {
   onConfigChange: (nextConfig: WheelConfiguration) => void;
 }
 
-export function WheelConfigPanel({
+export default function WheelConfigPanel({
   allTeams,
   config,
   includedTeams,
@@ -59,16 +59,14 @@ export function WheelConfigPanel({
     <section className="space-y-4 rounded-xl bg-fpl-1100/80 p-4 shadow-xl">
       <header className="flex items-center justify-between gap-3">
         <div>
-          <h2 className="text-sm font-semibold text-white">
-            Wheel configuration
-          </h2>
-          <p className="text-xs text-white/70">
+          <h2 className="font-semibold text-white">Wheel configuration</h2>
+          <p className="text-white/70">
             Toggle leagues/nations or individual teams for the wheel.
           </p>
         </div>
       </header>
 
-      <div className="max-h-80 space-y-3 overflow-y-auto pr-1 text-xs">
+      <div className="max-h-80 space-y-3 overflow-y-auto pr-1">
         {leagues.map((league) => {
           const groupTeams = allTeams.filter(
             (team) => team.leagueOrNation === league.code,
@@ -96,10 +94,8 @@ export function WheelConfigPanel({
                       className="h-4 w-4"
                     />
                   )}
-                  <p className="text-xs font-semibold text-white">
-                    {league.name}
-                  </p>
-                  <p className="text-[11px] text-white/60">
+                  <p className="font-semibold text-white">{league.name}</p>
+                  <p className="text-sm text-white/60">
                     {includedCount}/{total} teams included
                   </p>
                 </div>
@@ -107,7 +103,7 @@ export function WheelConfigPanel({
                   <button
                     type="button"
                     onClick={() => toggleLeagueOrNation(league.code, true)}
-                    className={`rounded-md px-2 py-1 text-[11px] font-semibold transition ${
+                    className={`rounded-md px-2 py-1 text-sm font-semibold transition ${
                       allIncluded
                         ? "bg-white text-fpl-1100"
                         : "bg-white/10 text-white hover:bg-white/20"
@@ -118,7 +114,7 @@ export function WheelConfigPanel({
                   <button
                     type="button"
                     onClick={() => toggleLeagueOrNation(league.code, false)}
-                    className={`rounded-md px-2 py-1 text-[11px] font-semibold transition ${
+                    className={`rounded-md px-2 py-1 text-sm font-semibold transition ${
                       noneIncluded
                         ? "bg-fpl-900 text-white"
                         : "bg-fpl-900/40 text-white hover:bg-fpl-900/70"
@@ -128,7 +124,7 @@ export function WheelConfigPanel({
                   </button>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-1 md:grid-cols-3">
+              <div className="grid grid-cols-2 gap-1 md:grid-cols-3 lg:grid-cols-4">
                 {groupTeams.map((team) => {
                   const isIncluded = includedTlaSet.has(team.tla);
                   return (
@@ -136,20 +132,20 @@ export function WheelConfigPanel({
                       key={team.id}
                       type="button"
                       onClick={() => toggleTeam(team.tla)}
-                      className={`flex items-center justify-between rounded-md px-2 py-1 text-[11px] transition ${
+                      className={`flex items-center gap-2 rounded-md px-2 py-1 text-sm transition ${
                         isIncluded
                           ? "bg-fpl-900 text-white"
                           : "bg-fpl-1000 text-white/70 hover:bg-fpl-900/70"
                       }`}
                     >
-                      <span className="truncate">{team.name}</span>
                       <Image
                         src={team.logoRef}
                         alt={team.name}
-                        width={20}
-                        height={20}
-                        className={`h-4 w-4`}
+                        width={50}
+                        height={50}
+                        className="h-6 w-6"
                       />
+                      <span className="truncate">{team.name}</span>
                     </button>
                   );
                 })}

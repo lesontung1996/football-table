@@ -1,10 +1,9 @@
-/* eslint-disable react/jsx-no-useless-fragment */
 "use client";
 
 import { useState } from "react";
-import { ResultModal } from "@/components/random-wheel/ResultModal";
-import { RandomTeamWheel } from "@/components/random-wheel/RandomTeamWheel";
-import { WheelConfigPanel } from "@/components/random-wheel/WheelConfigPanel";
+import ResultModal from "@/components/random-wheel/ResultModal";
+import RandomTeamWheel from "@/components/random-wheel/RandomTeamWheel";
+import WheelConfigPanel from "@/components/random-wheel/WheelConfigPanel";
 import { allTeams } from "@/lib/random-wheel/defaultTeams";
 import type { Team } from "@/lib/random-wheel/types";
 import { useRandomTeamWheelConfig } from "@/lib/random-wheel/useRandomTeamWheelConfig";
@@ -48,7 +47,7 @@ export default function RandomWheelPage() {
           </p>
         </header>
 
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,3fr),minmax(0,2fr)]">
+        <div className="grid gap-6">
           <RandomTeamWheel
             teams={includedTeams}
             config={config}
