@@ -3,12 +3,14 @@
 import Image from "next/image";
 import type { Team, WheelConfiguration } from "@/lib/random-wheel/types";
 import leagues from "@/data/leagues.json";
+import { Check } from "lucide-react";
 
 interface WheelConfigPanelProps {
   allTeams: Team[];
   config: WheelConfiguration;
   includedTeams: Team[];
   onConfigChange: (nextConfig: WheelConfiguration) => void;
+  isSpinning: boolean;
 }
 
 export default function WheelConfigPanel({
@@ -16,42 +18,36 @@ export default function WheelConfigPanel({
   config,
   includedTeams,
   onConfigChange,
+  isSpinning,
 }: WheelConfigPanelProps) {
-  const includedTlaSet = new Set(includedTeams.map((t) => t.tla));
-
-  const leaguesOrNations = Array.from(
-    new Set(allTeams.map((t) => t.leagueOrNation)),
-  ).sort();
+  const includedIdSet = new Set(includedTeams.map((t) => t.id));
 
   const toggleLeagueOrNation = (
     leagueOrNation: string,
     includeAll: boolean,
   ) => {
-    let result: string[] = [];
-    const leagueTeamTlas = allTeams
+    const leagueTeamIds = allTeams
       .filter((team) => team.leagueOrNation === leagueOrNation)
-      .map((team) => team.tla);
-    if (includeAll) {
-      result = Array.from(new Set([...config.teamTlas, ...leagueTeamTlas]));
-    } else {
-      result = config.teamTlas.filter((tla) => !leagueTeamTlas.includes(tla));
-    }
+      .map((team) => team.id);
+    const result = includeAll
+      ? Array.from(new Set([...config.teamIds, ...leagueTeamIds]))
+      : config.teamIds.filter((id) => !leagueTeamIds.includes(id));
     onConfigChange({
       ...config,
-      teamTlas: result,
+      teamIds: result,
     });
   };
 
-  const toggleTeam = (teamTla: string) => {
-    const currentIncluded = new Set(config.teamTlas);
-    if (currentIncluded.has(teamTla)) {
-      currentIncluded.delete(teamTla);
+  const toggleTeam = (teamId: number) => {
+    const currentIncluded = new Set(config.teamIds);
+    if (currentIncluded.has(teamId)) {
+      currentIncluded.delete(teamId);
     } else {
-      currentIncluded.add(teamTla);
+      currentIncluded.add(teamId);
     }
     onConfigChange({
       ...config,
-      teamTlas: Array.from(currentIncluded),
+      teamIds: Array.from(currentIncluded),
     });
   };
 
@@ -69,21 +65,22 @@ export default function WheelConfigPanel({
         </div>
         <button
           type="button"
-          onClick={() => onConfigChange({ ...config, teamTlas: [] })}
-          className="rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-fpl-1100 hover:bg-white/90"
+          disabled={isSpinning}
+          onClick={() => onConfigChange({ ...config, teamIds: [] })}
+          className="rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-fpl-1100 hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Clear all
         </button>
       </header>
 
-      <div className="max-h-80 space-y-3 overflow-y-auto pr-1">
+      <div className="max-h-[70vh] space-y-3 overflow-y-auto pr-1">
         {leagues.map((league) => {
           const groupTeams = allTeams.filter(
             (team) => team.leagueOrNation === league.code,
           );
           const total = groupTeams.length;
           const includedCount = groupTeams.filter((team) =>
-            includedTlaSet.has(team.tla),
+            includedIdSet.has(team.id),
           ).length;
           const allIncluded = includedCount === total && total > 0;
           const noneIncluded = includedCount === 0;
@@ -95,40 +92,48 @@ export default function WheelConfigPanel({
             >
               <div className="mb-2 flex items-center justify-between gap-2">
                 <div>
-                  {league.logoRef && (
-                    <Image
-                      src={league.logoRef}
-                      alt={league.name}
-                      width={20}
-                      height={20}
-                      className="h-4 w-4"
-                    />
-                  )}
-                  <p className="font-semibold text-white">{league.name}</p>
-                  <p className="text-sm text-white/60">
-                    {includedCount}/{total} teams included
-                  </p>
+                  <div className="flex items-center gap-2 text-white">
+                    {league.logoRef && (
+                      <picture className="flex items-center justify-center h-10 w-10 p-1 bg-white rounded overflow-hidden">
+                        <Image
+                          src={league.logoRef}
+                          alt={league.name}
+                          width={40}
+                          height={40}
+                          className="h-full w-full object-contain"
+                        />
+                      </picture>
+                    )}
+                    <div className="flex flex-col font-semibold text-white">
+                      {league.name}
+                      <span className="text-xs text-white/60">
+                        {includedCount}/{total} teams included
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <div className="inline-flex gap-1">
                   <button
                     type="button"
+                    disabled={isSpinning}
                     onClick={() => toggleLeagueOrNation(league.code, true)}
                     className={`rounded-md px-2 py-1 text-sm font-semibold transition ${
                       allIncluded
                         ? "bg-white text-fpl-1100"
                         : "bg-white/10 text-white hover:bg-white/20"
-                    }`}
+                    } disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     All
                   </button>
                   <button
                     type="button"
+                    disabled={isSpinning}
                     onClick={() => toggleLeagueOrNation(league.code, false)}
                     className={`rounded-md px-2 py-1 text-sm font-semibold transition ${
                       noneIncluded
                         ? "bg-fpl-900 text-white"
                         : "bg-fpl-900/40 text-white hover:bg-fpl-900/70"
-                    }`}
+                    } disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     None
                   </button>
@@ -136,17 +141,18 @@ export default function WheelConfigPanel({
               </div>
               <div className="grid grid-cols-2 gap-1 md:grid-cols-3 lg:grid-cols-4">
                 {groupTeams.map((team) => {
-                  const isIncluded = includedTlaSet.has(team.tla);
+                  const isIncluded = includedIdSet.has(team.id);
                   return (
                     <button
                       key={team.id}
                       type="button"
-                      onClick={() => toggleTeam(team.tla)}
+                      disabled={isSpinning}
+                      onClick={() => toggleTeam(team.id)}
                       className={`flex items-center gap-2 rounded-md px-2 py-1 text-sm transition ${
                         isIncluded
                           ? "bg-fpl-900 text-white"
                           : "bg-fpl-1000 text-white/70 hover:bg-fpl-900/70"
-                      }`}
+                      } disabled:cursor-not-allowed disabled:opacity-50`}
                     >
                       <Image
                         src={team.logoRef}
@@ -156,6 +162,7 @@ export default function WheelConfigPanel({
                         className="h-6 w-6"
                       />
                       <span className="truncate">{team.name}</span>
+                      {isIncluded && <Check size={16} className="ml-auto" />}
                     </button>
                   );
                 })}

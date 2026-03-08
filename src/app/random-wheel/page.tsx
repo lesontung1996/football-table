@@ -10,9 +10,10 @@ import type { Team } from "@/lib/random-wheel/types";
 import { useRandomTeamWheelConfig } from "@/lib/random-wheel/useRandomTeamWheelConfig";
 
 export default function RandomWheelPage() {
-  const { config, includedTeams, setTeamTlas, setNumberOfWheels } =
+  const { config, includedTeams, setTeamIds, setNumberOfWheels } =
     useRandomTeamWheelConfig();
   const [open, setOpen] = useState(false);
+  const [isSpinning, setIsSpinning] = useState(false);
   const [resultTeams, setResultTeams] = useState<Team[]>([]);
 
   if (!config) {
@@ -25,7 +26,7 @@ export default function RandomWheelPage() {
 
   const handleConfigChange = (nextConfig: typeof config) => {
     console.log("handleConfigChange", nextConfig);
-    setTeamTlas(nextConfig.teamTlas);
+    setTeamIds(nextConfig.teamIds);
     setNumberOfWheels(nextConfig.numberOfWheels);
   };
 
@@ -34,8 +35,8 @@ export default function RandomWheelPage() {
     setOpen(true);
   };
 
-  const applyPreset = (teamTlas: string[]) => {
-    setTeamTlas(teamTlas);
+  const applyPreset = (teamIds: number[]) => {
+    setTeamIds(teamIds);
   };
 
   return (
@@ -54,7 +55,7 @@ export default function RandomWheelPage() {
 
         <div className="grid gap-6">
           <WheelPreset
-            currentTeamTlas={config.teamTlas}
+            currentTeamIds={config.teamIds}
             onSelectPreset={applyPreset}
           />
           <RandomTeamWheel
@@ -62,13 +63,15 @@ export default function RandomWheelPage() {
             config={config}
             onConfigChange={handleConfigChange}
             onResult={handleResult}
+            isSpinning={isSpinning}
+            setIsSpinning={setIsSpinning}
           />
-
           <WheelConfigPanel
             allTeams={allTeams}
             config={config}
             includedTeams={includedTeams}
             onConfigChange={handleConfigChange}
+            isSpinning={isSpinning}
           />
         </div>
       </main>

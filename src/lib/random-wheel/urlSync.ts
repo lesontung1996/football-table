@@ -2,7 +2,7 @@ import type { NumberOfWheels } from "./types";
 
 export interface UrlConfig {
   numberOfWheels: NumberOfWheels;
-  teamTlas: string[];
+  teamIds: number[];
 }
 
 const parseNumberOfWheels = (
@@ -13,35 +13,37 @@ const parseNumberOfWheels = (
   return 1;
 };
 
-const parseTeamTlas = (value: string | null | undefined): string[] | null => {
+const parseTeamIds = (value: string | null | undefined): number[] | null => {
   if (!value) return null;
-  return value
-    .split(",")
-    .map((part) => part.trim())
-    .filter(Boolean)
-    .map((tla) => tla.toUpperCase());
+  const parts = value.split(",").map((part) => part.trim()).filter(Boolean);
+  const ids: number[] = [];
+  for (const p of parts) {
+    const n = Number(p);
+    if (Number.isInteger(n)) ids.push(n);
+  }
+  return ids.length > 0 ? ids : null;
 };
 
 export const parseUrlConfig = (
   searchParams: URLSearchParams | null,
 ): {
   numberOfWheels: NumberOfWheels | null;
-  teamTlas: string[] | null;
+  teamIds: number[] | null;
 } => {
   const wheelParam = searchParams?.get("wheel");
   const teamsParam = searchParams?.get("teams");
 
   return {
     numberOfWheels: parseNumberOfWheels(wheelParam),
-    teamTlas: parseTeamTlas(teamsParam),
+    teamIds: parseTeamIds(teamsParam),
   };
 };
 
 export const serializeUrlConfig = (config: UrlConfig): string => {
   const params = new URLSearchParams();
   params.set("wheel", String(config.numberOfWheels));
-  if (config.teamTlas.length > 0) {
-    params.set("teams", config.teamTlas.join(","));
+  if (config.teamIds.length > 0) {
+    params.set("teams", config.teamIds.join(","));
   }
   return params.toString();
 };

@@ -25,7 +25,7 @@ export default function ResultModal({
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md rounded-2xl bg-fpl-1100 p-5 shadow-2xl"
+        className="w-full max-w-lg rounded-2xl bg-fpl-1100 p-5 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <header className="mb-3 flex items-center justify-between">
@@ -60,15 +60,15 @@ export default function ResultModal({
                   key={team.id}
                   className="flex items-center gap-3 rounded-xl bg-fpl-1000/80 p-3"
                 >
-                  <div className="relative h-12 w-12 flex-shrink-0 rounded-full bg-fpl-900">
+                  <div className="relative h-12 w-12 flex-shrink-0">
                     <Image
                       src={team.logoRef}
                       alt={team.name}
                       width={100}
                       height={100}
-                      className="h-12 w-12 rounded-full object-contain"
+                      className="h-12 w-12 object-contain"
                     />
-                    <span className="absolute -top-1 -left-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-fpl-accent text-[11px] font-bold text-fpl-1100">
+                    <span className="absolute -top-1 -left-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-fpl-accent text-[11px] font-bold text-fpl-1100 border border-fpl-1200">
                       {index + 1}
                     </span>
                   </div>

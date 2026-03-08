@@ -19,5 +19,5 @@ export interface WheelConfiguration {
    * Optional explicit allow-list of team IDs; if non-empty,
    * only these teams are considered eligible.
    */
-  teamTlas: string[];
+  teamIds: number[];
 }

@@ -4,28 +4,28 @@ import { WHEEL_PRESETS as presets } from "@/lib/random-wheel/presets";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 
-function tlaSetEquals(a: string[], b: string[]): boolean {
+function idSetEquals(a: number[], b: number[]): boolean {
   if (a.length !== b.length) return false;
-  const setA = new Set(a.map((t) => t.toUpperCase()));
-  const setB = new Set(b.map((t) => t.toUpperCase()));
+  const setA = new Set(a);
+  const setB = new Set(b);
   if (setA.size !== setB.size) return false;
-  for (const t of setA) {
-    if (!setB.has(t)) return false;
+  for (const id of setA) {
+    if (!setB.has(id)) return false;
   }
   return true;
 }
 
 interface WheelPresetProps {
-  currentTeamTlas: string[];
-  onSelectPreset: (teamTlas: string[]) => void;
+  currentTeamIds: number[];
+  onSelectPreset: (teamIds: number[]) => void;
 }
 
 export default function WheelPreset({
-  currentTeamTlas,
+  currentTeamIds,
   onSelectPreset,
 }: WheelPresetProps) {
   const activePresetId = presets.find((p) =>
-    tlaSetEquals(p.teamTlas, currentTeamTlas),
+    idSetEquals(p.teamIds, currentTeamIds),
   )?.id;
 
   return (
@@ -43,7 +43,7 @@ export default function WheelPreset({
             <button
               key={preset.id}
               type="button"
-              onClick={() => onSelectPreset(preset.teamTlas)}
+              onClick={() => onSelectPreset(preset.teamIds)}
               className={`flex items-center gap-2 h-10 rounded-md px-3 py-1.5 text-sm font-medium transition ${
                 isActive
                   ? "bg-white text-fpl-1100"

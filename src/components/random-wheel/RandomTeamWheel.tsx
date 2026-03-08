@@ -13,6 +13,8 @@ interface RandomTeamWheelProps {
   config: WheelConfiguration;
   onConfigChange: (nextConfig: WheelConfiguration) => void;
   onResult: (result: { wheelCount: 1 | 2; teams: Team[] }) => void;
+  isSpinning: boolean;
+  setIsSpinning: (isSpinning: boolean) => void;
 }
 
 function computeTargetRotation(
@@ -42,8 +44,9 @@ export default function RandomTeamWheel({
   config,
   onConfigChange,
   onResult,
+  isSpinning,
+  setIsSpinning,
 }: RandomTeamWheelProps) {
-  const [isSpinning, setIsSpinning] = useState(false);
   const [wheelRotations, setWheelRotations] = useState({ first: 0, second: 0 });
   const [pendingWinners, setPendingWinners] = useState<{
     wheelCount: 1 | 2;

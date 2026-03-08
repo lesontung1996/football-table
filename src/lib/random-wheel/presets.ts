@@ -1,114 +1,49 @@
-import { DEFAULT_TEAM_TLAS } from "./defaultTeams";
+import { DEFAULT_TEAM_IDS } from "./defaultTeams";
 
 export interface WheelPresetItem {
   id: "default" | "champions-league" | "euro" | "world-cup";
   label: string;
-  teamTlas: string[];
+  teamIds: number[];
   logoRef?: string;
 }
 
-const worldCupTlas = [
-  "ESP",
-  "ENG",
-  "FRA",
-  "BRA",
-  "POR",
-  "ARG",
-  "GER",
-  "ITA",
-  "NED",
-  "BEL",
-  "URU",
-  "COL",
-  "CRO",
-  "MAR",
-  "JPN",
-  "USA",
-  "DEN",
-  "MEX",
-  "SEN",
-  "SUI",
-  "TUR",
-  "ECU",
-  "KOR",
+const worldCupIds = [
+  760, 770, 773, 764, 765, 762, 759, 784, 8601, 805, 758, 818, 799, 815, 766,
+  771, 782, 769, 804, 788, 803, 791, 772,
 ];
 
-const euroTlas = [
-  "ENG",
-  "FRA",
-  "GER",
-  "ESP",
-  "ITA",
-  "POR",
-  "BEL",
-  "NED",
-  "CRO",
-  "SUI",
-  "AUT",
-  "SCO",
-  "NOR",
-  "SVK",
-  "SVN",
-  "SRB",
-  "DEN",
-  "UKR",
-  "POL",
-  "CZE",
-  "TUR",
-  "ROU",
-  "HUN",
-  "ALB",
-  "GEO",
+const euroIds = [
+  770, 773, 759, 760, 784, 765, 805, 8601, 799, 788, 816, 8873, 8872, 768, 777,
+  780, 782, 790, 794, 798, 803, 811, 827, 1065, 1978,
 ];
 
-const championsLeagueTlas = [
-  "ARS",
-  "CHE",
-  "LIV",
-  "MCI",
-  "MUN",
-  "TOT",
-  "FCB",
-  "RMA",
-  "ATL",
-  "MIL",
-  "INT",
-  "JUV",
-  "PSG",
-  "BVB",
-  "B04",
-  "LYO",
-  "SEV",
-  "VIL",
-  "BEN",
-  "FCP",
-  "SPO",
-  "RBL",
-  "AJA",
+const championsLeagueIds = [
+  57, 61, 64, 65, 66, 73, 81, 86, 78, 98, 108, 109, 524, 5, 4, 3, 523, 559, 94,
+  1903, 503, 498, 721, 678,
 ];
 
 export const WHEEL_PRESETS: WheelPresetItem[] = [
   {
     id: "default",
     label: "Mixed",
-    teamTlas: DEFAULT_TEAM_TLAS,
+    teamIds: DEFAULT_TEAM_IDS,
   },
   {
     id: "champions-league",
     label: "Champions League",
-    teamTlas: championsLeagueTlas,
+    teamIds: championsLeagueIds,
     logoRef: "/images/leagues/CL.png",
   },
   {
     id: "euro",
     label: "Euro",
-    teamTlas: euroTlas,
+    teamIds: euroIds,
     logoRef: "/images/leagues/EUR.PNG",
   },
   {
     id: "world-cup",
     label: "World Cup",
-    teamTlas: worldCupTlas,
+    teamIds: worldCupIds,
     logoRef: "/images/leagues/WC26.png",
   },
 ];

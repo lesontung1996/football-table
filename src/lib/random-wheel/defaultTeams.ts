@@ -8,35 +8,19 @@ import type { Team } from "./types";
  * This skews toward well-known clubs and nations to keep
  * the first experience feeling sensible.
  */
-export const DEFAULT_TEAM_TLAS: string[] = [
-  // Premier League clubs
-  "ARS",
-  "CHE",
-  "LIV",
-  "MCI",
-  "MUN",
-  "TOT",
-  // LaLiga
-  "FCB",
-  "RMA",
-  "ATL",
-  // Serie A
-  "MIL",
-  "INT",
-  "JUV",
-  // Nations
-  "BRA",
-  "ARG",
-  "FRA",
-  "GER",
-  "ENG",
-  "ESP",
+export const DEFAULT_TEAM_IDS: number[] = [
+  57, 61, 64, 65, 66, 73, 81, 86, 78, 98, 108, 109, 764, 762, 773, 759, 770,
+  760,
 ];
 
 export const allTeams: Team[] = teamsData;
 
 export const teamsByTla: Map<string, Team> = new Map(
   allTeams.map((team) => [team.tla, team]),
+);
+
+export const teamsById: Map<number, Team> = new Map(
+  allTeams.map((team) => [team.id, team]),
 );
 
 export const getTeamByTla = (tla: string): Team | undefined =>
