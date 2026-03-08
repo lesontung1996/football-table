@@ -90,7 +90,7 @@ export default function WheelConfigPanel({
               key={league.code}
               className="rounded-lg bg-fpl-1000/80 p-3 ring-1 ring-white/5"
             >
-              <div className="mb-2 flex items-center justify-between gap-2">
+              <div className="mb-3 flex items-center justify-between gap-2">
                 <div>
                   <div className="flex items-center gap-2 text-white">
                     {league.logoRef && (
@@ -129,11 +129,7 @@ export default function WheelConfigPanel({
                     type="button"
                     disabled={isSpinning}
                     onClick={() => toggleLeagueOrNation(league.code, false)}
-                    className={`rounded-md px-2 py-1 text-sm font-semibold transition ${
-                      noneIncluded
-                        ? "bg-fpl-900 text-white"
-                        : "bg-fpl-900/40 text-white hover:bg-fpl-900/70"
-                    } disabled:cursor-not-allowed disabled:opacity-50`}
+                    className={`rounded-md px-2 py-1 text-sm font-semibold text-white transition hover:bg-white/20 bg-fpl-900 disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     None
                   </button>
