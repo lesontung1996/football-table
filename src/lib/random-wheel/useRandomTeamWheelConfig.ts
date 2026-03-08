@@ -98,7 +98,7 @@ export const useRandomTeamWheelConfig = (): RandomTeamWheelConfigState => {
       }
       return {
         ...prev,
-        includedTeamIds: Array.from(includedSet),
+        teamTlas: Array.from(includedSet),
       };
     });
   };

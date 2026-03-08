@@ -164,8 +164,9 @@ export default function RandomTeamWheel({
           <div className="inline-flex rounded-lg bg-fpl-1000 p-1 text-xs font-semibold text-white/80">
             <button
               type="button"
+              disabled={isSpinning}
               onClick={() => handleWheelCountChange(1)}
-              className={`h-7 w-10 rounded-md transition ${
+              className={`h-7 w-10 rounded-md transition disabled:cursor-not-allowed disabled:opacity-50 ${
                 config.numberOfWheels === 1
                   ? "bg-white text-fpl-1100"
                   : "bg-transparent hover:bg-white/10"
@@ -176,8 +177,9 @@ export default function RandomTeamWheel({
             </button>
             <button
               type="button"
+              disabled={isSpinning}
               onClick={() => handleWheelCountChange(2)}
-              className={`h-7 w-10 rounded-md transition ${
+              className={`h-7 w-10 rounded-md transition disabled:cursor-not-allowed disabled:opacity-50 ${
                 config.numberOfWheels === 2
                   ? "bg-white text-fpl-1100"
                   : "bg-transparent hover:bg-white/10"
@@ -228,13 +230,6 @@ export default function RandomTeamWheel({
           {isSpinning ? "Spinning..." : "Spin the wheel"}
         </button>
       </div>
-
-      {!teams.length && (
-        <p className="text-xs font-medium text-red-300" role="alert">
-          No eligible teams selected. Adjust your filters to include at least
-          one team.
-        </p>
-      )}
     </section>
   );
 }

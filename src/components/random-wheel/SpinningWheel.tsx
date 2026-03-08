@@ -62,23 +62,25 @@ export default function SpinningWheel({
   } else if (windowWidth > 768) {
     WHEEL_SIZE = 300;
   } else {
-    WHEEL_SIZE = windowWidth - 100;
+    WHEEL_SIZE = Math.min(windowWidth, 640) - 120;
   }
   const CX = WHEEL_SIZE / 2;
   const CY = WHEEL_SIZE / 2;
   const OUTER_R = WHEEL_SIZE / 2 - 8;
   const INNER_R = windowWidth > 1024 ? 50 : 36;
 
-  let logoSize;
+  let logoSize, logoR;
   if (windowWidth > 1024) {
     logoSize = 32;
+    logoR = OUTER_R - 25;
   } else if (windowWidth > 768) {
     logoSize = 24;
+    logoR = OUTER_R - 22;
   } else {
-    logoSize = windowWidth * 0.05;
+    logoSize = WHEEL_SIZE * 0.06;
+    logoR = OUTER_R - logoSize;
   }
   const sliceAngle = 360 / teams.length;
-  const logoR = OUTER_R - 22;
   const textR = (INNER_R + OUTER_R) / 2 - 10;
 
   const handleTransitionEnd = useCallback(
@@ -97,8 +99,12 @@ export default function SpinningWheel({
   if (teams.length === 0) {
     return (
       <div
-        className="relative flex h-64 w-64 flex-shrink-0 items-center justify-center rounded-full bg-fpl-1000 shadow-xl"
+        className={`relative flex flex-shrink-0 items-center justify-center rounded-full bg-fpl-1000 shadow-xl`}
         aria-label={ariaLabel}
+        style={{
+          width: WHEEL_SIZE,
+          height: WHEEL_SIZE,
+        }}
       >
         <span className="text-sm text-white/60">No teams</span>
       </div>

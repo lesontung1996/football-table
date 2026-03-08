@@ -56,7 +56,10 @@ export default function WheelConfigPanel({
   };
 
   return (
-    <section className="space-y-4 rounded-xl bg-fpl-1100/80 p-4 shadow-xl">
+    <section
+      id="wheel-config"
+      className="space-y-4 rounded-xl bg-fpl-1100/80 p-4 shadow-xl"
+    >
       <header className="flex items-center justify-between gap-3">
         <div>
           <h2 className="font-semibold text-white">Wheel configuration</h2>
@@ -64,6 +67,13 @@ export default function WheelConfigPanel({
             Toggle leagues/nations or individual teams for the wheel.
           </p>
         </div>
+        <button
+          type="button"
+          onClick={() => onConfigChange({ ...config, teamTlas: [] })}
+          className="rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-fpl-1100 hover:bg-white/90"
+        >
+          Clear all
+        </button>
       </header>
 
       <div className="max-h-80 space-y-3 overflow-y-auto pr-1">

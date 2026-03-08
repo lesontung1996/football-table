@@ -4,6 +4,7 @@ import { useState } from "react";
 import ResultModal from "@/components/random-wheel/ResultModal";
 import RandomTeamWheel from "@/components/random-wheel/RandomTeamWheel";
 import WheelConfigPanel from "@/components/random-wheel/WheelConfigPanel";
+import WheelPreset from "@/components/random-wheel/WheelPreset";
 import { allTeams } from "@/lib/random-wheel/defaultTeams";
 import type { Team } from "@/lib/random-wheel/types";
 import { useRandomTeamWheelConfig } from "@/lib/random-wheel/useRandomTeamWheelConfig";
@@ -33,6 +34,10 @@ export default function RandomWheelPage() {
     setOpen(true);
   };
 
+  const applyPreset = (teamTlas: string[]) => {
+    setTeamTlas(teamTlas);
+  };
+
   return (
     <>
       <main className="container mx-auto px-4 py-6 space-y-6">
@@ -48,6 +53,10 @@ export default function RandomWheelPage() {
         </header>
 
         <div className="grid gap-6">
+          <WheelPreset
+            currentTeamTlas={config.teamTlas}
+            onSelectPreset={applyPreset}
+          />
           <RandomTeamWheel
             teams={includedTeams}
             config={config}
