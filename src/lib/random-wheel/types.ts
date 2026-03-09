@@ -21,3 +21,8 @@ export interface WheelConfiguration {
    */
   teamIds: number[];
 }
+
+export interface StoredResultEntry {
+  timestamp: number;
+  teamIds: number[];
+}

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import type { Team, WheelConfiguration } from "@/lib/random-wheel/types";
 import leagues from "@/data/leagues.json";
-import { Check } from "lucide-react";
+import { Check, Trash, X } from "lucide-react";
 
 interface WheelConfigPanelProps {
   allTeams: Team[];
@@ -58,17 +58,15 @@ export default function WheelConfigPanel({
     >
       <header className="flex items-center justify-between gap-3">
         <div>
-          <h2 className="font-semibold text-white">Wheel configuration</h2>
-          <p className="text-white/70">
-            Toggle leagues/nations or individual teams for the wheel.
-          </p>
+          <h2 className="font-semibold text-white">Team selection</h2>
         </div>
         <button
           type="button"
           disabled={isSpinning}
           onClick={() => onConfigChange({ ...config, teamIds: [] })}
-          className="rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-fpl-1100 hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-sm font-semibold hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
         >
+          <Trash size={16} />
           Clear all
         </button>
       </header>
@@ -86,10 +84,7 @@ export default function WheelConfigPanel({
           const noneIncluded = includedCount === 0;
 
           return (
-            <div
-              key={league.code}
-              className="rounded-lg bg-fpl-1000/80 p-3 ring-1 ring-white/5"
-            >
+            <div key={league.code} className="rounded-lg bg-fpl-1000/80 p-3">
               <div className="mb-3 flex items-center justify-between gap-2">
                 <div>
                   <div className="flex items-center gap-2 text-white">
