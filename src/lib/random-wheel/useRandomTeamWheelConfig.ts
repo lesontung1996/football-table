@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { Team, WheelConfiguration } from "./types";
-import { DEFAULT_TEAM_IDS, teamsById } from "./defaultTeams";
+import { teamsById } from "./defaultTeams";
+import { championsLeagueIds } from "./presets";
 import { loadWheelConfiguration, saveWheelConfiguration } from "./persistence";
 import { parseUrlConfig, serializeUrlConfig } from "./urlSync";
 
@@ -22,7 +23,7 @@ const buildInitialConfig = (
     parseUrlConfig(searchParams);
   return {
     numberOfWheels: numberOfWheelsFromUrl ?? persisted?.numberOfWheels ?? 1,
-    teamIds: teamIdsFromUrl ?? persisted?.teamIds ?? DEFAULT_TEAM_IDS,
+    teamIds: teamIdsFromUrl ?? persisted?.teamIds ?? championsLeagueIds,
   };
 };
 

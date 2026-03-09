@@ -30,7 +30,7 @@ export default function WheelPreset({
 
   return (
     <section
-      className="rounded-xl bg-fpl-1100/80 p-4 shadow-xl"
+      className="rounded-xl bg-fpl-1100/80 p-4 overflow-x-auto"
       aria-label="Wheel presets"
     >
       <div className="flex flex-wrap items-center gap-2">
@@ -44,14 +44,14 @@ export default function WheelPreset({
               key={preset.id}
               type="button"
               onClick={() => onSelectPreset(preset.teamIds)}
-              className={`flex items-center gap-2 h-10 rounded-md px-3 py-1.5 text-sm font-medium transition ${
+              className={`flex items-center gap-2 h-8 pr-2 rounded-md text-sm font-medium transition overflow-hidden ${
                 isActive
                   ? "bg-white text-fpl-1100"
                   : "bg-white/10 text-white hover:bg-white/20"
               }`}
             >
               {preset.logoRef && (
-                <picture className="h-6 w-6 p-[2px] bg-white rounded-full object-contain">
+                <picture className="h-8 w-8 p-1 bg-white rounded-md object-contain">
                   <Image
                     src={preset.logoRef}
                     alt={preset.label}
@@ -66,7 +66,7 @@ export default function WheelPreset({
         })}
         <a
           href="#wheel-config"
-          className={`flex items-center gap-2 h-10 rounded-md px-3 py-1.5 text-sm font-medium transition bg-white/10 text-white hover:bg-white/20`}
+          className={`flex items-center gap-2 h-8 rounded-md px-2 py-1.5 text-sm font-medium transition bg-white/10 text-white hover:bg-white/20`}
         >
           <ArrowDown size={16} />
           <span>Customize</span>
