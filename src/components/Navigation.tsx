@@ -37,9 +37,7 @@ export default function Navigation() {
                 Back
               </Link>
             )}
-            <h1 className="text-xl font-bold tracking-tight">
-              Premier League Table
-            </h1>
+            <h1 className="text-h2">Premier League Table</h1>
           </div>
           {!isGameListPage && currentGameId && (
             <div className="flex gap-2">

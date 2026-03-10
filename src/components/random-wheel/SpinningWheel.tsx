@@ -62,7 +62,7 @@ export default function SpinningWheel({
   } else if (windowWidth > 768) {
     WHEEL_SIZE = 300;
   } else {
-    WHEEL_SIZE = Math.min(windowWidth, 640) - 120;
+    WHEEL_SIZE = Math.min(400, Math.max(280, windowWidth - 120));
   }
   const CX = WHEEL_SIZE / 2;
   const CY = WHEEL_SIZE / 2;

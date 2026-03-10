@@ -122,7 +122,7 @@ export default function CreateGameModal({
         className="w-full max-w-lg rounded-lg bg-fpl-1100 p-6"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="mb-4 text-2xl font-bold text-white">Create New Game</h2>
+        <h2 className="mb-4 text-h1 text-white">Create New Game</h2>
         <div className="space-y-4">
           <div className="flex items-center justify-between gap-2">
             <h3 className="font-semibold text-white">Teams </h3>

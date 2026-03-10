@@ -62,9 +62,7 @@ export default function RandomWheelPage() {
     <>
       <main className="container mx-auto px-4 py-6 space-y-6">
         <header className="space-y-2">
-          <h1 className="text-2xl font-bold text-white md:text-3xl">
-            Random Team Wheel
-          </h1>
+          <h1 className="text-h1">Random Team Wheel</h1>
           <p className="max-w-2xl text-sm text-white/80">
             Spin one or two wheels to pick clubs or national teams at random.
             Your configuration is saved to this device and mirrored in the URL

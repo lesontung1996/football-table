@@ -96,7 +96,7 @@ export default function Home() {
       <main className="container mx-auto px-4 py-8">
         <div className="mb-6 space-y-4">
           <div>
-            <h2 className="text-2xl font-bold text-white">Games</h2>
+            <h2 className="text-h1 text-white">Games</h2>
             <p className="text-sm text-white/80">
               Select a game to view its schedule and table, or create a new one.
             </p>
