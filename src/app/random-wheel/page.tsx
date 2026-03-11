@@ -72,26 +72,12 @@ export default function RandomWheelPage() {
 
   return (
     <>
-      <main className="container mx-auto px-4 py-6 space-y-6">
+      <main className="container-2xl mx-auto px-4 py-6 space-y-6">
         <header className="space-y-2">
           <h1 className="text-h1">Random Team Wheel</h1>
-          <p className="max-w-2xl text-sm text-white/80">
-            Click the wheel to spin and pick a random team. <br />
-            Click a league below to quick select a preset. <br />
-            For more customization of teams selection, go to the{" "}
-            <a href="#wheel-config" className="text-fpl-accent hover:underline">
-              team selection
-            </a>{" "}
-            panel.
-            <br />
-          </p>
         </header>
 
-        <div className="grid gap-6">
-          <WheelPreset
-            currentTeamIds={config.teamIds}
-            onSelectPreset={applyPreset}
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,3fr),minmax(0,1fr)] gap-6">
           <RandomTeamWheel
             teams={includedTeams}
             config={config}
@@ -99,6 +85,10 @@ export default function RandomWheelPage() {
             onResult={handleResult}
             isSpinning={isSpinning}
             setIsSpinning={setIsSpinning}
+          />
+          <WheelPreset
+            currentTeamIds={config.teamIds}
+            onSelectPreset={applyPreset}
           />
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr),minmax(0,1fr)] gap-6">
             <WheelConfigPanel
