@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/store/hooks";
 import { selectCurrentGameId } from "@/store/slices/gamesSlice";
 import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -37,7 +38,15 @@ export default function Navigation() {
                 Back
               </Link>
             )}
-            <h1 className="text-h2">Premier League Table</h1>
+            <picture>
+              <Image
+                src="/images/football-wheel-logo.svg"
+                alt="Football Wheel"
+                width={50}
+                height={50}
+              />
+            </picture>
+            <h1 className="text-h3">Football Wheel</h1>
           </div>
           {!isGameListPage && currentGameId && (
             <div className="flex gap-2">

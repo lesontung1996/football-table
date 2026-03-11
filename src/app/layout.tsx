@@ -12,8 +12,8 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Premier League Table",
-  description: "Football league table manager",
+  title: "Football Wheel",
+  description: "Football wheel for quick random team selection",
 };
 
 export default function RootLayout({

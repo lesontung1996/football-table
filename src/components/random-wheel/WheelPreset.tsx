@@ -30,13 +30,10 @@ export default function WheelPreset({
 
   return (
     <section
-      className="rounded-xl bg-fpl-1100/80 p-4 overflow-x-auto"
+      className="flex p-4 rounded-xl bg-fpl-1100/80 overflow-x-scroll"
       aria-label="Wheel presets"
     >
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="mr-1 text-xs font-medium uppercase tracking-wide text-white/70">
-          Quick Select
-        </span>
+      <div className="flex items-center gap-2">
         {presets.map((preset) => {
           const isActive = activePresetId === preset.id;
           return (
@@ -48,10 +45,10 @@ export default function WheelPreset({
                 isActive
                   ? "bg-white text-fpl-1100"
                   : "bg-white/10 text-white hover:bg-white/20"
-              }`}
+              } whitespace-nowrap flex-shrink-0`}
             >
               {preset.logoRef && (
-                <picture className="h-8 w-8 p-1 bg-white rounded-md object-contain">
+                <picture className="flex-shrink-0 h-8 w-8 p-1 bg-white rounded-md object-contain">
                   <Image
                     src={preset.logoRef}
                     alt={preset.label}

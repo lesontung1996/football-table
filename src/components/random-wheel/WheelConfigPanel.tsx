@@ -3,7 +3,7 @@
 import Image from "next/image";
 import type { Team, WheelConfiguration } from "@/lib/random-wheel/types";
 import leagues from "@/data/leagues.json";
-import { Check, Trash, X } from "lucide-react";
+import { Check, SquareDashed, Trash, X } from "lucide-react";
 
 interface WheelConfigPanelProps {
   allTeams: Team[];
@@ -66,7 +66,7 @@ export default function WheelConfigPanel({
           onClick={() => onConfigChange({ ...config, teamIds: [] })}
           className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-sm font-semibold hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          <Trash size={16} />
+          <SquareDashed size={16} />
           Clear all
         </button>
       </header>

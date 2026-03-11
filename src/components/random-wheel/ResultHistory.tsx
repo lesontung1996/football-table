@@ -31,9 +31,13 @@ function resolveTeams(teamIds: number[]): Team[] {
 
 interface ResultHistoryProps {
   entries: StoredResultEntry[];
+  onClear: () => void;
 }
 
-export default function ResultHistory({ entries }: ResultHistoryProps) {
+export default function ResultHistory({
+  entries,
+  onClear,
+}: ResultHistoryProps) {
   return (
     <div className="space-y-4 rounded-xl bg-fpl-1100/80 p-4">
       <header className="flex items-center justify-between gap-3">
@@ -42,11 +46,12 @@ export default function ResultHistory({ entries }: ResultHistoryProps) {
         </div>
         <button
           type="button"
-          onClick={() => {}}
+          onClick={onClear}
+          disabled={entries.length === 0}
           className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-sm font-semibold hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <Trash size={16} />
-          Clear history
+          Clear
         </button>
       </header>
       {entries.length === 0 ? (

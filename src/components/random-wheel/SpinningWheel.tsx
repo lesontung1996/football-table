@@ -57,23 +57,23 @@ export default function SpinningWheel({
   const windowWidth = useWindowWidth();
 
   let WHEEL_SIZE;
-  if (windowWidth > 1024) {
+  if (windowWidth >= 1024) {
     WHEEL_SIZE = 400;
-  } else if (windowWidth > 768) {
+  } else if (windowWidth >= 768) {
     WHEEL_SIZE = 300;
   } else {
-    WHEEL_SIZE = Math.min(400, Math.max(280, windowWidth - 120));
+    WHEEL_SIZE = Math.min(400, Math.max(260, windowWidth - 120));
   }
   const CX = WHEEL_SIZE / 2;
   const CY = WHEEL_SIZE / 2;
   const OUTER_R = WHEEL_SIZE / 2 - 8;
-  const INNER_R = windowWidth > 1024 ? 50 : 36;
+  const INNER_R = windowWidth >= 1024 ? 50 : 36;
 
   let logoSize, logoR;
-  if (windowWidth > 1024) {
+  if (windowWidth >= 1024) {
     logoSize = 32;
     logoR = OUTER_R - 25;
-  } else if (windowWidth > 768) {
+  } else if (windowWidth >= 768) {
     logoSize = 24;
     logoR = OUTER_R - 22;
   } else {

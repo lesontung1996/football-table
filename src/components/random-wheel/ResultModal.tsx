@@ -5,18 +5,11 @@ import type { Team } from "@/lib/random-wheel/types";
 import { X } from "lucide-react";
 
 interface ResultModalProps {
-  open: boolean;
   teams: Team[];
   onClose: () => void;
 }
 
-export default function ResultModal({
-  open,
-  teams,
-  onClose,
-}: ResultModalProps) {
-  if (!open) return null;
-
+export default function ResultModal({ teams, onClose }: ResultModalProps) {
   const title = teams.length === 1 ? "Selected team" : "Selected teams";
 
   return (

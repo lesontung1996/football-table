@@ -13,6 +13,7 @@ import {
 } from "@/lib/random-wheel/resultHistory";
 import type { StoredResultEntry, Team } from "@/lib/random-wheel/types";
 import { useRandomTeamWheelConfig } from "@/lib/random-wheel/useRandomTeamWheelConfig";
+import ClearResultHistoryModal from "@/components/random-wheel/ClearResultHistoryModal";
 
 const RESULT_HISTORY_MAX = 50;
 
@@ -20,6 +21,7 @@ export default function RandomWheelPage() {
   const { config, includedTeams, setTeamIds, setNumberOfWheels } =
     useRandomTeamWheelConfig();
   const [open, setOpen] = useState(false);
+  const [openClearHistory, setOpenClearHistory] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
   const [resultTeams, setResultTeams] = useState<Team[]>([]);
   const [history, setHistory] = useState<StoredResultEntry[]>([]);
@@ -54,6 +56,16 @@ export default function RandomWheelPage() {
     saveResultHistory(next);
   };
 
+  const openClearHistoryModal = () => {
+    setOpenClearHistory(true);
+  };
+
+  const handleClearHistory = () => {
+    setOpenClearHistory(false);
+    setHistory([]);
+    saveResultHistory([]);
+  };
+
   const applyPreset = (teamIds: number[]) => {
     setTeamIds(teamIds);
   };
@@ -64,9 +76,14 @@ export default function RandomWheelPage() {
         <header className="space-y-2">
           <h1 className="text-h1">Random Team Wheel</h1>
           <p className="max-w-2xl text-sm text-white/80">
-            Spin one or two wheels to pick clubs or national teams at random.
-            Your configuration is saved to this device and mirrored in the URL
-            so you can share it with friends.
+            Click the wheel to spin and pick a random team. <br />
+            Click a league below to quick select a preset. <br />
+            For more customization of teams selection, go to the{" "}
+            <a href="#wheel-config" className="text-fpl-accent hover:underline">
+              team selection
+            </a>{" "}
+            panel.
+            <br />
           </p>
         </header>
 
@@ -92,16 +109,20 @@ export default function RandomWheelPage() {
               isSpinning={isSpinning}
             />
 
-            <ResultHistory entries={history} />
+            <ResultHistory entries={history} onClear={openClearHistoryModal} />
           </div>
         </div>
       </main>
 
-      <ResultModal
-        open={open}
-        teams={resultTeams}
-        onClose={() => setOpen(false)}
-      />
+      {open && (
+        <ResultModal teams={resultTeams} onClose={() => setOpen(false)} />
+      )}
+      {openClearHistory && (
+        <ClearResultHistoryModal
+          onConfirm={handleClearHistory}
+          onCancel={() => setOpenClearHistory(false)}
+        />
+      )}
     </>
   );
 }

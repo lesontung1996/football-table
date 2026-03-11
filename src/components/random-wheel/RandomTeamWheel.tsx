@@ -157,7 +157,7 @@ export default function RandomTeamWheel({
             Random Team Wheel
           </h2>
           <p className="text-xs text-white/70">
-            Click the wheel to spin and pick a random team.
+            You can spin 2 wheels at once for faster match selection.
           </p>
         </div>
         <div className="flex items-center gap-2">
