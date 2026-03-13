@@ -67,12 +67,12 @@ export default function ResultModal({ teams, onClose }: ResultModalProps) {
         <header className="mb-3 flex items-center justify-between">
           <div>
             <h2 className="text-lg font-semibold text-white">{title}</h2>
-            <p className="text-xs text-white/70">{subtitle}</p>
+            <p className="text-body-xs text-white/70">{subtitle}</p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="flex items-center gap-2 h-8 rounded-lg px-3 text-xs font-semibold text-white/80 ring-1 ring-white/40 hover:bg-white/10"
+            className="flex items-center gap-2 h-8 rounded-lg px-3 text-body-xs font-semibold text-white/80 ring-1 ring-white/40 hover:bg-white/10"
           >
             <X size={16} />
             <span className="sr-only">Close</span>
@@ -81,7 +81,7 @@ export default function ResultModal({ teams, onClose }: ResultModalProps) {
 
         <div className="space-y-3">
           {teams.length === 0 && (
-            <p className="text-sm text-red-200">
+            <p className="text-body-sm text-red-200">
               No team was selected. Try adjusting your filters and spinning
               again.
             </p>
@@ -107,10 +107,10 @@ export default function ResultModal({ teams, onClose }: ResultModalProps) {
                     </span>
                   </div>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-white">
+                    <p className="truncate text-body-sm font-semibold text-white">
                       {team.name}
                     </p>
-                    <p className="text-xs text-white/70">
+                    <p className="text-body-xs text-white/70">
                       {team.leagueOrNation} •{" "}
                       <span className="font-mono uppercase">{team.tla}</span>
                     </p>

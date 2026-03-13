@@ -42,14 +42,14 @@ export default function ResultHistory({
   return (
     <div className="flex flex-col h-full space-y-4">
       <header className="flex items-center justify-between gap-3">
-        <p className="flex-shrink-1 text-sm text-fpl-accent/70 max-w-[60%]">
+        <p className="flex-shrink-1 text-body-xs text-fpl-accent/70 max-w-[60%]">
           Build your own highlight reel of chaotic fixtures.
         </p>
         <button
           type="button"
           onClick={onClear}
           disabled={entries.length === 0}
-          className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-sm font-semibold whitespace-nowrap hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-body-sm font-semibold whitespace-nowrap hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <Trash size={16} />
           Clear
@@ -58,16 +58,16 @@ export default function ResultHistory({
       <div className="overflow-y-auto h-full">
         {entries.length === 0 ? (
           <div className="flex h-full flex-col items-center justify-center text-center space-y-2 text-white/70">
-            <p className="text-sm font-medium">
+            <p className="text-body-sm font-medium">
               No spins yet. Your fixture history is a clean sheet.
             </p>
-            <p className="text-xs text-white/60 max-w-xs">
+            <p className="text-body-xs text-white/60 max-w-xs">
               Spin the wheel to lock in your first matchup and we’ll keep score
               here.
             </p>
           </div>
         ) : (
-          <ul className="space-y-2">
+          <ul className="">
             {entries.map((entry, index) => {
               const teams = resolveTeams(entry.teamIds);
               return (
@@ -75,10 +75,10 @@ export default function ResultHistory({
                   key={`${entry.timestamp}-${index}`}
                   className={cn(
                     index !== entries.length - 1 && "border-b border-white/10",
-                    "space-y-2 pb-2 rounded-md hover:bg-fpl-1000/60 transition-colors",
+                    "space-y-2 py-2 rounded-md hover:bg-fpl-1000/60 transition-colors",
                   )}
                 >
-                  <p className="flex items-center gap-2 text-xs text-white/80">
+                  <p className="flex items-center gap-2 text-body-xs text-white/80">
                     <span className="w-4 h-4 inline-flex items-center justify-center rounded-sm bg-gray-50 font-bold text-fpl-1200">
                       {index + 1}
                     </span>
@@ -100,7 +100,7 @@ export default function ResultHistory({
                           />
                         </div>
                         <div className="min-w-0">
-                          <p className="truncate text-xs font-medium text-white max-w-[120px]">
+                          <p className="truncate text-body-xs font-medium text-white max-w-[120px]">
                             {team.name}
                           </p>
                         </div>

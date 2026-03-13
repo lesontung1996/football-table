@@ -38,7 +38,6 @@ interface SpinningWheelProps {
   teams: Team[];
   rotation: number;
   isSpinning: boolean;
-  wheelId: string;
   onSpinEnd?: () => void;
   onClick?: () => void;
   "aria-label"?: string;
@@ -48,7 +47,6 @@ export default function SpinningWheel({
   teams,
   rotation,
   isSpinning,
-  wheelId,
   onSpinEnd,
   onClick,
   "aria-label": ariaLabel,
@@ -69,16 +67,19 @@ export default function SpinningWheel({
   const OUTER_R = WHEEL_SIZE / 2 - 8;
   const INNER_R = windowWidth >= 1024 ? 50 : 36;
 
-  let logoSize, logoR;
+  let logoSize, logoR, fontSize;
   if (windowWidth >= 1024) {
     logoSize = 32;
     logoR = OUTER_R - 25;
+    fontSize = 15;
   } else if (windowWidth >= 768) {
     logoSize = 24;
     logoR = OUTER_R - 22;
+    fontSize = 14;
   } else {
     logoSize = WHEEL_SIZE * 0.06;
     logoR = OUTER_R - logoSize;
+    fontSize = 12;
   }
   const sliceAngle = 360 / teams.length;
   const textR = (INNER_R + OUTER_R) / 2 - 10;
@@ -180,7 +181,6 @@ export default function SpinningWheel({
               const textPos = polarToCartesian(CX, CY, textR, midAngle);
               const textRotation = midAngle - 90;
               const logoPos = polarToCartesian(CX, CY, logoR, midAngle);
-              const clipId = `${wheelId}-team-${team.id}-clip`;
 
               return (
                 <g key={team.id}>
@@ -208,7 +208,6 @@ export default function SpinningWheel({
                       width={logoSize}
                       height={logoSize}
                       preserveAspectRatio="xMidYMid slice"
-                      //   clipPath="url(#circle-clip)"
                       transform={`rotate(${textRotation})`}
                     />
                   </g>
@@ -218,7 +217,7 @@ export default function SpinningWheel({
                     textAnchor="middle"
                     dominantBaseline="middle"
                     fill="white"
-                    fontSize={windowWidth > 1024 ? "15" : "11"}
+                    fontSize={fontSize}
                     fontWeight="600"
                     transform={`rotate(${textRotation} ${textPos.x} ${textPos.y})`}
                     style={{ textShadow: "0 1px 2px rgba(0,0,0,0.5)" }}

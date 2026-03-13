@@ -35,7 +35,7 @@ function computeTargetRotation(
     currentRotation +
     fullSpins * 360 +
     delta +
-    (Math.random() * (sliceAngle - sliceAngle * -1) + sliceAngle * -1) / 2 // random offset to avoid perfect alignment
+    (Math.random() * (sliceAngle - sliceAngle * -1) + sliceAngle * -1) / 2
   );
 }
 
@@ -70,7 +70,7 @@ export default function RandomTeamWheel({
     onResult(pendingWinners);
     setPendingWinners(null);
     completedCountRef.current = 0;
-  }, [pendingWinners, onResult]);
+  }, [pendingWinners, onResult, setIsSpinning]);
 
   const handleWheel1SpinEnd = useCallback(() => {
     completedCountRef.current += 1;
@@ -126,7 +126,7 @@ export default function RandomTeamWheel({
     });
     setIsSpinning(true);
     completedCountRef.current = 0;
-  }, [canSpin, teams, config.numberOfWheels]);
+  }, [canSpin, teams, config.numberOfWheels, setIsSpinning]);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -144,17 +144,17 @@ export default function RandomTeamWheel({
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [canSpin]);
+  }, [canSpin, handleSpin]);
 
   const ctaText = useMemo(() => {
     const texts = ["Spin the fixtures", "Who’s up next?", "Send it!"];
 
     return texts[Math.floor(Math.random() * texts.length)];
-  }, [canSpin]);
+  }, []);
 
   return (
     <section
-      className="flex flex-col justify-between space-y-6 rounded-xl bg-fpl-1100/80 p-4"
+      className="flex flex-col justify-between space-y-6 rounded-xl bg-fpl-1100/80 p-4 overflow-hidden"
       aria-label="Random Team Wheel"
     >
       <div className="flex flex-wrap items-center justify-between gap-4">
@@ -162,15 +162,15 @@ export default function RandomTeamWheel({
           <h2 className="text-lg font-semibold text-white">
             Random Team Wheel for Your Matches
           </h2>
-          <p className="text-xs text-white/70">
+          <p className="text-body-xs text-white/70">
             Choose your teams, then spin the wheel to get instant matchups.
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs font-medium text-white/70">
+          <span className="text-body-xs font-medium text-white/70">
             You can spin 2 wheels for faster matchups
           </span>
-          <div className="inline-flex rounded-lg bg-fpl-1000 p-1 text-xs font-semibold text-white/80">
+          <div className="inline-flex rounded-lg bg-fpl-1000 p-1 text-body-xs font-semibold text-white/80">
             <button
               type="button"
               disabled={isSpinning}
@@ -206,7 +206,6 @@ export default function RandomTeamWheel({
           teams={teams}
           rotation={wheelRotations.first}
           isSpinning={isSpinning}
-          wheelId="wheel-1"
           onSpinEnd={handleWheel1SpinEnd}
           onClick={handleSpin}
           aria-label="Wheel 1"
@@ -216,7 +215,6 @@ export default function RandomTeamWheel({
             teams={teams}
             rotation={wheelRotations.second}
             isSpinning={isSpinning}
-            wheelId="wheel-2"
             onSpinEnd={handleWheel2SpinEnd}
             onClick={handleSpin}
             aria-label="Wheel 2"
@@ -225,7 +223,7 @@ export default function RandomTeamWheel({
       </div>
 
       <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
-        <p className="text-xs text-white/70">
+        <p className="text-body-xs text-white/70">
           Eligible teams:{" "}
           <span className="font-semibold text-white">{teams.length}</span>
         </p>
@@ -233,7 +231,7 @@ export default function RandomTeamWheel({
           type="button"
           onClick={handleSpin}
           disabled={!canSpin}
-          className="inline-flex h-10 items-center justify-center rounded-lg bg-fpl-accent px-6 text-sm font-semibold text-fpl-1100 transition hover:bg-yellow-300 disabled:cursor-not-allowed disabled:bg-fpl-500 disabled:text-fpl-200"
+          className="inline-flex h-10 items-center justify-center rounded-lg bg-fpl-accent px-6 text-body-sm font-semibold text-fpl-1100 transition hover:bg-yellow-300 disabled:cursor-not-allowed disabled:bg-fpl-500 disabled:text-fpl-200"
           aria-label={isSpinning ? "Spinning" : "Spin the wheel"}
         >
           {isSpinning ? "Who's it gonna be..." : ctaText}

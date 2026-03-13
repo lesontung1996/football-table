@@ -19,7 +19,7 @@
 }
 
 html {
-  font-size: 106.25%;
+  font-size: 100%;
   scroll-margin-top: 100px;
 }
 
@@ -51,8 +51,8 @@ input[type="number"] {
 }
 /* End of hide the spin buttons on number inputs */
 
-/* Headings */
 @layer base {
+  /* Headings */
   .text-h1 {
     @apply text-2xl font-bold md:text-3xl;
   }
@@ -70,5 +70,22 @@ input[type="number"] {
   }
   .text-h6 {
     @apply text-xs font-semibold md:text-sm;
+  }
+
+  /* Responsive body text */
+  .text-body-xxs {
+    @apply text-[10px] md:text-xs leading-snug;
+  }
+  .text-body-xs {
+    @apply text-xs md:text-sm leading-snug;
+  }
+  .text-body-sm {
+    @apply text-sm md:text-base leading-relaxed;
+  }
+  .text-body {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+  .text-body-lg {
+    @apply text-lg md:text-xl leading-relaxed;
   }
 }

@@ -33,6 +33,9 @@ const config: Config = {
       fontFamily: {
         sans: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
       },
+      animation: {
+        "spin-ease-out": "spin 1s ease-out infinite",
+      },
     },
   },
   plugins: [],

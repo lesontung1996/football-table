@@ -1,3 +1,4 @@
+/* eslint-disable */
 // scripts/download-logos.js
 // Run from project root: node scripts/download-logos.js
 

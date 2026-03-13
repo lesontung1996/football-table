@@ -20,7 +20,7 @@ export default function ClearResultHistoryModal({
       >
         <h2 className="mb-4 text-h2 text-white">Clear previous spins?</h2>
         <p className="mb-6 text-white/90">
-          This will remove all saved spin results. You can't undo this.
+          This will remove all saved spin results. You can&apos;t undo this.
         </p>
         <div className="flex justify-end gap-2">
           <button

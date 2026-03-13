@@ -1,13 +1,13 @@
-type ThrottledFunction<T extends (...args: any[]) => any> = (
+type ThrottledFunction<T extends (...args: unknown[]) => unknown> = (
   ...args: Parameters<T>
 ) => void;
 
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (...args: unknown[]) => unknown>(
   func: T,
   limit: number,
 ): ThrottledFunction<T> {
   let inThrottle: boolean;
-  return function (this: any, ...args: Parameters<T>) {
+  return function (this: unknown, ...args: Parameters<T>) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;
@@ -16,7 +16,7 @@ export function throttle<T extends (...args: any[]) => any>(
   };
 }
 
-export function debounce<T extends (...args: any[]) => void>(
+export function debounce<T extends (...args: unknown[]) => void>(
   func: T,
   delay: number,
 ): (...args: Parameters<T>) => void {

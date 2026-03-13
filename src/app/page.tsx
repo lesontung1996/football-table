@@ -34,7 +34,7 @@ export default function RandomWheelPage() {
   if (!config) {
     return (
       <main className="2xl:container w-full mx-auto p-4">
-        <p className="text-sm text-white/80">Setting up your wheel…</p>
+        <p className="text-body-sm text-white/80">Setting up your wheel…</p>
       </main>
     );
   }
@@ -74,7 +74,7 @@ export default function RandomWheelPage() {
   return (
     <>
       <main className="2xl:container w-full mx-auto p-4 space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,5fr),minmax(0,2fr)] gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,5fr),minmax(0,2fr)] gap-6">
           <RandomTeamWheel
             teams={includedTeams}
             config={config}
@@ -93,19 +93,19 @@ export default function RandomWheelPage() {
             >
               <Tabs.Trigger
                 value="quick-select"
-                className="relative pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-xs sm:text-sm text-white/50 transition-colors data-[state=active]:border-fpl-accent data-[state=active]:text-white hover:text-white/80"
+                className="relative pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-body-sm text-white/50 transition-colors data-[state=active]:border-fpl-accent data-[state=active]:text-white hover:text-white/80"
               >
                 Quick presets
               </Tabs.Trigger>
               <Tabs.Trigger
                 value="team-selection"
-                className="relative pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-xs sm:text-sm text-white/50 transition-colors data-[state=active]:border-fpl-accent data-[state=active]:text-white hover:text-white/80"
+                className="relative pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-body-sm text-white/50 transition-colors data-[state=active]:border-fpl-accent data-[state=active]:text-white hover:text-white/80"
               >
                 Choose teams
               </Tabs.Trigger>
               <Tabs.Trigger
                 value="result-history"
-                className="relative pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-xs sm:text-sm text-white/50 transition-colors data-[state=active]:border-fpl-accent data-[state=active]:text-white hover:text-white/80"
+                className="relative pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-body-sm text-white/50 transition-colors data-[state=active]:border-fpl-accent data-[state=active]:text-white hover:text-white/80"
               >
                 Previous spins
               </Tabs.Trigger>

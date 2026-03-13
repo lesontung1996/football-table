@@ -3,7 +3,7 @@
 import Image from "next/image";
 import type { Team, WheelConfiguration } from "@/lib/random-wheel/types";
 import leagues from "@/data/leagues.json";
-import { Check, SquareDashed, Trash, X } from "lucide-react";
+import { Check, SquareDashed } from "lucide-react";
 
 interface WheelConfigPanelProps {
   allTeams: Team[];
@@ -54,14 +54,14 @@ export default function WheelConfigPanel({
   return (
     <section id="wheel-config" className="flex flex-col h-full space-y-4">
       <header className="flex items-center justify-between gap-3">
-        <p className="flex-shrink-1 text-sm text-fpl-accent/70 max-w-[60%]">
+        <p className="flex-shrink-1 text-body-xs text-fpl-accent/70 max-w-[60%]">
           More teams, more drama. Tune it to your league.
         </p>
         <button
           type="button"
           disabled={isSpinning}
           onClick={() => onConfigChange({ ...config, teamIds: [] })}
-          className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-sm font-semibold whitespace-nowrap hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-body-sm font-semibold whitespace-nowrap hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <SquareDashed size={16} />
           Clear all
@@ -78,7 +78,6 @@ export default function WheelConfigPanel({
             includedIdSet.has(team.id),
           ).length;
           const allIncluded = includedCount === total && total > 0;
-          const hasAnyIncluded = includedCount > 0;
 
           return (
             <div key={league.code} className="rounded-lg bg-fpl-1000/80 p-3">
@@ -98,7 +97,7 @@ export default function WheelConfigPanel({
                     )}
                     <div className="flex flex-col font-semibold text-white">
                       {league.name}
-                      <span className="text-xs text-white/60">
+                      <span className="text-body-xs text-white/60">
                         {includedCount}/{total} teams included
                       </span>
                     </div>
@@ -109,7 +108,7 @@ export default function WheelConfigPanel({
                     type="button"
                     disabled={isSpinning}
                     onClick={() => toggleLeagueOrNation(league.code, true)}
-                    className={`rounded-md px-2 py-1 text-sm font-semibold transition ${
+                    className={`rounded-md px-2 py-1 text-body-sm font-semibold transition ${
                       allIncluded
                         ? "bg-white text-fpl-1100"
                         : "bg-white/10 text-white hover:bg-white/20"
@@ -121,7 +120,7 @@ export default function WheelConfigPanel({
                     type="button"
                     disabled={isSpinning}
                     onClick={() => toggleLeagueOrNation(league.code, false)}
-                    className={`rounded-md px-2 py-1 text-sm font-semibold text-white transition hover:bg-white/20 bg-fpl-900 disabled:cursor-not-allowed disabled:opacity-50`}
+                    className={`rounded-md px-2 py-1 text-body-sm font-semibold text-white transition hover:bg-white/20 bg-fpl-900 disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     None
                   </button>
@@ -136,7 +135,7 @@ export default function WheelConfigPanel({
                       type="button"
                       disabled={isSpinning}
                       onClick={() => toggleTeam(team.id)}
-                      className={`flex items-center gap-2 rounded-md px-2 py-1 text-sm transition ${
+                      className={`flex items-center gap-2 rounded-md px-2 py-1 text-body-sm transition ${
                         isIncluded
                           ? "bg-fpl-900 text-white ring-1 ring-fpl-accent/60"
                           : "bg-fpl-1000 text-white/70 hover:bg-fpl-900/70"

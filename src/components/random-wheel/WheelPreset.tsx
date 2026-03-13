@@ -34,7 +34,7 @@ export default function WheelPreset({
       className="flex flex-col h-full space-y-4"
     >
       <header className="flex items-center justify-between gap-3">
-        <p className="flex-shrink-1 text-sm text-fpl-accent/70 max-w-[60%]">
+        <p className="flex-shrink-1 text-body-xs text-fpl-accent/70 max-w-[60%]">
           Swap presets anytime – chaos is encouraged.
         </p>
       </header>
@@ -47,7 +47,7 @@ export default function WheelPreset({
               type="button"
               onClick={() => onSelectPreset(preset.teamIds)}
               className={cn(
-                "flex flex-col items-center h-max p-2 rounded-md text-sm bg-white/70 text-fpl-1200 transition overflow-hidden whitespace-nowrap flex-shrink-0 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-white/85 data-[state=active]:shadow-lg",
+                "flex flex-col items-center h-max p-2 rounded-md text-body-sm bg-white/70 text-fpl-1200 transition overflow-hidden whitespace-nowrap flex-shrink-0 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-white/85 data-[state=active]:shadow-lg",
                 isActive && "bg-white",
               )}
             >
@@ -59,7 +59,7 @@ export default function WheelPreset({
                   height={80}
                 />
               </picture>
-              <span className="text-sm font-bold">{preset.label}</span>
+              <span className="text-body-sm font-bold">{preset.label}</span>
               <span className="text-[11px] text-fpl-1000">
                 {preset.teamIds.length} teams
               </span>
