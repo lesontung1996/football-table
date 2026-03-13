@@ -52,10 +52,7 @@ export default function WheelConfigPanel({
   };
 
   return (
-    <section
-      id="wheel-config"
-      className="space-y-4 rounded-xl bg-fpl-1100/80 p-4 shadow-xl"
-    >
+    <section id="wheel-config" className="flex flex-col h-full space-y-4">
       <header className="flex items-center justify-between gap-3">
         <div>
           <h2 className="font-semibold text-white">Team selection</h2>
@@ -71,7 +68,7 @@ export default function WheelConfigPanel({
         </button>
       </header>
 
-      <div className="max-h-[70vh] space-y-3 overflow-y-auto pr-1">
+      <div className="space-y-3 overflow-y-auto">
         {leagues.map((league) => {
           const groupTeams = allTeams.filter(
             (team) => team.leagueOrNation === league.code,
@@ -81,7 +78,6 @@ export default function WheelConfigPanel({
             includedIdSet.has(team.id),
           ).length;
           const allIncluded = includedCount === total && total > 0;
-          const noneIncluded = includedCount === 0;
 
           return (
             <div key={league.code} className="rounded-lg bg-fpl-1000/80 p-3">
@@ -130,7 +126,7 @@ export default function WheelConfigPanel({
                   </button>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-1 md:grid-cols-3 lg:grid-cols-4">
+              <div className="grid grid-cols-2 gap-1">
                 {groupTeams.map((team) => {
                   const isIncluded = includedIdSet.has(team.id);
                   return (
@@ -153,7 +149,9 @@ export default function WheelConfigPanel({
                         className="h-6 w-6"
                       />
                       <span className="truncate">{team.name}</span>
-                      {isIncluded && <Check size={16} className="ml-auto" />}
+                      {isIncluded && (
+                        <Check size={16} className="ml-auto flex-shrink-0" />
+                      )}
                     </button>
                   );
                 })}

@@ -99,7 +99,7 @@ export default function SpinningWheel({
   if (teams.length === 0) {
     return (
       <div
-        className={`relative flex flex-shrink-0 items-center justify-center rounded-full bg-fpl-1000 shadow-xl`}
+        className={`relative flex flex-shrink-0 items-center justify-center rounded-full bg-fpl-1000`}
         aria-label={ariaLabel}
         style={{
           width: WHEEL_SIZE,

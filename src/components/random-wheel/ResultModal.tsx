@@ -18,7 +18,7 @@ export default function ResultModal({ teams, onClose }: ResultModalProps) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-lg rounded-2xl bg-fpl-1100 p-5 shadow-2xl"
+        className="w-full max-w-lg rounded-2xl bg-fpl-1100 p-5"
         onClick={(e) => e.stopPropagation()}
       >
         <header className="mb-3 flex items-center justify-between">

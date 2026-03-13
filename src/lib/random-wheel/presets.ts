@@ -10,7 +10,7 @@ export interface WheelPresetItem {
     | "world-cup";
   label: string;
   teamIds: number[];
-  logoRef?: string;
+  logoRef: string;
 }
 
 const premierLeagueIds = [

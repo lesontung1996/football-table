@@ -148,7 +148,7 @@ export default function RandomTeamWheel({
 
   return (
     <section
-      className="space-y-6 rounded-xl bg-fpl-1100/80 p-4 shadow-xl"
+      className="flex flex-col justify-between space-y-6 rounded-xl bg-fpl-1100/80 p-4"
       aria-label="Random Team Wheel"
     >
       <div className="flex flex-wrap items-center justify-between gap-4">

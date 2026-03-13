@@ -1,8 +1,8 @@
 "use client";
 
 import { WHEEL_PRESETS as presets } from "@/lib/random-wheel/presets";
-import { ArrowDown } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 function idSetEquals(a: number[], b: number[]): boolean {
   if (a.length !== b.length) return false;
@@ -29,11 +29,8 @@ export default function WheelPreset({
   )?.id;
 
   return (
-    <section
-      className="flex p-4 rounded-xl bg-fpl-1100/80 overflow-x-scroll"
-      aria-label="Wheel presets"
-    >
-      <div className="flex items-center gap-2">
+    <section aria-label="Wheel presets" className="h-full">
+      <div className="grid grid-cols-2 gap-2 h-full overflow-y-auto">
         {presets.map((preset) => {
           const isActive = activePresetId === preset.id;
           return (
@@ -41,33 +38,26 @@ export default function WheelPreset({
               key={preset.id}
               type="button"
               onClick={() => onSelectPreset(preset.teamIds)}
-              className={`flex items-center gap-2 h-8 pr-2 rounded-md text-sm font-medium transition overflow-hidden ${
-                isActive
-                  ? "bg-white text-fpl-1100"
-                  : "bg-white/10 text-white hover:bg-white/20"
-              } whitespace-nowrap flex-shrink-0`}
-            >
-              {preset.logoRef && (
-                <picture className="flex-shrink-0 h-8 w-8 p-1 bg-white rounded-md object-contain">
-                  <Image
-                    src={preset.logoRef}
-                    alt={preset.label}
-                    width={40}
-                    height={40}
-                  />
-                </picture>
+              className={cn(
+                "flex flex-col items-center h-max p-2 rounded-md text-sm bg-white/70 text-fpl-1200 transition overflow-hidden whitespace-nowrap flex-shrink-0",
+                isActive && "bg-white",
               )}
-              {preset.label}
+            >
+              <picture className="flex items-center justify-center mb-2 h-16 w-16 object-contain">
+                <Image
+                  src={preset.logoRef}
+                  alt={preset.label}
+                  width={80}
+                  height={80}
+                />
+              </picture>
+              <span className="text-sm font-bold">{preset.label}</span>
+              <span className="text-xs text-fpl-1000">
+                {preset.teamIds.length} teams
+              </span>
             </button>
           );
         })}
-        <a
-          href="#wheel-config"
-          className={`flex items-center gap-2 h-8 rounded-md px-2 py-1.5 text-sm font-medium transition bg-white/10 text-white hover:bg-white/20`}
-        >
-          <ArrowDown size={16} />
-          <span>Customize</span>
-        </a>
       </div>
     </section>
   );

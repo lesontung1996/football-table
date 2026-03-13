@@ -11,8 +11,6 @@ export default function Navigation() {
   const pathname = usePathname();
   const currentGameId = useAppSelector(selectCurrentGameId);
 
-  const isGameListPage = pathname === "/";
-
   const inGameRoutes = [
     {
       path: "/schedule",
@@ -24,14 +22,16 @@ export default function Navigation() {
     },
   ];
 
+  const isInGameRoutes = inGameRoutes.some((route) => pathname === route.path);
+
   return (
     <nav className="sticky top-0 h-16 z-50 bg-fpl-1200 text-white border-b border-fpl-800">
-      <div className="container mx-auto px-4">
+      <div className="2xl:container w-full mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">
-            {!isGameListPage && (
+            {isInGameRoutes && (
               <Link
-                href="/"
+                href="/league"
                 className="flex items-center gap-2 rounded-md bg-transparent border border-white px-3 py-1 text-sm font-medium hover:bg-white/10"
               >
                 <ArrowLeft size={16} />
@@ -48,7 +48,7 @@ export default function Navigation() {
             </picture>
             <h1 className="text-h3">Football Wheel</h1>
           </div>
-          {!isGameListPage && currentGameId && (
+          {isInGameRoutes && currentGameId && (
             <div className="flex gap-2">
               {inGameRoutes.map((route) => (
                 <Link
