@@ -85,7 +85,7 @@ export default function RandomWheelPage() {
           />
           <Tabs.Root
             defaultValue="quick-select"
-            className="flex flex-col h-[calc(100dvh-6rem)] min-h-[575px] max-h-[800px] rounded-xl bg-fpl-1100/80 p-4 shadow-[0_0_40px_rgba(0,0,0,0.6)]"
+            className="flex flex-col rounded-xl bg-fpl-1100/80 p-4 h-[calc(100dvh-6rem)] min-h-[575px] max-h-[800px]"
           >
             <Tabs.List
               aria-label="Team wheel setup and history"
