@@ -22,9 +22,9 @@ export default function TablePage() {
   }, [isLoading]);
 
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className="2xl:container w-full mx-auto p-4">
       <div className="bg-fpl-1000 rounded-lg p-6">
-        <h2 className="text-2xl font-bold mb-4 text-white">League Table</h2>
+        <h2 className="text-h1 mb-4 text-white">League Table</h2>
         <LeagueTable />
       </div>
     </main>

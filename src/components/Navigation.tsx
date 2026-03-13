@@ -5,12 +5,14 @@ import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/store/hooks";
 import { selectCurrentGameId } from "@/store/slices/gamesSlice";
 import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function Navigation() {
+  const [isAnimating, setIsAnimating] = useState(false);
   const pathname = usePathname();
   const currentGameId = useAppSelector(selectCurrentGameId);
-
-  const isGameListPage = pathname === "/";
 
   const inGameRoutes = [
     {
@@ -23,25 +25,45 @@ export default function Navigation() {
     },
   ];
 
+  const isInGameRoutes = inGameRoutes.some((route) => pathname === route.path);
+
   return (
     <nav className="sticky top-0 h-16 z-50 bg-fpl-1200 text-white border-b border-fpl-800">
-      <div className="container mx-auto px-4">
+      <div className="2xl:container w-full mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">
-            {!isGameListPage && (
+            {isInGameRoutes && (
               <Link
-                href="/"
+                href="/league"
                 className="flex items-center gap-2 rounded-md bg-transparent border border-white px-3 py-1 text-sm font-medium hover:bg-white/10"
               >
                 <ArrowLeft size={16} />
                 Back
               </Link>
             )}
-            <h1 className="text-xl font-bold tracking-tight">
-              Premier League Table
-            </h1>
+            <Link
+              href="/"
+              className="group flex items-center gap-3"
+              aria-label="Go to Football Wheel home"
+              onMouseEnter={() => setIsAnimating(true)}
+            >
+              <picture>
+                <Image
+                  src="/images/football-wheel-logo.svg"
+                  alt="Football Wheel"
+                  width={50}
+                  height={50}
+                  className={cn(
+                    isAnimating &&
+                      "transition-transform duration-500 ease-out rotate-[360deg]",
+                  )}
+                  onTransitionEnd={() => setIsAnimating(false)}
+                />
+              </picture>
+              <h1 className="text-h3">Football Wheel</h1>
+            </Link>
           </div>
-          {!isGameListPage && currentGameId && (
+          {isInGameRoutes && currentGameId && (
             <div className="flex gap-2">
               {inGameRoutes.map((route) => (
                 <Link
@@ -49,8 +71,8 @@ export default function Navigation() {
                   href={route.path}
                   className={`px-4 py-2 rounded-md transition-colors ${
                     pathname === route.path
-                      ? "bg-fpl-purple-light font-semibold"
-                      : "hover:bg-fpl-purple-light"
+                      ? "bg-fpl-1000 font-semibold"
+                      : "hover:bg-fpl-1000"
                   }`}
                 >
                   {route.label}

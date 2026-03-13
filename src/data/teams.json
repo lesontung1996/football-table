@@ -1,0 +1,2082 @@
+[
+  {
+    "id": 57,
+    "name": "Arsenal FC",
+    "tla": "ARS",
+    "logoRef": "/images/teams/57.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 58,
+    "name": "Aston Villa FC",
+    "tla": "AVL",
+    "logoRef": "/images/teams/58.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 61,
+    "name": "Chelsea FC",
+    "tla": "CHE",
+    "logoRef": "/images/teams/61.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 62,
+    "name": "Everton FC",
+    "tla": "EVE",
+    "logoRef": "/images/teams/62.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 63,
+    "name": "Fulham FC",
+    "tla": "FUL",
+    "logoRef": "/images/teams/63.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 64,
+    "name": "Liverpool FC",
+    "tla": "LIV",
+    "logoRef": "/images/teams/64.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 65,
+    "name": "Manchester City FC",
+    "tla": "MCI",
+    "logoRef": "/images/teams/65.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 66,
+    "name": "Manchester United FC",
+    "tla": "MUN",
+    "logoRef": "/images/teams/66.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 67,
+    "name": "Newcastle United FC",
+    "tla": "NEW",
+    "logoRef": "/images/teams/67.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 71,
+    "name": "Sunderland AFC",
+    "tla": "SUN",
+    "logoRef": "/images/teams/71.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 73,
+    "name": "Tottenham Hotspur FC",
+    "tla": "TOT",
+    "logoRef": "/images/teams/73.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 76,
+    "name": "Wolverhampton Wanderers FC",
+    "tla": "WOL",
+    "logoRef": "/images/teams/76.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 328,
+    "name": "Burnley FC",
+    "tla": "BUR",
+    "logoRef": "/images/teams/328.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 341,
+    "name": "Leeds United FC",
+    "tla": "LEE",
+    "logoRef": "/images/teams/341.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 351,
+    "name": "Nottingham Forest FC",
+    "tla": "NOT",
+    "logoRef": "/images/teams/351.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 354,
+    "name": "Crystal Palace FC",
+    "tla": "CRY",
+    "logoRef": "/images/teams/354.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 397,
+    "name": "Brighton & Hove Albion FC",
+    "tla": "BHA",
+    "logoRef": "/images/teams/397.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 402,
+    "name": "Brentford FC",
+    "tla": "BRE",
+    "logoRef": "/images/teams/402.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 563,
+    "name": "West Ham United FC",
+    "tla": "WHU",
+    "logoRef": "/images/teams/563.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 1044,
+    "name": "AFC Bournemouth",
+    "tla": "BOU",
+    "logoRef": "/images/teams/bournemouth.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PL"
+  },
+  {
+    "id": 59,
+    "name": "Blackburn Rovers FC",
+    "tla": "BLA",
+    "logoRef": "/images/teams/59.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 68,
+    "name": "Norwich City FC",
+    "tla": "NCF",
+    "logoRef": "/images/teams/68.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 69,
+    "name": "Queens Park Rangers FC",
+    "tla": "QPR",
+    "logoRef": "/images/teams/69.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 70,
+    "name": "Stoke City FC",
+    "tla": "STK",
+    "logoRef": "/images/teams/70.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 72,
+    "name": "Swansea City AFC",
+    "tla": "SWA",
+    "logoRef": "/images/teams/72.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 74,
+    "name": "West Bromwich Albion FC",
+    "tla": "WBA",
+    "logoRef": "/images/teams/74.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 322,
+    "name": "Hull City AFC",
+    "tla": "HUL",
+    "logoRef": "/images/teams/322.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 325,
+    "name": "Portsmouth FC",
+    "tla": "POR",
+    "logoRef": "/images/teams/325.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 332,
+    "name": "Birmingham City FC",
+    "tla": "BIR",
+    "logoRef": "/images/teams/332.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 338,
+    "name": "Leicester City FC",
+    "tla": "LEI",
+    "logoRef": "/images/teams/338.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 340,
+    "name": "Southampton FC",
+    "tla": "SOU",
+    "logoRef": "/images/teams/340.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 342,
+    "name": "Derby County FC",
+    "tla": "DER",
+    "logoRef": "/images/teams/342.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 343,
+    "name": "Middlesbrough FC",
+    "tla": "MID",
+    "logoRef": "/images/teams/343.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 345,
+    "name": "Sheffield Wednesday FC",
+    "tla": "SWF",
+    "logoRef": "/images/teams/345.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 346,
+    "name": "Watford FC",
+    "tla": "WAT",
+    "logoRef": "/images/teams/346.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 348,
+    "name": "Charlton Athletic FC",
+    "tla": "CHA",
+    "logoRef": "/images/teams/348.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 349,
+    "name": "Ipswich Town FC",
+    "tla": "IPS",
+    "logoRef": "/images/teams/349.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 356,
+    "name": "Sheffield United FC",
+    "tla": "SHE",
+    "logoRef": "/images/teams/356.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 384,
+    "name": "Millwall FC",
+    "tla": "MIL",
+    "logoRef": "/images/teams/384.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 387,
+    "name": "Bristol City FC",
+    "tla": "BRI",
+    "logoRef": "/images/teams/387.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 404,
+    "name": "Wrexham AFC",
+    "tla": "WRE",
+    "logoRef": "/images/teams/404.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 1076,
+    "name": "Coventry City FC",
+    "tla": "COV",
+    "logoRef": "/images/teams/1076.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 1081,
+    "name": "Preston North End FC",
+    "tla": "PNE",
+    "logoRef": "/images/teams/1081.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 1082,
+    "name": "Oxford United FC",
+    "tla": "OXF",
+    "logoRef": "/images/teams/1082.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "ELC"
+  },
+  {
+    "id": 511,
+    "name": "Toulouse FC",
+    "tla": "TOU",
+    "logoRef": "/images/teams/511.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 512,
+    "name": "Stade Brestois 29",
+    "tla": "S29",
+    "logoRef": "/images/teams/512.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 516,
+    "name": "Olympique de Marseille",
+    "tla": "MAR",
+    "logoRef": "/images/teams/516.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 519,
+    "name": "AJ Auxerre",
+    "tla": "AJA",
+    "logoRef": "/images/teams/519.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 521,
+    "name": "Lille OSC",
+    "tla": "LIL",
+    "logoRef": "/images/teams/521.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 522,
+    "name": "OGC Nice",
+    "tla": "NIC",
+    "logoRef": "/images/teams/522.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 523,
+    "name": "Olympique Lyonnais",
+    "tla": "LYO",
+    "logoRef": "/images/teams/523.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 524,
+    "name": "Paris Saint-Germain FC",
+    "tla": "PSG",
+    "logoRef": "/images/teams/524.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 525,
+    "name": "FC Lorient",
+    "tla": "FCL",
+    "logoRef": "/images/teams/525.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 529,
+    "name": "Stade Rennais FC 1901",
+    "tla": "REN",
+    "logoRef": "/images/teams/529.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 532,
+    "name": "Angers SCO",
+    "tla": "ANG",
+    "logoRef": "/images/teams/532.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 533,
+    "name": "Le Havre AC",
+    "tla": "HAC",
+    "logoRef": "/images/teams/533.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 543,
+    "name": "FC Nantes",
+    "tla": "NAN",
+    "logoRef": "/images/teams/543.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 545,
+    "name": "FC Metz",
+    "tla": "FCM",
+    "logoRef": "/images/teams/545.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 546,
+    "name": "Racing Club de Lens",
+    "tla": "RCL",
+    "logoRef": "/images/teams/546.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 548,
+    "name": "AS Monaco FC",
+    "tla": "ASM",
+    "logoRef": "/images/teams/548.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 576,
+    "name": "RC Strasbourg Alsace",
+    "tla": "RC",
+    "logoRef": "/images/teams/576.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 1045,
+    "name": "Paris FC",
+    "tla": "PFC",
+    "logoRef": "/images/teams/1045.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "FL1"
+  },
+  {
+    "id": 1,
+    "name": "1. FC Köln",
+    "tla": "KOE",
+    "logoRef": "/images/teams/1.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 2,
+    "name": "TSG 1899 Hoffenheim",
+    "tla": "TSG",
+    "logoRef": "/images/teams/2.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 3,
+    "name": "Bayer 04 Leverkusen",
+    "tla": "B04",
+    "logoRef": "/images/teams/3.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 4,
+    "name": "Borussia Dortmund",
+    "tla": "BVB",
+    "logoRef": "/images/teams/4.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 5,
+    "name": "FC Bayern München",
+    "tla": "FCB",
+    "logoRef": "/images/teams/5.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 7,
+    "name": "Hamburger SV",
+    "tla": "HSV",
+    "logoRef": "/images/teams/7.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 10,
+    "name": "VfB Stuttgart",
+    "tla": "VFB",
+    "logoRef": "/images/teams/10.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 11,
+    "name": "VfL Wolfsburg",
+    "tla": "WOB",
+    "logoRef": "/images/teams/11.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 12,
+    "name": "SV Werder Bremen",
+    "tla": "SVW",
+    "logoRef": "/images/teams/12.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 15,
+    "name": "1. FSV Mainz 05",
+    "tla": "M05",
+    "logoRef": "/images/teams/15.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 16,
+    "name": "FC Augsburg",
+    "tla": "FCA",
+    "logoRef": "/images/teams/16.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 17,
+    "name": "SC Freiburg",
+    "tla": "SCF",
+    "logoRef": "/images/teams/17.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 18,
+    "name": "Borussia Mönchengladbach",
+    "tla": "BMG",
+    "logoRef": "/images/teams/18.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 19,
+    "name": "Eintracht Frankfurt",
+    "tla": "SGE",
+    "logoRef": "/images/teams/19.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 20,
+    "name": "FC St. Pauli 1910",
+    "tla": "STP",
+    "logoRef": "/images/teams/20.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 28,
+    "name": "1. FC Union Berlin",
+    "tla": "UNB",
+    "logoRef": "/images/teams/28.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 44,
+    "name": "1. FC Heidenheim 1846",
+    "tla": "HEI",
+    "logoRef": "/images/teams/44.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 721,
+    "name": "RB Leipzig",
+    "tla": "RBL",
+    "logoRef": "/images/teams/721.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BL1"
+  },
+  {
+    "id": 98,
+    "name": "AC Milan",
+    "tla": "MIL",
+    "logoRef": "/images/teams/98.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 99,
+    "name": "ACF Fiorentina",
+    "tla": "FIO",
+    "logoRef": "/images/teams/99.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 100,
+    "name": "AS Roma",
+    "tla": "ROM",
+    "logoRef": "/images/teams/100.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 102,
+    "name": "Atalanta BC",
+    "tla": "ATA",
+    "logoRef": "/images/teams/102.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 103,
+    "name": "Bologna FC 1909",
+    "tla": "BOL",
+    "logoRef": "/images/teams/103.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 104,
+    "name": "Cagliari Calcio",
+    "tla": "CAG",
+    "logoRef": "/images/teams/104.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 107,
+    "name": "Genoa CFC",
+    "tla": "GEN",
+    "logoRef": "/images/teams/107.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 108,
+    "name": "FC Internazionale Milano",
+    "tla": "INT",
+    "logoRef": "/images/teams/108.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 109,
+    "name": "Juventus FC",
+    "tla": "JUV",
+    "logoRef": "/images/teams/109.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 110,
+    "name": "SS Lazio",
+    "tla": "LAZ",
+    "logoRef": "/images/teams/110.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 112,
+    "name": "Parma Calcio 1913",
+    "tla": "PAR",
+    "logoRef": "/images/teams/112.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 113,
+    "name": "SSC Napoli",
+    "tla": "NAP",
+    "logoRef": "/images/teams/113.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 115,
+    "name": "Udinese Calcio",
+    "tla": "UDI",
+    "logoRef": "/images/teams/115.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 450,
+    "name": "Hellas Verona FC",
+    "tla": "HVE",
+    "logoRef": "/images/teams/450.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 457,
+    "name": "US Cremonese",
+    "tla": "CRE",
+    "logoRef": "/images/teams/457.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 471,
+    "name": "US Sassuolo Calcio",
+    "tla": "SAS",
+    "logoRef": "/images/teams/471.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 487,
+    "name": "AC Pisa 1909",
+    "tla": "PIS",
+    "logoRef": "/images/teams/487.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 586,
+    "name": "Torino FC",
+    "tla": "TOR",
+    "logoRef": "/images/teams/586.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 5890,
+    "name": "US Lecce",
+    "tla": "USL",
+    "logoRef": "/images/teams/5890.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 7397,
+    "name": "Como 1907",
+    "tla": "COM",
+    "logoRef": "/images/teams/7397.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "SA"
+  },
+  {
+    "id": 77,
+    "name": "Athletic Club",
+    "tla": "ATH",
+    "logoRef": "/images/teams/77.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 78,
+    "name": "Club Atlético de Madrid",
+    "tla": "ATL",
+    "logoRef": "/images/teams/78.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 79,
+    "name": "CA Osasuna",
+    "tla": "OSA",
+    "logoRef": "/images/teams/79.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 80,
+    "name": "RCD Espanyol de Barcelona",
+    "tla": "ESP",
+    "logoRef": "/images/teams/80.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 81,
+    "name": "FC Barcelona",
+    "tla": "FCB",
+    "logoRef": "/images/teams/81.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 82,
+    "name": "Getafe CF",
+    "tla": "GET",
+    "logoRef": "/images/teams/82.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 86,
+    "name": "Real Madrid CF",
+    "tla": "RMA",
+    "logoRef": "/images/teams/86.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 87,
+    "name": "Rayo Vallecano de Madrid",
+    "tla": "RAY",
+    "logoRef": "/images/teams/87.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 88,
+    "name": "Levante UD",
+    "tla": "LEV",
+    "logoRef": "/images/teams/88.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 89,
+    "name": "RCD Mallorca",
+    "tla": "MAL",
+    "logoRef": "/images/teams/89.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 90,
+    "name": "Real Betis Balompié",
+    "tla": "BET",
+    "logoRef": "/images/teams/90.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 92,
+    "name": "Real Sociedad de Fútbol",
+    "tla": "RSO",
+    "logoRef": "/images/teams/92.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 94,
+    "name": "Villarreal CF",
+    "tla": "VIL",
+    "logoRef": "/images/teams/94.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 95,
+    "name": "Valencia CF",
+    "tla": "VAL",
+    "logoRef": "/images/teams/95.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 263,
+    "name": "Deportivo Alavés",
+    "tla": "ALA",
+    "logoRef": "/images/teams/263.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 285,
+    "name": "Elche CF",
+    "tla": "ELC",
+    "logoRef": "/images/teams/285.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 298,
+    "name": "Girona FC",
+    "tla": "GIR",
+    "logoRef": "/images/teams/298.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 558,
+    "name": "RC Celta de Vigo",
+    "tla": "CEL",
+    "logoRef": "/images/teams/558.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 559,
+    "name": "Sevilla FC",
+    "tla": "SEV",
+    "logoRef": "/images/teams/559.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 1048,
+    "name": "Real Oviedo",
+    "tla": "OVI",
+    "logoRef": "/images/teams/1048.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PD"
+  },
+  {
+    "id": 666,
+    "name": "FC Twente '65",
+    "tla": "TWE",
+    "logoRef": "/images/teams/666.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 670,
+    "name": "SBV Excelsior",
+    "tla": "EXC",
+    "logoRef": "/images/teams/670.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 671,
+    "name": "Heracles Almelo",
+    "tla": "HER",
+    "logoRef": "/images/teams/671.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 673,
+    "name": "SC Heerenveen",
+    "tla": "HEE",
+    "logoRef": "/images/teams/673.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 674,
+    "name": "PSV",
+    "tla": "PSV",
+    "logoRef": "/images/teams/674.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 675,
+    "name": "Feyenoord Rotterdam",
+    "tla": "FEY",
+    "logoRef": "/images/teams/675.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 676,
+    "name": "FC Utrecht",
+    "tla": "UTR",
+    "logoRef": "/images/teams/676.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 677,
+    "name": "FC Groningen",
+    "tla": "GRO",
+    "logoRef": "/images/teams/677.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 678,
+    "name": "AFC Ajax",
+    "tla": "AJA",
+    "logoRef": "/images/teams/678.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 681,
+    "name": "NAC Breda",
+    "tla": "NAC",
+    "logoRef": "/images/teams/681.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 682,
+    "name": "AZ",
+    "tla": "AZ",
+    "logoRef": "/images/teams/682.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 684,
+    "name": "PEC Zwolle",
+    "tla": "ZWO",
+    "logoRef": "/images/teams/684.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 718,
+    "name": "Go Ahead Eagles",
+    "tla": "GOA",
+    "logoRef": "/images/teams/718.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 1912,
+    "name": "Telstar 1963",
+    "tla": "TEL",
+    "logoRef": "/images/teams/1912.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 1915,
+    "name": "NEC",
+    "tla": "NEC",
+    "logoRef": "/images/teams/1915.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 1919,
+    "name": "FC Volendam",
+    "tla": "VOL",
+    "logoRef": "/images/teams/1919.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 1920,
+    "name": "Fortuna Sittard",
+    "tla": "SIT",
+    "logoRef": "/images/teams/1920.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+  {
+    "id": 6806,
+    "name": "Sparta Rotterdam",
+    "tla": "SPA",
+    "logoRef": "/images/teams/6806.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "DED"
+  },
+
+  {
+    "id": 496,
+    "name": "Rio Ave FC",
+    "tla": "RIO",
+    "logoRef": "/images/teams/496.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 498,
+    "name": "Sporting Clube de Portugal",
+    "tla": "SPO",
+    "logoRef": "/images/teams/498.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 503,
+    "name": "FC Porto",
+    "tla": "FCP",
+    "logoRef": "/images/teams/503.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 582,
+    "name": "GD Estoril Praia",
+    "tla": "EST",
+    "logoRef": "/images/teams/582.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 583,
+    "name": "Moreirense FC",
+    "tla": "MOR",
+    "logoRef": "/images/teams/583.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 712,
+    "name": "FC Arouca",
+    "tla": "FCA",
+    "logoRef": "/images/teams/712.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 1049,
+    "name": "CD Tondela",
+    "tla": "TON",
+    "logoRef": "/images/teams/1049.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 1903,
+    "name": "Sport Lisboa e Benfica",
+    "tla": "BEN",
+    "logoRef": "/images/teams/1903.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 5529,
+    "name": "CD Nacional",
+    "tla": "CDN",
+    "logoRef": "/images/teams/5529.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 5530,
+    "name": "CD Santa Clara",
+    "tla": "CD",
+    "logoRef": "/images/teams/5530.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 5531,
+    "name": "FC Famalicão",
+    "tla": "FAM",
+    "logoRef": "/images/teams/5531.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 5533,
+    "name": "Gil Vicente FC",
+    "tla": "GIL",
+    "logoRef": "/images/teams/5533.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 5543,
+    "name": "Vitória SC",
+    "tla": "GUI",
+    "logoRef": "/images/teams/5543.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 5613,
+    "name": "Sporting Clube de Braga",
+    "tla": "SCB",
+    "logoRef": "/images/teams/5613.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 6618,
+    "name": "Casa Pia AC",
+    "tla": "CAS",
+    "logoRef": "/images/teams/6618.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 7822,
+    "name": "FC Alverca",
+    "tla": "ALV",
+    "logoRef": "/images/teams/7822.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 9136,
+    "name": "CF Estrela da Amadora",
+    "tla": "AMA",
+    "logoRef": "/images/teams/9136.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 10340,
+    "name": "AVS",
+    "tla": "AVS",
+    "logoRef": "/images/teams/10340.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "PPL"
+  },
+  {
+    "id": 1765,
+    "name": "Fluminense FC",
+    "tla": "FLU",
+    "logoRef": "/images/teams/1765.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1766,
+    "name": "CA Mineiro",
+    "tla": "CAM",
+    "logoRef": "/images/teams/1766.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1767,
+    "name": "Grêmio FBPA",
+    "tla": "FBP",
+    "logoRef": "/images/teams/1767.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1768,
+    "name": "CA Paranaense",
+    "tla": "CAP",
+    "logoRef": "/images/teams/1768.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1769,
+    "name": "SE Palmeiras",
+    "tla": "PAL",
+    "logoRef": "/images/teams/1769.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1770,
+    "name": "Botafogo FR",
+    "tla": "BOT",
+    "logoRef": "/images/teams/1770.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1771,
+    "name": "Cruzeiro EC",
+    "tla": "CRU",
+    "logoRef": "/images/teams/1771.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1772,
+    "name": "Chapecoense AF",
+    "tla": "CHA",
+    "logoRef": "/images/teams/1772_large.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1776,
+    "name": "São Paulo FC",
+    "tla": "PAU",
+    "logoRef": "/images/teams/1776.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1777,
+    "name": "EC Bahia",
+    "tla": "BAH",
+    "logoRef": "/images/teams/1777.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1779,
+    "name": "SC Corinthians Paulista",
+    "tla": "SCP",
+    "logoRef": "/images/teams/1779.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1780,
+    "name": "CR Vasco da Gama",
+    "tla": "VAS",
+    "logoRef": "/images/teams/1780.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1782,
+    "name": "EC Vitória",
+    "tla": "VIT",
+    "logoRef": "/images/teams/1782.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 1783,
+    "name": "CR Flamengo",
+    "tla": "FLA",
+    "logoRef": "/images/teams/1783.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 4241,
+    "name": "Coritiba FBC",
+    "tla": "COR",
+    "logoRef": "/images/teams/4241.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 4286,
+    "name": "RB Bragantino",
+    "tla": "RBB",
+    "logoRef": "/images/teams/4286.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 4287,
+    "name": "Clube do Remo",
+    "tla": "CRE",
+    "logoRef": "/images/teams/4287.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 4364,
+    "name": "Mirassol FC",
+    "tla": "MIR",
+    "logoRef": "/images/teams/4364.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 6684,
+    "name": "SC Internacional",
+    "tla": "SCI",
+    "logoRef": "/images/teams/6684.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 6685,
+    "name": "Santos FC",
+    "tla": "SAN",
+    "logoRef": "/images/teams/6685.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "BSA"
+  },
+  {
+    "id": 758,
+    "name": "Uruguay",
+    "tla": "URU",
+    "logoRef": "/images/teams/758.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 759,
+    "name": "Germany",
+    "tla": "GER",
+    "logoRef": "/images/teams/759.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 760,
+    "name": "Spain",
+    "tla": "ESP",
+    "logoRef": "/images/teams/760.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 761,
+    "name": "Paraguay",
+    "tla": "PAR",
+    "logoRef": "/images/teams/761.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 762,
+    "name": "Argentina",
+    "tla": "ARG",
+    "logoRef": "/images/teams/762.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 763,
+    "name": "Ghana",
+    "tla": "GHA",
+    "logoRef": "/images/teams/ghana.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 764,
+    "name": "Brazil",
+    "tla": "BRA",
+    "logoRef": "/images/teams/764.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 765,
+    "name": "Portugal",
+    "tla": "POR",
+    "logoRef": "/images/teams/765.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 766,
+    "name": "Japan",
+    "tla": "JPN",
+    "logoRef": "/images/teams/766.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 769,
+    "name": "Mexico",
+    "tla": "MEX",
+    "logoRef": "/images/teams/769.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 770,
+    "name": "England",
+    "tla": "ENG",
+    "logoRef": "/images/teams/770.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 771,
+    "name": "United States",
+    "tla": "USA",
+    "logoRef": "/images/teams/usa.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 772,
+    "name": "South Korea",
+    "tla": "KOR",
+    "logoRef": "/images/teams/772.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 773,
+    "name": "France",
+    "tla": "FRA",
+    "logoRef": "/images/teams/773.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 774,
+    "name": "South Africa",
+    "tla": "RSA",
+    "logoRef": "/images/teams/9396.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 778,
+    "name": "Algeria",
+    "tla": "ALG",
+    "logoRef": "/images/teams/algeria.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 779,
+    "name": "Australia",
+    "tla": "AUS",
+    "logoRef": "/images/teams/779.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 783,
+    "name": "New Zealand",
+    "tla": "NZL",
+    "logoRef": "/images/teams/783.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 788,
+    "name": "Switzerland",
+    "tla": "SUI",
+    "logoRef": "/images/teams/788.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 791,
+    "name": "Ecuador",
+    "tla": "ECU",
+    "logoRef": "/images/teams/791.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 799,
+    "name": "Croatia",
+    "tla": "CRO",
+    "logoRef": "/images/teams/799.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 801,
+    "name": "Saudi Arabia",
+    "tla": "KSA",
+    "logoRef": "/images/teams/saudi_arabia.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 802,
+    "name": "Tunisia",
+    "tla": "TUN",
+    "logoRef": "/images/teams/tunisia.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 804,
+    "name": "Senegal",
+    "tla": "SEN",
+    "logoRef": "/images/teams/senegal.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 805,
+    "name": "Belgium",
+    "tla": "BEL",
+    "logoRef": "/images/teams/805.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 815,
+    "name": "Morocco",
+    "tla": "MAR",
+    "logoRef": "/images/teams/morocco.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 816,
+    "name": "Austria",
+    "tla": "AUT",
+    "logoRef": "/images/teams/816.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 818,
+    "name": "Colombia",
+    "tla": "COL",
+    "logoRef": "/images/teams/818.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 825,
+    "name": "Egypt",
+    "tla": "EGY",
+    "logoRef": "/images/teams/825.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 828,
+    "name": "Canada",
+    "tla": "CAN",
+    "logoRef": "/images/teams/canada.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 836,
+    "name": "Haiti",
+    "tla": "HAI",
+    "logoRef": "/images/teams/haiti.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 840,
+    "name": "Iran",
+    "tla": "IRN",
+    "logoRef": "/images/teams/iran.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 1836,
+    "name": "Panama",
+    "tla": "PAN",
+    "logoRef": "/images/teams/panama.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 1930,
+    "name": "Cape Verde Islands",
+    "tla": "CPV",
+    "logoRef": "/images/teams/cape_verde.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 1935,
+    "name": "Ivory Coast",
+    "tla": "CIV",
+    "logoRef": "/images/teams/787.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 8030,
+    "name": "Qatar",
+    "tla": "QAT",
+    "logoRef": "/images/teams/8030.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 8049,
+    "name": "Jordan",
+    "tla": "JOR",
+    "logoRef": "/images/teams/8049.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 8070,
+    "name": "Uzbekistan",
+    "tla": "UZB",
+    "logoRef": "/images/teams/8070.png",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 8601,
+    "name": "Netherlands",
+    "tla": "NED",
+    "logoRef": "/images/teams/8601.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 8872,
+    "name": "Norway",
+    "tla": "NOR",
+    "logoRef": "/images/teams/813.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 8873,
+    "name": "Scotland",
+    "tla": "SCO",
+    "logoRef": "/images/teams/814.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 9460,
+    "name": "Curaçao",
+    "tla": "CUR",
+    "logoRef": "/images/teams/curacao.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 768,
+    "name": "Slovakia",
+    "tla": "SVK",
+    "logoRef": "/images/teams/768.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 777,
+    "name": "Slovenia",
+    "tla": "SVN",
+    "logoRef": "/images/teams/777.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 780,
+    "name": "Serbia",
+    "tla": "SRB",
+    "logoRef": "/images/teams/780.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 782,
+    "name": "Denmark",
+    "tla": "DEN",
+    "logoRef": "/images/teams/782.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 784,
+    "name": "Italy",
+    "tla": "ITA",
+    "logoRef": "/images/teams/784.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 790,
+    "name": "Ukraine",
+    "tla": "UKR",
+    "logoRef": "/images/teams/790.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 794,
+    "name": "Poland",
+    "tla": "POL",
+    "logoRef": "/images/teams/794.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 798,
+    "name": "Czechia",
+    "tla": "CZE",
+    "logoRef": "/images/teams/798.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 803,
+    "name": "Turkey",
+    "tla": "TUR",
+    "logoRef": "/images/teams/803.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 811,
+    "name": "Romania",
+    "tla": "ROU",
+    "logoRef": "/images/teams/811.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 827,
+    "name": "Hungary",
+    "tla": "HUN",
+    "logoRef": "/images/teams/827.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 1065,
+    "name": "Albania",
+    "tla": "ALB",
+    "logoRef": "/images/teams/Flag_of_Albania.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  },
+  {
+    "id": 1978,
+    "name": "Georgia",
+    "tla": "GEO",
+    "logoRef": "/images/teams/ge.svg",
+    "starRating": 0,
+    "defaultIncluded": false,
+    "leagueOrNation": "Nation"
+  }
+]

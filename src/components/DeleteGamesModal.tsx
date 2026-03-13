@@ -18,9 +18,7 @@ export default function DeleteGamesModal({
         className="w-full max-w-lg rounded-lg bg-fpl-1100 p-6"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="mb-4 text-2xl font-bold text-white">
-          Delete Selected Games
-        </h2>
+        <h2 className="mb-4 text-h2 text-white">Delete Selected Games</h2>
         <p className="mb-6 text-white/90">
           Are you sure you want to delete{" "}
           <span className="font-semibold">{count}</span>{" "}

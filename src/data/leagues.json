@@ -1,0 +1,114 @@
+[
+  {
+    "id": 2021,
+    "code": "PL",
+    "name": "Premier League",
+    "logoRef": "/images/leagues/PL.png",
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "/images/flags/770.svg"
+    }
+  },
+  {
+    "id": 2016,
+    "code": "ELC",
+    "name": "Championship",
+    "logoRef": "/images/leagues/ELC.png",
+    "area": {
+      "id": 2072,
+      "name": "England",
+      "code": "ENG",
+      "flag": "/images/flags/770.svg"
+    }
+  },
+  {
+    "id": 2014,
+    "code": "PD",
+    "name": "LaLiga",
+    "logoRef": "/images/leagues/laliga.png",
+    "area": {
+      "id": 2224,
+      "name": "Spain",
+      "code": "ESP",
+      "flag": "/images/flags/760.svg"
+    }
+  },
+  {
+    "id": 2015,
+    "code": "FL1",
+    "name": "Ligue 1",
+    "logoRef": "/images/leagues/FL1.png",
+    "area": {
+      "id": 2081,
+      "name": "France",
+      "code": "FRA",
+      "flag": "/images/flags/773.svg"
+    }
+  },
+  {
+    "id": 2002,
+    "code": "BL1",
+    "name": "Bundesliga",
+    "logoRef": "/images/leagues/BL1.png",
+    "area": {
+      "id": 2088,
+      "name": "Germany",
+      "code": "DEU",
+      "flag": "/images/flags/759.svg"
+    }
+  },
+  {
+    "id": 2019,
+    "code": "SA",
+    "name": "Serie A",
+    "logoRef": "/images/leagues/c111.png",
+    "area": {
+      "id": 2114,
+      "name": "Italy",
+      "code": "ITA",
+      "flag": "/images/flags/784.svg"
+    }
+  },
+  {
+    "id": 2013,
+    "code": "BSA",
+    "name": "Campeonato Brasileiro Série A",
+    "logoRef": "/images/leagues/bsa.png",
+    "area": {
+      "id": 2032,
+      "name": "Brazil",
+      "code": "BRA",
+      "flag": "/images/flags/764.svg"
+    }
+  },
+  {
+    "id": 2003,
+    "code": "DED",
+    "name": "Eredivisie",
+    "logoRef": "/images/leagues/ED.png",
+    "area": {
+      "id": 2163,
+      "name": "Netherlands",
+      "code": "NLD",
+      "flag": "/images/flags/8601.svg"
+    }
+  },
+  {
+    "id": 2017,
+    "code": "PPL",
+    "name": "Primeira Liga",
+    "logoRef": "/images/leagues/PPL.png",
+    "area": {
+      "id": 2187,
+      "name": "Portugal",
+      "code": "POR",
+      "flag": "/images/flags/765.svg"
+    }
+  },
+  {
+    "code": "Nation",
+    "name": "National teams"
+  }
+]
