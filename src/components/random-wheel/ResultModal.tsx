@@ -3,6 +3,8 @@
 import Image from "next/image";
 import type { Team } from "@/lib/random-wheel/types";
 import { X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import confetti from "canvas-confetti";
 
 interface ResultModalProps {
   teams: Team[];
@@ -12,21 +14,60 @@ interface ResultModalProps {
 export default function ResultModal({ teams, onClose }: ResultModalProps) {
   const title = teams.length === 1 ? "Selected team" : "Selected teams";
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+
+    return () => {
+      setMounted(false);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || teams.length === 0) return;
+
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.8 },
+    });
+  }, [mounted]);
+
+  const subtitle = useMemo(() => {
+    if (teams.length === 0) {
+      return "No team was selected. Try adjusting your filters and spinning again.";
+    }
+
+    const messages = [
+      "Nice pull! Share the draw or spin again.",
+      "Fixture locked in. Ready for kick-off?",
+      "New matchup secured. Who’s your money on?",
+      "That spin had vibes. Save it or go again.",
+    ];
+
+    return messages[Math.floor(Math.random() * messages.length)];
+  }, [teams.length]);
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4"
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 transition-opacity duration-200 ease-out ${
+        mounted ? "opacity-100" : "opacity-0"
+      }`}
       onClick={onClose}
     >
       <div
-        className="w-full max-w-lg rounded-2xl bg-fpl-1100 p-5"
+        className={`w-full max-w-lg rounded-2xl bg-fpl-1100 p-5 transform transition-all duration-200 ease-out ${
+          mounted
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-4 scale-95"
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
         <header className="mb-3 flex items-center justify-between">
           <div>
             <h2 className="text-lg font-semibold text-white">{title}</h2>
-            <p className="text-xs text-white/70">
-              Share the result with your friends or spin again.
-            </p>
+            <p className="text-xs text-white/70">{subtitle}</p>
           </div>
           <button
             type="button"
