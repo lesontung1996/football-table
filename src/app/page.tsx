@@ -34,7 +34,7 @@ export default function RandomWheelPage() {
   if (!config) {
     return (
       <main className="2xl:container w-full mx-auto p-4">
-        <p className="text-sm text-white/80">Loading wheel configuration…</p>
+        <p className="text-sm text-white/80">Setting up your wheel…</p>
       </main>
     );
   }
@@ -88,26 +88,26 @@ export default function RandomWheelPage() {
             className="flex flex-col h-[calc(100dvh-6rem)] min-h-[575px] max-h-[800px] rounded-xl bg-fpl-1100/80 p-4"
           >
             <Tabs.List
-              aria-label="Manage your account"
+              aria-label="Team wheel setup and history"
               className="grid grid-cols-3 mb-3"
             >
               <Tabs.Trigger
                 value="quick-select"
                 className="pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-white/50 data-[state=active]:border-white data-[state=active]:text-white"
               >
-                Quick Select
+                Quick presets
               </Tabs.Trigger>
               <Tabs.Trigger
                 value="team-selection"
                 className="pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-white/50 data-[state=active]:border-white data-[state=active]:text-white"
               >
-                Teams
+                Choose teams
               </Tabs.Trigger>
               <Tabs.Trigger
                 value="result-history"
                 className="pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-white/50 data-[state=active]:border-white data-[state=active]:text-white"
               >
-                History
+                Previous spins
               </Tabs.Trigger>
             </Tabs.List>
             <Tabs.Content value="quick-select" className="overflow-hidden">

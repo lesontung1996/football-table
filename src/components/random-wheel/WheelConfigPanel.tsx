@@ -54,14 +54,14 @@ export default function WheelConfigPanel({
   return (
     <section id="wheel-config" className="flex flex-col h-full space-y-4">
       <header className="flex items-center justify-between gap-3">
-        <div>
-          <h2 className="font-semibold text-white">Team selection</h2>
-        </div>
+        <p className="flex-shrink-1 text-sm text-white/70 max-w-[60%]">
+          Select exactly which teams you want in the wheel.
+        </p>
         <button
           type="button"
           disabled={isSpinning}
           onClick={() => onConfigChange({ ...config, teamIds: [] })}
-          className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-sm font-semibold hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-sm font-semibold whitespace-nowrap hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <SquareDashed size={16} />
           Clear all

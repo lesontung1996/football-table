@@ -29,7 +29,15 @@ export default function WheelPreset({
   )?.id;
 
   return (
-    <section aria-label="Wheel presets" className="h-full">
+    <section
+      aria-label="Wheel presets"
+      className="flex flex-col h-full space-y-4"
+    >
+      <header className="flex items-center justify-between gap-3">
+        <p className="flex-shrink-1 text-sm text-white/70 max-w-[60%]">
+          Pick a ready-made set of teams with one tap.
+        </p>
+      </header>
       <div className="grid grid-cols-2 gap-2 h-full overflow-y-auto">
         {presets.map((preset) => {
           const isActive = activePresetId === preset.id;

@@ -154,15 +154,15 @@ export default function RandomTeamWheel({
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="text-lg font-semibold text-white">
-            Random Team Wheel
+            Random Team Wheel for Your Matches
           </h2>
           <p className="text-xs text-white/70">
-            You can spin 2 wheels at once for faster match selection.
+            Choose your teams, then spin the wheel to get instant matchups.
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs font-medium uppercase tracking-wide text-white/70">
-            Wheels
+          <span className="text-xs font-medium text-white/70">
+            You can spin 2 wheels for faster matchups
           </span>
           <div className="inline-flex rounded-lg bg-fpl-1000 p-1 text-xs font-semibold text-white/80">
             <button

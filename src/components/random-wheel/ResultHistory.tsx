@@ -42,14 +42,14 @@ export default function ResultHistory({
   return (
     <div className="flex flex-col h-full space-y-4">
       <header className="flex items-center justify-between gap-3">
-        <div>
-          <h2 className="font-semibold text-white">Result history</h2>
-        </div>
+        <p className="flex-shrink-1 text-sm text-white/70 max-w-[60%]">
+          See teams we picked in your last spins.
+        </p>
         <button
           type="button"
           onClick={onClear}
           disabled={entries.length === 0}
-          className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-sm font-semibold hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex items-center gap-2 rounded-md border border-white/40 px-3 py-1 text-sm font-semibold whitespace-nowrap hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <Trash size={16} />
           Clear
@@ -57,7 +57,9 @@ export default function ResultHistory({
       </header>
       <div className="overflow-y-auto h-full">
         {entries.length === 0 ? (
-          <p className="text-sm text-white/70">No spins yet.</p>
+          <p className="text-sm text-white/70">
+            No spins yet. Spin the wheel to see your recent matchups here.
+          </p>
         ) : (
           <ul className="space-y-2">
             {entries.map((entry, index) => {
