@@ -34,11 +34,11 @@ export default function WheelPreset({
       className="flex flex-col h-full space-y-4"
     >
       <header className="flex items-center justify-between gap-3">
-        <p className="flex-shrink-1 text-sm text-white/70 max-w-[60%]">
-          Pick a ready-made set of teams with one tap.
+        <p className="flex-shrink-1 text-sm text-fpl-accent/70 max-w-[60%]">
+          Swap presets anytime – chaos is encouraged.
         </p>
       </header>
-      <div className="grid grid-cols-2 gap-2 h-full overflow-y-auto">
+      <div className="grid grid-cols-2 gap-2 h-full overflow-y-auto pb-1">
         {presets.map((preset) => {
           const isActive = activePresetId === preset.id;
           return (
@@ -47,7 +47,7 @@ export default function WheelPreset({
               type="button"
               onClick={() => onSelectPreset(preset.teamIds)}
               className={cn(
-                "flex flex-col items-center h-max p-2 rounded-md text-sm bg-white/70 text-fpl-1200 transition overflow-hidden whitespace-nowrap flex-shrink-0",
+                "flex flex-col items-center h-max p-2 rounded-md text-sm bg-white/70 text-fpl-1200 transition overflow-hidden whitespace-nowrap flex-shrink-0 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-white/85 data-[state=active]:shadow-lg",
                 isActive && "bg-white",
               )}
             >
@@ -60,7 +60,7 @@ export default function WheelPreset({
                 />
               </picture>
               <span className="text-sm font-bold">{preset.label}</span>
-              <span className="text-xs text-fpl-1000">
+              <span className="text-[11px] text-fpl-1000">
                 {preset.teamIds.length} teams
               </span>
             </button>

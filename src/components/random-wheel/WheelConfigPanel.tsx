@@ -54,8 +54,8 @@ export default function WheelConfigPanel({
   return (
     <section id="wheel-config" className="flex flex-col h-full space-y-4">
       <header className="flex items-center justify-between gap-3">
-        <p className="flex-shrink-1 text-sm text-white/70 max-w-[60%]">
-          Select exactly which teams you want in the wheel.
+        <p className="flex-shrink-1 text-sm text-fpl-accent/70 max-w-[60%]">
+          More teams, more drama. Tune it to your league.
         </p>
         <button
           type="button"
@@ -78,6 +78,7 @@ export default function WheelConfigPanel({
             includedIdSet.has(team.id),
           ).length;
           const allIncluded = includedCount === total && total > 0;
+          const hasAnyIncluded = includedCount > 0;
 
           return (
             <div key={league.code} className="rounded-lg bg-fpl-1000/80 p-3">
@@ -137,7 +138,7 @@ export default function WheelConfigPanel({
                       onClick={() => toggleTeam(team.id)}
                       className={`flex items-center gap-2 rounded-md px-2 py-1 text-sm transition ${
                         isIncluded
-                          ? "bg-fpl-900 text-white"
+                          ? "bg-fpl-900 text-white ring-1 ring-fpl-accent/60"
                           : "bg-fpl-1000 text-white/70 hover:bg-fpl-900/70"
                       } disabled:cursor-not-allowed disabled:opacity-50`}
                     >

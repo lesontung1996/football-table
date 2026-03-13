@@ -85,38 +85,44 @@ export default function RandomWheelPage() {
           />
           <Tabs.Root
             defaultValue="quick-select"
-            className="flex flex-col h-[calc(100dvh-6rem)] min-h-[575px] max-h-[800px] rounded-xl bg-fpl-1100/80 p-4"
+            className="flex flex-col h-[calc(100dvh-6rem)] min-h-[575px] max-h-[800px] rounded-xl bg-fpl-1100/80 p-4 shadow-[0_0_40px_rgba(0,0,0,0.6)]"
           >
             <Tabs.List
               aria-label="Team wheel setup and history"
-              className="grid grid-cols-3 mb-3"
+              className="grid grid-cols-3 mb-3 border-b border-white/10"
             >
               <Tabs.Trigger
                 value="quick-select"
-                className="pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-white/50 data-[state=active]:border-white data-[state=active]:text-white"
+                className="relative pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-xs sm:text-sm text-white/50 transition-colors data-[state=active]:border-fpl-accent data-[state=active]:text-white hover:text-white/80"
               >
                 Quick presets
               </Tabs.Trigger>
               <Tabs.Trigger
                 value="team-selection"
-                className="pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-white/50 data-[state=active]:border-white data-[state=active]:text-white"
+                className="relative pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-xs sm:text-sm text-white/50 transition-colors data-[state=active]:border-fpl-accent data-[state=active]:text-white hover:text-white/80"
               >
                 Choose teams
               </Tabs.Trigger>
               <Tabs.Trigger
                 value="result-history"
-                className="pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-white/50 data-[state=active]:border-white data-[state=active]:text-white"
+                className="relative pb-1.5 border-b-2 border-transparent font-medium whitespace-nowrap text-xs sm:text-sm text-white/50 transition-colors data-[state=active]:border-fpl-accent data-[state=active]:text-white hover:text-white/80"
               >
                 Previous spins
               </Tabs.Trigger>
             </Tabs.List>
-            <Tabs.Content value="quick-select" className="overflow-hidden">
+            <Tabs.Content
+              value="quick-select"
+              className="overflow-hidden flex-1"
+            >
               <WheelPreset
                 currentTeamIds={config.teamIds}
                 onSelectPreset={applyPreset}
               />
             </Tabs.Content>
-            <Tabs.Content value="team-selection" className="overflow-hidden">
+            <Tabs.Content
+              value="team-selection"
+              className="overflow-hidden flex-1"
+            >
               <WheelConfigPanel
                 allTeams={allTeams}
                 config={config}
@@ -125,7 +131,10 @@ export default function RandomWheelPage() {
                 isSpinning={isSpinning}
               />
             </Tabs.Content>
-            <Tabs.Content value="result-history" className="overflow-hidden">
+            <Tabs.Content
+              value="result-history"
+              className="overflow-hidden flex-1"
+            >
               <ResultHistory
                 entries={history}
                 onClear={openClearHistoryModal}

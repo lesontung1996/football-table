@@ -42,8 +42,8 @@ export default function ResultHistory({
   return (
     <div className="flex flex-col h-full space-y-4">
       <header className="flex items-center justify-between gap-3">
-        <p className="flex-shrink-1 text-sm text-white/70 max-w-[60%]">
-          See teams we picked in your last spins.
+        <p className="flex-shrink-1 text-sm text-fpl-accent/70 max-w-[60%]">
+          Build your own highlight reel of chaotic fixtures.
         </p>
         <button
           type="button"
@@ -57,9 +57,15 @@ export default function ResultHistory({
       </header>
       <div className="overflow-y-auto h-full">
         {entries.length === 0 ? (
-          <p className="text-sm text-white/70">
-            No spins yet. Spin the wheel to see your recent matchups here.
-          </p>
+          <div className="flex h-full flex-col items-center justify-center text-center space-y-2 text-white/70">
+            <p className="text-sm font-medium">
+              No spins yet. Your fixture history is a clean sheet.
+            </p>
+            <p className="text-xs text-white/60 max-w-xs">
+              Spin the wheel to lock in your first matchup and we’ll keep score
+              here.
+            </p>
+          </div>
         ) : (
           <ul className="space-y-2">
             {entries.map((entry, index) => {
@@ -69,7 +75,7 @@ export default function ResultHistory({
                   key={`${entry.timestamp}-${index}`}
                   className={cn(
                     index !== entries.length - 1 && "border-b border-white/10",
-                    "space-y-2 pb-2",
+                    "space-y-2 pb-2 rounded-md hover:bg-fpl-1000/60 transition-colors",
                   )}
                 >
                   <p className="flex items-center gap-2 text-xs text-white/80">

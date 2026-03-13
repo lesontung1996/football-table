@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Team, WheelConfiguration } from "@/lib/random-wheel/types";
 import { randomTeamSelection } from "@/lib/random-wheel/randomSelection";
 import SpinningWheel from "./SpinningWheel";
@@ -146,6 +146,12 @@ export default function RandomTeamWheel({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [canSpin]);
 
+  const ctaText = useMemo(() => {
+    const texts = ["Spin the fixtures", "Who’s up next?", "Send it!"];
+
+    return texts[Math.floor(Math.random() * texts.length)];
+  }, [canSpin]);
+
   return (
     <section
       className="flex flex-col justify-between space-y-6 rounded-xl bg-fpl-1100/80 p-4"
@@ -230,7 +236,7 @@ export default function RandomTeamWheel({
           className="inline-flex h-10 items-center justify-center rounded-lg bg-fpl-accent px-6 text-sm font-semibold text-fpl-1100 transition hover:bg-yellow-300 disabled:cursor-not-allowed disabled:bg-fpl-500 disabled:text-fpl-200"
           aria-label={isSpinning ? "Spinning" : "Spin the wheel"}
         >
-          {isSpinning ? "Spinning..." : "Spin the wheel"}
+          {isSpinning ? "Who's it gonna be..." : ctaText}
         </button>
       </div>
     </section>

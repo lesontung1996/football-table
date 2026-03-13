@@ -6,8 +6,11 @@ import { useAppSelector } from "@/store/hooks";
 import { selectCurrentGameId } from "@/store/slices/gamesSlice";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function Navigation() {
+  const [isAnimating, setIsAnimating] = useState(false);
   const pathname = usePathname();
   const currentGameId = useAppSelector(selectCurrentGameId);
 
@@ -38,15 +41,27 @@ export default function Navigation() {
                 Back
               </Link>
             )}
-            <picture>
-              <Image
-                src="/images/football-wheel-logo.svg"
-                alt="Football Wheel"
-                width={50}
-                height={50}
-              />
-            </picture>
-            <h1 className="text-h3">Football Wheel</h1>
+            <Link
+              href="/"
+              className="group flex items-center gap-3"
+              aria-label="Go to Football Wheel home"
+              onMouseEnter={() => setIsAnimating(true)}
+            >
+              <picture>
+                <Image
+                  src="/images/football-wheel-logo.svg"
+                  alt="Football Wheel"
+                  width={50}
+                  height={50}
+                  className={cn(
+                    isAnimating &&
+                      "transition-transform duration-500 ease-out rotate-[360deg]",
+                  )}
+                  onTransitionEnd={() => setIsAnimating(false)}
+                />
+              </picture>
+              <h1 className="text-h3">Football Wheel</h1>
+            </Link>
           </div>
           {isInGameRoutes && currentGameId && (
             <div className="flex gap-2">
