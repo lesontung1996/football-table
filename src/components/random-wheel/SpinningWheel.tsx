@@ -141,7 +141,7 @@ export default function SpinningWheel({
         aria-label="Spin the wheel"
       >
         <span
-          className={`max-w-[70%] text-center text-xs font-semibold text-fpl-1200 transition-all ${
+          className={`text-center text-body-xs font-semibold text-fpl-1200 transition-all ${
             isSpinning ? "opacity-0 invisible" : "opacity-100 visible"
           }`}
         >
