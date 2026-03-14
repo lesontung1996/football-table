@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { Team } from "@/lib/random-wheel/types";
 import { getImageProps } from "next/image";
 import useWindowWidth from "@/hooks/useWindowWidth";
+import { cn } from "@/lib/utils";
 
 const SLICE_COLORS = ["#22c55e", "#eab308", "#ef4444", "#3b82f6"];
 const SPIN_DURATION_MS = 6000;
@@ -53,6 +54,7 @@ export default function SpinningWheel({
 }: SpinningWheelProps) {
   const hasTransition = useRef(false);
   const windowWidth = useWindowWidth();
+  const [spinedOnce, setSpinedOnce] = useState(false);
 
   let WHEEL_SIZE;
   if (windowWidth >= 1024) {
@@ -94,7 +96,10 @@ export default function SpinningWheel({
   );
 
   useEffect(() => {
-    if (isSpinning) hasTransition.current = true;
+    if (isSpinning) {
+      hasTransition.current = true;
+      setSpinedOnce(true);
+    }
   }, [isSpinning]);
 
   if (teams.length === 0) {
@@ -166,7 +171,10 @@ export default function SpinningWheel({
             width={WHEEL_SIZE}
             height={WHEEL_SIZE}
             viewBox={`0 0 ${WHEEL_SIZE} ${WHEEL_SIZE}`}
-            className="overflow-visible"
+            className={cn(
+              "overflow-visible",
+              !isSpinning && !spinedOnce && "animate-spin-slow",
+            )}
           >
             <defs>
               <clipPath id="circle-clip">
