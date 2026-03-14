@@ -35,6 +35,7 @@ const config: Config = {
       },
       animation: {
         "spin-ease-out": "spin 1s ease-out infinite",
+        "spin-slow": "spin 50s linear infinite",
       },
     },
   },
