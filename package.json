@@ -10,6 +10,7 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.35",
     "@reduxjs/toolkit": "^2.11.2",
     "canvas-confetti": "^1.9.3",
     "clsx": "^2.1.1",
