@@ -16,15 +16,27 @@ const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
   "https://footballwheel.com";
 
-const siteTitle = "Football Wheel — Random Football Team Picker";
+const siteTitle =
+  "Football Wheel — Random Team Picker for You & Your Friends | Free";
 const siteDescription =
-  "Spin the wheel to pick random football teams for your next match. Use Champions League, Premier League, or custom leagues. One or two wheels — instant matchups. Free and fun for friends and mini-leagues.";
+  "Spin the wheel with your friends and pick a random football team in one click. Premier League, Champions League, national teams & more. Fully customizable, no sign-up, no fuss — just spin and play.";
+const siteKeywords = [
+  "football wheel",
+  "random football team picker",
+  "football wheel spinner",
+  "football team wheel",
+  "wheel of football teams",
+  "spin the wheel football teams",
+  "random soccer team",
+  "random football club",
+];
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "Football Wheel",
   description: siteDescription,
+  keywords: siteKeywords,
   url: baseUrl,
 };
 
@@ -32,6 +44,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: siteTitle,
   description: siteDescription,
+  keywords: siteKeywords,
   alternates: {
     canonical: "/",
   },

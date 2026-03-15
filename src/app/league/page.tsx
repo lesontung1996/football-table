@@ -96,7 +96,7 @@ export default function Home() {
       <main className="2xl:container w-full mx-auto p-4">
         <div className="mb-6 space-y-4">
           <div>
-            <h2 className="text-h1 text-white">Games</h2>
+            <h1 className="text-h1 text-white">Your games</h1>
             <p className="text-sm text-white/80">
               Select a game to view its schedule and table, or create a new one.
             </p>

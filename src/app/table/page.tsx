@@ -24,7 +24,7 @@ export default function TablePage() {
   return (
     <main className="2xl:container w-full mx-auto p-4">
       <div className="bg-fpl-1000 rounded-lg p-6">
-        <h2 className="text-h1 mb-4 text-white">League Table</h2>
+        <h1 className="text-h1 mb-4 text-white">League Table</h1>
         <LeagueTable />
       </div>
     </main>

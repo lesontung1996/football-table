@@ -159,11 +159,11 @@ export default function RandomTeamWheel({
     >
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold text-white">
-            Pick Random Football Teams
-          </h2>
+          <h1 className="text-lg font-semibold text-white">
+            Pick a random football team
+          </h1>
           <p className="text-body-xs text-white/70">
-            Spin the wheel to get instant matchups with your friends.
+            Spin the wheel with your mates. One click, no sign-up, no fuss.
           </p>
         </div>
         <div className="flex items-center gap-2">

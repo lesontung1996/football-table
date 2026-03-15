@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "League Table | Football Wheel",
   description:
-    "View your league standings and results. See the table for your current game and track team positions.",
+    "Your league table at a glance. See standings and results for your current game with mates.",
+  alternates: { canonical: "/table" },
 };
 
 export default function TableLayout({

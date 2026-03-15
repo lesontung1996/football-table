@@ -60,7 +60,7 @@ export default function Navigation() {
                   onTransitionEnd={() => setIsAnimating(false)}
                 />
               </picture>
-              <h1 className="text-h3">Football Wheel</h1>
+              <span className="text-h3 font-bold">Football Wheel</span>
             </Link>
           </div>
           {isInGameRoutes && currentGameId && (

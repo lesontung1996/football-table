@@ -136,17 +136,16 @@ export default function SpinningWheel({
       <button
         type="button"
         onClick={onClick}
-        className="absolute inset-0 z-10 flex cursor-pointer items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-fpl-accent focus:ring-offset-2 focus:ring-offset-fpl-1100 disabled:pointer-events-none"
+        className="absolute inset-0 z-10 flex cursor-pointer items-center justify-center rounded-full group focus:outline-none focus:ring-2 focus:ring-fpl-accent focus:ring-offset-2 focus:ring-offset-fpl-1100 disabled:pointer-events-none"
         disabled={isSpinning}
         aria-label="Spin the wheel"
       >
         <span
-          className={`text-center text-body-xs font-semibold text-fpl-1200 transition-all ${
+          className={`text-center text-body font-bold text-fpl-1200 transition-all group-hover:scale-110 ${
             isSpinning ? "opacity-0 invisible" : "opacity-100 visible"
           }`}
         >
-          Click to <br />
-          spin
+          SPIN
         </span>
       </button>
 
