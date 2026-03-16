@@ -17,9 +17,9 @@ const baseUrl =
   "https://footballwheel.com";
 
 const siteTitle =
-  "Football Wheel — Random Team Picker for You & Your Friends | Free";
+  "Football Wheel — Random Team Picker | 1 Click | Free | No Sign-Up";
 const siteDescription =
-  "Spin the wheel with your friends and pick a random football team in one click. Premier League, Champions League, national teams & more. Fully customizable, no sign-up, no fuss — just spin and play.";
+  "Instantly pick a random football team in one click. Premier League, Champions League, national teams & more. Fully customizable, no sign-up, no fuss — just spin and play.";
 const siteKeywords = [
   "football wheel",
   "random football team picker",
