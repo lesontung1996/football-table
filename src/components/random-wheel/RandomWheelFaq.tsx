@@ -4,11 +4,9 @@ import Image from "next/image";
 function FaqCard({
   title,
   children,
-  className,
 }: {
   title: string;
   children: React.ReactNode;
-  className?: string;
 }) {
   return (
     <article
