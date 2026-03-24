@@ -24,8 +24,7 @@ html {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: #ffffff;
   font-family: var(--font-premier-league), Helvetica, Arial, sans-serif;
   font-family: var(--font-quicksand), Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -17,8 +17,8 @@ export default function LoadingWrapper({
         <Image
           src="/images/football-wheel-logo.svg"
           alt="Football Wheel"
-          width={60}
-          height={60}
+          width={50}
+          height={50}
           className="relative z-10 animate-spin-ease-out"
         />
         <div className="text-center space-y-1">

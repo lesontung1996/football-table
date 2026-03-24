@@ -14,6 +14,7 @@ import {
 import type { StoredResultEntry, Team } from "@/lib/random-wheel/types";
 import { useRandomTeamWheelConfig } from "@/lib/random-wheel/useRandomTeamWheelConfig";
 import ClearResultHistoryModal from "@/components/random-wheel/ClearResultHistoryModal";
+import RandomWheelFaq from "@/components/random-wheel/RandomWheelFaq";
 import { Tabs } from "radix-ui";
 
 const RESULT_HISTORY_MAX = 50;
@@ -142,6 +143,7 @@ export default function RandomWheelPage() {
             </Tabs.Content>
           </Tabs.Root>
         </div>
+        <RandomWheelFaq />
       </main>
 
       {open && (

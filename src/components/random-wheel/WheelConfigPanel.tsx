@@ -89,8 +89,8 @@ export default function WheelConfigPanel({
                         <Image
                           src={league.logoRef}
                           alt={league.name}
-                          width={40}
-                          height={40}
+                          width={50}
+                          height={50}
                           className="h-full w-full object-contain"
                         />
                       </picture>

@@ -94,8 +94,8 @@ export default function ResultHistory({
                           <Image
                             src={team.logoRef}
                             alt={team.name}
-                            width={40}
-                            height={40}
+                            width={50}
+                            height={50}
                             className="h-6 w-6 object-contain"
                           />
                         </div>

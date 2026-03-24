@@ -98,8 +98,8 @@ export default function ResultModal({ teams, onClose }: ResultModalProps) {
                     <Image
                       src={team.logoRef}
                       alt={team.name}
-                      width={100}
-                      height={100}
+                      width={50}
+                      height={50}
                       className="h-12 w-12 object-contain"
                     />
                     <span className="absolute -top-1 -left-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-fpl-accent text-[11px] font-bold text-fpl-1100 border border-fpl-1200">
