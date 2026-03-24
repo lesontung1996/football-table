@@ -4,17 +4,22 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/store/hooks";
 import { selectCurrentGameId } from "@/store/slices/gamesSlice";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Medal } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+
+type Route = {
+  path: string;
+  label: string;
+};
 
 export default function Navigation() {
   const [isAnimating, setIsAnimating] = useState(false);
   const pathname = usePathname();
   const currentGameId = useAppSelector(selectCurrentGameId);
 
-  const inGameRoutes = [
+  const inGameRoutes: Route[] = [
     {
       path: "/schedule",
       label: "Schedule",
@@ -25,6 +30,12 @@ export default function Navigation() {
     },
   ];
 
+  const leagueRoute: Route = {
+    path: "/league",
+    label: "Create League",
+  };
+
+  const isHomeRoute = pathname === "/";
   const isInGameRoutes = inGameRoutes.some((route) => pathname === route.path);
 
   return (
@@ -43,7 +54,10 @@ export default function Navigation() {
             )}
             <Link
               href="/"
-              className="group flex items-center gap-3"
+              className={cn(
+                "group flex items-center gap-3",
+                isInGameRoutes && "hidden md:flex",
+              )}
               aria-label="Go to Football Wheel home"
               onMouseEnter={() => setIsAnimating(true)}
             >
@@ -79,6 +93,15 @@ export default function Navigation() {
                 </Link>
               ))}
             </div>
+          )}
+          {isHomeRoute && (
+            <Link
+              href="/league"
+              className="flex items-center gap-2 px-4 py-2 rounded-md transition-colors hover:bg-fpl-1000"
+            >
+              <Medal size={16} />
+              {leagueRoute.label}
+            </Link>
           )}
         </div>
       </div>
