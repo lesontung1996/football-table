@@ -4,7 +4,7 @@ import "./globals.css";
 import StoreProvider from "./StoreProvider";
 import Navigation from "@/components/Navigation";
 import LoadingWrapper from "@/components/LoadingWrapper";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -77,6 +77,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <GoogleAnalytics gaId="G-ZVQRFGB3M2" />
+      <GoogleTagManager gtmId="GTM-WBR49X3N" />
       <body className={`${quicksand.variable} antialiased`}>
         <script
           type="application/ld+json"
