@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Team, WheelConfiguration } from "@/lib/random-wheel/types";
 import { randomTeamSelection } from "@/lib/random-wheel/randomSelection";
 import SpinningWheel from "./SpinningWheel";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const MIN_FULL_SPINS = 4;
 const MAX_FULL_SPINS = 7;
@@ -70,6 +71,11 @@ export default function RandomTeamWheel({
     onResult(pendingWinners);
     setPendingWinners(null);
     completedCountRef.current = 0;
+    sendGTMEvent({
+      event: "spin_completed",
+      wheel_count: pendingWinners.wheelCount,
+      team_names: pendingWinners.teams.map((t) => t.name),
+    });
   }, [pendingWinners, onResult, setIsSpinning]);
 
   const handleWheel1SpinEnd = useCallback(() => {
